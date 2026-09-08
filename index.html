@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#07123d" />
+<title>Capitol Quest — Districts of Discovery</title>
+<style>
+@font-face{font-family:QuestMono;src:url(assets/QuestMono.ttf)}
+@font-face{font-family:QuestMono;src:url(assets/QuestMono-Bold.ttf);font-weight:700}
+:root{--ink:#f4f6ff;--navy:#07123d;--panel:#0a1958;--gold:#ffe970;--muted:#aeb9dc}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#0c1123;color:var(--ink);font-family:"Courier New",monospace}
+body{display:flex;justify-content:center;align-items:center;padding:24px 14px;min-height:100dvh;background:radial-gradient(ellipse at 50% 20%,#233650,#090f1d 75%)}
+#wrap{width:min(1440px,98vw)}
+#gameShell{width:100%;aspect-ratio:16/9;background:#000;border:1px solid #657b94;box-shadow:0 28px 90px #0009;overflow:hidden}
+canvas{width:100%;height:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges;touch-action:none}
+#touchMenu{display:none}#touchMenu button{min-height:44px;border:1px solid #566e87;color:#e6eef9;background:#182a42;font:13px QuestMono,monospace;padding:10px}#touchMenu button:disabled{color:#788697}@media(pointer:coarse){#touchMenu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px}}
+#tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:12px}#tools button{font:12px QuestMono,monospace;padding:9px 14px;color:#b7c9de;background:#152238;border:1px solid #425870;cursor:pointer}#tools button:hover{color:#f8ce76;border-color:#f8ce76}
+#hint{margin-top:10px;text-align:center;font-size:12px;line-height:1.5;color:#aeb9dc}
+#mobileControls{display:none;margin-top:12px;grid-template-columns:1fr 1fr;gap:14px;user-select:none}
+.pad,.acts{display:grid;gap:6px;justify-content:center;align-content:center}.pad{grid-template-columns:58px 58px 58px;grid-template-rows:50px 50px 50px}.acts{grid-template-columns:74px 74px}
+.ctrl{border:2px solid #dce5ff;background:#0b1a59;color:#fff;border-radius:8px;font:700 18px "Courier New",monospace;min-height:50px;touch-action:none}.ctrl:active{background:#1c367e}.blank{visibility:hidden}
+@media(pointer:coarse){body{align-items:flex-start;padding:8px}#hint{display:none}#mobileControls{display:grid}}
+@media(max-width:720px){body{padding:6px}#wrap{width:100%}.pad{grid-template-columns:44px 44px 44px;grid-template-rows:42px 42px 42px}.acts{grid-template-columns:68px 68px}.ctrl{min-height:42px;font-size:14px}#mobileControls{gap:6px}}
+:fullscreen{background:#0a1222;display:flex;flex-direction:column;justify-content:center;width:100vw!important;height:100dvh;padding:10px}:fullscreen #gameShell{max-height:calc(100dvh - 75px);width:auto;max-width:100%;margin:auto;aspect-ratio:16/9}:fullscreen #hint{display:none}@media(pointer:coarse){:fullscreen #gameShell{max-height:calc(100dvh - 205px)}}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="gameShell"><canvas id="game" width="1280" height="720" tabindex="0" aria-label="Capitol Quest role-playing game"></canvas></div>
+  <div id="hint">WASD / Arrows · Move &nbsp; Shift · Sprint &nbsp; E / Enter · Interact &nbsp; M · Map &nbsp; Q · Journal &nbsp; I · Supplies &nbsp; Esc · Pause &nbsp; Mouse / touch · Menus</div>
+  <div id="tools"><button id="fullscreen">Full screen</button><button id="exportSave">Export save</button><button id="importSave">Import save</button><button id="helpButton">How to play</button><input id="saveFile" type="file" accept=".json,application/json" hidden></div>
+  <div id="touchMenu" aria-label="Game actions"></div>
+  <div id="mobileControls" aria-label="Touch controls">
+    <div class="pad">
+      <span class="blank"></span><button class="ctrl" id="up">▲</button><span class="blank"></span>
+      <button class="ctrl" id="left">◀</button><span class="blank"></span><button class="ctrl" id="right">▶</button>
+      <span class="blank"></span><button class="ctrl" id="down">▼</button><span class="blank"></span>
+    </div>
+    <div class="acts"><button class="ctrl" id="btnMap">MAP</button><button class="ctrl" id="btnBag">BAG</button><button class="ctrl" id="btnB">B / BACK</button><button class="ctrl" id="btnA">A / OK</button></div>
+  </div>
+</div>
+<script src="assets/props.js"></script>
+<script src="assets/extras.js"></script>
+<script src="game.js"></script>
+<script src="overhaul.js"></script>
+<script src="world.js"></script>
+<script src="progression.js"></script>
+<script src="interface.js"></script>
+<script>bindTouch("btnMap","m");bindTouch("btnBag","i");
+document.getElementById("fullscreen").onclick=()=>{const shell=document.getElementById("wrap");if(document.fullscreenElement)document.exitFullscreen();else shell.requestFullscreen?.();};
+document.getElementById("exportSave").onclick=()=>{if(state.started)exportSave();else notify("START OR LOAD A GAME FIRST");};
+document.getElementById("importSave").onclick=()=>document.getElementById("saveFile").click();
+document.getElementById("saveFile").onchange=e=>{importSaveFile(e.target.files[0]);e.target.value="";};
+document.getElementById("helpButton").onclick=()=>{if(mode==="title"||mode==="world")overlay="controls";else notify("RETURN TO THE WORLD OR TITLE TO OPEN HELP");};</script>
+</body>
+</html>
