@@ -16,7 +16,7 @@ function createBaseState() {
     party: Object.entries(PARTY_DEFS).map(([name, d]) => ({
       name,
       label: d.label,
-      lvl: 3,
+      lvl: 1,
       xp: 0,
       hp: d.maxHp,
       maxHp: d.maxHp,
@@ -322,6 +322,7 @@ function freshState() {
   const s = createBaseState();
   s.expedition = {
     version: 6,
+    balanceVersion: 2,
     missions: {},
     trials: {},
     talents: {},
@@ -403,10 +404,20 @@ function mergeState(dst, src) {
         0,
         t.max,
       );
+    if (src.expedition?.balanceVersion !== 2) {
+      const training = clamp(
+        Math.floor(Number(dst.adventure.upgrades[p.name]) || 0),
+        0,
+        2,
+      );
+      dst.adventure.upgrades[p.name] = training;
+      rebuildHeroStats(p, training, true);
+    }
     p.hp = clamp(p.hp, 0, p.maxHp);
     p.mp = clamp(p.mp, 0, p.maxMp);
     p.alive = p.hp > 0;
   }
+  dst.expedition.balanceVersion = 2;
   for (const [z, m] of Object.entries(dst.expedition.missions)) {
     if (!SIDE_MISSIONS[z]) {
       delete dst.expedition.missions[z];
@@ -453,14 +464,15 @@ function startNewGame() {
 function migrateLegacy(data) {
   const s = freshState(),
     old = data?.state || {};
+  delete s.expedition.balanceVersion;
   if (old.party)
     s.party = old.party.map((p, i) =>
       Object.assign({}, s.party[i], {
         lvl: p.lvl || 3,
         xp: p.xp || 0,
-        hp: p.hp || s.party[i].hp,
+        hp: p.hp ?? s.party[i].hp,
         maxHp: p.maxHp || s.party[i].maxHp,
-        mp: p.mp || s.party[i].mp,
+        mp: p.mp ?? s.party[i].mp,
         maxMp: p.maxMp || s.party[i].maxMp,
         atk: p.atk || s.party[i].atk,
         def: p.def || s.party[i].def,

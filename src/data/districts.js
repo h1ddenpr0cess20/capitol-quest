@@ -347,7 +347,7 @@ const SIDE_MISSIONS = {
     verb: "Power relay junctions",
     items: ["West breaker", "Center breaker", "East breaker"],
     relic: "Copper Circuit",
-    reward: "Basic attacks restore +3 MP",
+    reward: "Basic attacks restore +1 MP",
     intro:
       "The backup relay has gone dark. Restore the west, center, and east junctions, then face the Engineer at the relay engine.",
   },

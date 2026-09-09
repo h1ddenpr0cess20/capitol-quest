@@ -1,16 +1,16 @@
 const PARTY_DEFS = {
   TRUMP: {
     label: "TRUMP",
-    maxHp: 220,
-    maxMp: 48,
-    atk: 26,
-    def: 12,
-    mag: 9,
+    maxHp: 88,
+    maxMp: 24,
+    atk: 14,
+    def: 6,
+    mag: 6,
     luck: 8,
     skills: [
       {
         name: "Hard Push",
-        cost: 12,
+        cost: 6,
         target: "enemy",
         kind: "physical",
         power: 1.45,
@@ -19,7 +19,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Rallying Cry",
-        cost: 16,
+        cost: 8,
         target: "allies",
         kind: "buffAtk",
         pose: 1,
@@ -27,7 +27,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Golden Gut",
-        cost: 20,
+        cost: 10,
         target: "ally",
         kind: "heal",
         power: 1.05,
@@ -36,7 +36,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Follow Through",
-        cost: 26,
+        cost: 13,
         target: "enemy",
         kind: "physical",
         power: 2.05,
@@ -45,7 +45,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Mandate",
-        cost: 32,
+        cost: 16,
         target: "allies",
         kind: "formation",
         pose: 1,
@@ -63,16 +63,16 @@ const PARTY_DEFS = {
   },
   HEGSETH: {
     label: "HEGSETH",
-    maxHp: 205,
-    maxMp: 42,
-    atk: 24,
-    def: 15,
-    mag: 8,
+    maxHp: 82,
+    maxMp: 20,
+    atk: 13,
+    def: 8,
+    mag: 5,
     luck: 11,
     skills: [
       {
         name: "Field Shot",
-        cost: 12,
+        cost: 6,
         target: "enemy",
         kind: "physical",
         power: 1.35,
@@ -82,7 +82,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Brace",
-        cost: 14,
+        cost: 7,
         target: "self",
         kind: "buffDef",
         pose: 1,
@@ -90,7 +90,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Covering Fire",
-        cost: 22,
+        cost: 11,
         target: "enemies",
         kind: "physicalAll",
         power: 0.88,
@@ -99,7 +99,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Pinning Shot",
-        cost: 24,
+        cost: 12,
         target: "enemy",
         kind: "physical",
         power: 1.8,
@@ -108,7 +108,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Hold Formation",
-        cost: 28,
+        cost: 14,
         target: "allies",
         kind: "protect",
         pose: 1,
@@ -127,16 +127,16 @@ const PARTY_DEFS = {
   },
   LUTNICK: {
     label: "LUTNICK",
-    maxHp: 190,
-    maxMp: 60,
-    atk: 20,
-    def: 11,
-    mag: 19,
+    maxHp: 76,
+    maxMp: 30,
+    atk: 10,
+    def: 5,
+    mag: 11,
     luck: 14,
     skills: [
       {
         name: "Market Swing",
-        cost: 16,
+        cost: 8,
         target: "enemy",
         kind: "hybrid",
         power: 1.45,
@@ -145,7 +145,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Cashout",
-        cost: 20,
+        cost: 10,
         target: "allies",
         kind: "healAll",
         power: 0.63,
@@ -154,7 +154,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Money Rain",
-        cost: 26,
+        cost: 13,
         target: "enemies",
         kind: "magicAll",
         power: 0.96,
@@ -163,7 +163,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Arbitration",
-        cost: 30,
+        cost: 15,
         target: "enemies",
         kind: "hybridAll",
         power: 1.25,
@@ -172,7 +172,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Buyback",
-        cost: 36,
+        cost: 18,
         target: "ally",
         kind: "revive",
         pose: 0,
@@ -190,16 +190,16 @@ const PARTY_DEFS = {
   },
   RFK: {
     label: "RFK JR.",
-    maxHp: 185,
-    maxMp: 72,
-    atk: 17,
-    def: 10,
-    mag: 25,
+    maxHp: 70,
+    maxMp: 36,
+    atk: 9,
+    def: 4,
+    mag: 15,
     luck: 12,
     skills: [
       {
         name: "Green Spark",
-        cost: 14,
+        cost: 7,
         target: "ally",
         kind: "healRegen",
         power: 1.1,
@@ -208,7 +208,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Clean Signal",
-        cost: 22,
+        cost: 11,
         target: "enemy",
         kind: "magic",
         power: 1.45,
@@ -217,7 +217,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Signal Cascade",
-        cost: 30,
+        cost: 15,
         target: "allies",
         kind: "buffMag",
         pose: 2,
@@ -225,7 +225,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Second Wind",
-        cost: 28,
+        cost: 14,
         target: "ally",
         kind: "revive",
         pose: 0,
@@ -233,7 +233,7 @@ const PARTY_DEFS = {
       },
       {
         name: "Aurora",
-        cost: 36,
+        cost: 18,
         target: "enemies",
         kind: "magicAll",
         power: 1.35,

@@ -25,6 +25,7 @@ const withoutBalance = (value) => {
   // from the historical build used for structural parity.
   delete copy.inventory;
   delete copy.cash;
+  delete copy.expedition.balanceVersion;
   return copy;
 };
 assert.deepEqual(

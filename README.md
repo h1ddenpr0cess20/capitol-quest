@@ -16,6 +16,8 @@ WASD / arrows to move, Shift to sprint, E / Enter to interact. M opens the map, 
 
 Turn-based battles, twelve districts, side quests, leveling, and optional auto-battle. These images are rendered directly from the game canvas.
 
+Heroes start with 70–88 HP and 20–36 MP. Each level adds 6 HP and 2 MP; skills unlock at levels 1, 2, 4, 7 and 11. Recover with supplies and rest points. Earlier saves automatically adopt the new stat scale while keeping levels, talents, training and story progress.
+
 ![Turn-based combat](screenshots/battle.png)
 
 ![District atlas](screenshots/atlas.png)

@@ -22,10 +22,10 @@ assert.deepEqual(
     ]),
   ),
   [
-    [220, 48, 26, 12, 9],
-    [205, 42, 24, 15, 8],
-    [190, 60, 20, 11, 19],
-    [185, 72, 17, 10, 25],
+    [88, 24, 14, 6, 6],
+    [82, 20, 13, 8, 5],
+    [76, 30, 10, 5, 11],
+    [70, 36, 9, 4, 15],
   ],
 );
 assert.equal(g.xpRequired(g.state.party[0]), 120);
@@ -123,7 +123,7 @@ assert.equal(g.mode, "world");
 const p = g.state.party[0],
   atk = p.atk;
 g.buyTalent(p, { id: "power", name: "Power", max: 7 });
-assert.equal(p.atk, atk + 3);
+assert.equal(p.atk, atk + 1);
 assert.equal(p.points, 0);
 g.saveGame(false);
 const saved = plain(g.state);

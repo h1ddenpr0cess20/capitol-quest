@@ -1,3 +1,36 @@
+// One stat formula for leveling, purchases and migration of earlier saves.
+function rebuildHeroStats(p, training = 0, preserveRatio = false) {
+  const d = PARTY_DEFS[p.name],
+    levels = p.lvl - 1;
+  const oldHp = p.maxHp,
+    oldMp = p.maxMp,
+    hp = p.hp,
+    mp = p.mp;
+  const martial = p.name === "TRUMP" || p.name === "HEGSETH";
+  p.maxHp = d.maxHp + levels * 6 + p.talents.vitality * 6 + training * 8;
+  p.maxMp = d.maxMp + levels * 2 + p.talents.focus * 2 + training * 3;
+  p.atk = d.atk + levels + p.talents.power + training * (martial ? 2 : 1);
+  p.mag = d.mag + levels + p.talents.focus + training * (martial ? 1 : 2);
+  p.def = d.def + Math.floor(p.lvl / 2) + p.talents.vitality;
+  p.luck = d.luck + Math.floor(levels / 3);
+  p.hp =
+    hp > 0
+      ? clamp(
+          preserveRatio
+            ? Math.round((hp / oldHp) * p.maxHp)
+            : hp + p.maxHp - oldHp,
+          1,
+          p.maxHp,
+        )
+      : 0;
+  p.mp = clamp(
+    preserveRatio ? Math.round((mp / oldMp) * p.maxMp) : mp + p.maxMp - oldMp,
+    0,
+    p.maxMp,
+  );
+  p.alive = p.hp > 0;
+}
+
 function buyUpgrade(i) {
   const p = state.party[i],
     tier = adv().upgrades[p.name] || 0,
@@ -6,12 +39,7 @@ function buyUpgrade(i) {
   if (state.cash < cost) return notify("NEED " + cost + " CASH");
   state.cash -= cost;
   adv().upgrades[p.name] = tier + 1;
-  p.maxHp += 20;
-  p.hp = Math.min(p.maxHp, p.hp + 20);
-  p.maxMp += 8;
-  p.mp = Math.min(p.maxMp, p.mp + 8);
-  p.atk += i === 0 || i === 1 ? 4 : 2;
-  p.mag += i === 2 || i === 3 ? 4 : 2;
+  rebuildHeroStats(p, tier + 1);
   notify(p.label + " TRAINING UPGRADED");
   saveGame(false);
 }
@@ -43,17 +71,7 @@ function buyTalent(p, t) {
   if (p.points < 1 || p.talents[t.id] >= t.max) return;
   p.points--;
   p.talents[t.id]++;
-  if (t.id === "power") p.atk += 3;
-  if (t.id === "focus") {
-    p.mag += 3;
-    p.maxMp += 4;
-    p.mp += 4;
-  }
-  if (t.id === "vitality") {
-    p.maxHp += 16;
-    p.hp += 16;
-    p.def += 1;
-  }
+  rebuildHeroStats(p, adv().upgrades[p.name] || 0);
   saveGame(false);
   sfx("save");
   notify(
@@ -73,15 +91,7 @@ function levelCheck(p) {
     p.xp -= xpRequired(p);
     p.lvl++;
     p.points++;
-    p.maxHp += 14;
-    p.maxMp += 4;
-    p.atk += 2;
-    p.def += 1;
-    p.mag += 2;
-    p.luck++;
-    p.hp = Math.min(p.maxHp, p.hp + Math.round(p.maxHp * 0.35));
-    p.mp = Math.min(p.maxMp, p.mp + Math.round(p.maxMp * 0.35));
-    p.alive = p.hp > 0;
+    rebuildHeroStats(p, adv().upgrades[p.name] || 0);
     levels.push(p.lvl);
     log(p.label + " reached level " + p.lvl + " · +1 talent point");
   }

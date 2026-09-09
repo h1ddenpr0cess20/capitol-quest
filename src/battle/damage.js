@@ -23,7 +23,7 @@ function removeDebuffs(u) {
 
 function damagePhysical(a, t, power = 1, critBonus = 0) {
   let base =
-    effective(a, "atk") * power - effective(t, "def") * 0.52 + randInt(-6, 8);
+    effective(a, "atk") * power - effective(t, "def") * 0.52 + randInt(-2, 3);
   let crit = Math.random() < (a.luck || 8) / 250 + critBonus;
   if (t.status?.vulnerable) base *= 1.22;
   if (t.guard) base *= 0.5;
@@ -36,7 +36,7 @@ function damagePhysical(a, t, power = 1, critBonus = 0) {
 
 function damageMagic(a, t, power = 1) {
   let base =
-    effective(a, "mag") * power - effective(t, "def") * 0.26 + randInt(-5, 7);
+    effective(a, "mag") * power - effective(t, "def") * 0.26 + randInt(-2, 3);
   if (t.trait?.includes("Tech") && a.name === "RFK") base *= 1.2;
   if (t.status?.vulnerable) base *= 1.22;
   if (t.guard) base *= 0.62;
@@ -50,7 +50,7 @@ function damageHybrid(a, t, power = 1) {
   let base =
     (effective(a, "atk") * 0.45 + effective(a, "mag") * 0.72) * power -
     effective(t, "def") * 0.34 +
-    randInt(-6, 8);
+    randInt(-2, 3);
   if (t.status?.vulnerable) base *= 1.2;
   if (t.guard) base *= 0.58;
   let crit = Math.random() < (a.luck || 8) / 300;
@@ -85,12 +85,12 @@ function tickStatuses(units) {
   for (const u of units) {
     if (u.hp <= 0) continue;
     if (u.status.regen) {
-      const amt = Math.max(8, Math.round(u.maxHp * 0.06));
+      const amt = Math.max(2, Math.round(u.maxHp * 0.04));
       u.hp = Math.min(u.maxHp, u.hp + amt);
       addFloater(u, `+${amt}`, "#7dff9f");
     }
     if (u.status.mpRegen && u.maxMp) {
-      const amt = Math.max(6, Math.round(u.maxMp * 0.06));
+      const amt = Math.max(1, Math.round(u.maxMp * 0.04));
       u.mp = Math.min(u.maxMp, u.mp + amt);
       addFloater(u, `+${amt} MP`, "#76ddff");
     }

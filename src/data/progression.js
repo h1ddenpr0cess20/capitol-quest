@@ -4,19 +4,19 @@ const TALENTS = [
   {
     id: "power",
     name: "Power",
-    desc: "+3 ATK / rank",
+    desc: "+1 ATK / rank",
     max: 7,
   },
   {
     id: "focus",
     name: "Focus",
-    desc: "+3 MAG, +4 max MP / rank",
+    desc: "+1 MAG, +2 max MP / rank",
     max: 7,
   },
   {
     id: "vitality",
     name: "Vitality",
-    desc: "+16 max HP, +1 DEF / rank",
+    desc: "+6 max HP, +1 DEF / rank",
     max: 7,
   },
 ];

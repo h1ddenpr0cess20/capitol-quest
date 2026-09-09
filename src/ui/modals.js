@@ -5,7 +5,7 @@ function drawPuzzleModal() {
       "PARTY TRAINING",
       "$" +
         state.cash +
-        " available · Permanent upgrades: +20 HP, +8 MP, and stronger attacks.",
+        " available · Permanent upgrades: +8 HP, +3 MP, and stronger attacks.",
     );
     state.party.forEach((p, i) => {
       const tier = a.upgrades[p.name] || 0,
@@ -27,7 +27,7 @@ function drawPuzzleModal() {
           sub:
             tier >= 2
               ? "Fully trained"
-              : `Tier ${tier + 1}/2 · $${cost} · +4 ${i < 2 ? "ATK" : "MAG"}, +2 ${i < 2 ? "MAG" : "ATK"}`,
+              : `Tier ${tier + 1}/2 · $${cost} · +2 ${i < 2 ? "ATK" : "MAG"}, +1 ${i < 2 ? "MAG" : "ATK"}`,
         },
       );
     });

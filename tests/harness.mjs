@@ -34,7 +34,16 @@ export async function loadGame({
   baseline = false,
   masks = true,
   storage = new Map(),
+  seed,
 } = {}) {
+  let rngState = seed >>> 0;
+  const random =
+    seed === undefined
+      ? () => 0.5
+      : () => {
+          rngState = (Math.imul(rngState, 1664525) + 1013904223) >>> 0;
+          return rngState / 4294967296;
+        };
   const canvas = Object.assign(createCanvas(1280, 720), element());
   const elements = new Map([["game", canvas]]);
   const pending = [];
@@ -82,7 +91,7 @@ export async function loadGame({
     requestAnimationFrame() {},
     setInterval() {},
     setTimeout() {},
-    Math: Object.assign(Object.create(Math), { random: () => 0.5 }),
+    Math: Object.assign(Object.create(Math), { random }),
   });
   const files = baseline
     ? [
