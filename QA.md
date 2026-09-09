@@ -10,7 +10,7 @@ Covered checks:
 - Save/reload in the current runtime and a fresh runtime; migration of older save fields.
 - Retreat and starting a challenge-board trial.
 - All 125 sprite frames retain their dimensions; retained pixels are byte-identical and cached frames are reused. Targeted checks verify that known background patches disappear while adjoining clothing, furniture, rails and water survive.
-- A new game starts with 70–88 HP and 20–36 MP. `npm run test:balance` simulates early fights and level-appropriate bosses across eight random seeds per encounter, checks that the final boss defeats a level-one party, and verifies save migration, skill gating and resource recovery. These automated simulations are balance guardrails, not a substitute for a full player playthrough.
+- A new game starts with 75–90 HP and 20–36 MP. `npm run test:balance` simulates early fights and level-appropriate bosses across eight random seeds per encounter, checks that the final boss defeats a level-one party, and verifies save migration, skill gating and resource recovery. These automated simulations are balance guardrails, not a substitute for a full player playthrough.
 
 `npm run review:sprites` generates 22 before/after pages in `.tmp/review/`, covering all 54 character frames, 11 props, 5 landmarks, and 55 item/effect frames. These include unchanged frames. All pages were visually inspected on contrasting backgrounds.
 

@@ -446,7 +446,7 @@
   const PARTY_DEFS = {
     TRUMP: {
       label: "TRUMP",
-      maxHp: 88,
+      maxHp: 90,
       maxMp: 24,
       atk: 14,
       def: 6,
@@ -508,7 +508,7 @@
     },
     HEGSETH: {
       label: "HEGSETH",
-      maxHp: 82,
+      maxHp: 85,
       maxMp: 20,
       atk: 13,
       def: 8,
@@ -572,7 +572,7 @@
     },
     LUTNICK: {
       label: "LUTNICK",
-      maxHp: 76,
+      maxHp: 80,
       maxMp: 30,
       atk: 10,
       def: 5,
@@ -635,7 +635,7 @@
     },
     RFK: {
       label: "RFK JR.",
-      maxHp: 70,
+      maxHp: 75,
       maxMp: 36,
       atk: 9,
       def: 4,
@@ -2155,7 +2155,7 @@
     const s = createBaseState();
     s.expedition = {
       version: 6,
-      balanceVersion: 2,
+      balanceVersion: 3,
       missions: {},
       trials: {},
       talents: {},
@@ -2232,7 +2232,7 @@
           0,
           t.max
         );
-      if (src.expedition?.balanceVersion !== 2) {
+      if (src.expedition?.balanceVersion !== 3) {
         const training = clamp(
           Math.floor(Number(dst.adventure.upgrades[p.name]) || 0),
           0,
@@ -2245,7 +2245,7 @@
       p.mp = clamp(p.mp, 0, p.maxMp);
       p.alive = p.hp > 0;
     }
-    dst.expedition.balanceVersion = 2;
+    dst.expedition.balanceVersion = 3;
     for (const [z, m] of Object.entries(dst.expedition.missions)) {
       if (!SIDE_MISSIONS[z]) {
         delete dst.expedition.missions[z];

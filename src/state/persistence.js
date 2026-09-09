@@ -322,7 +322,7 @@ function freshState() {
   const s = createBaseState();
   s.expedition = {
     version: 6,
-    balanceVersion: 2,
+    balanceVersion: 3,
     missions: {},
     trials: {},
     talents: {},
@@ -404,7 +404,7 @@ function mergeState(dst, src) {
         0,
         t.max,
       );
-    if (src.expedition?.balanceVersion !== 2) {
+    if (src.expedition?.balanceVersion !== 3) {
       const training = clamp(
         Math.floor(Number(dst.adventure.upgrades[p.name]) || 0),
         0,
@@ -417,7 +417,7 @@ function mergeState(dst, src) {
     p.mp = clamp(p.mp, 0, p.maxMp);
     p.alive = p.hp > 0;
   }
-  dst.expedition.balanceVersion = 2;
+  dst.expedition.balanceVersion = 3;
   for (const [z, m] of Object.entries(dst.expedition.missions)) {
     if (!SIDE_MISSIONS[z]) {
       delete dst.expedition.missions[z];

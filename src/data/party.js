@@ -1,7 +1,7 @@
 const PARTY_DEFS = {
   TRUMP: {
     label: "TRUMP",
-    maxHp: 88,
+    maxHp: 90,
     maxMp: 24,
     atk: 14,
     def: 6,
@@ -63,7 +63,7 @@ const PARTY_DEFS = {
   },
   HEGSETH: {
     label: "HEGSETH",
-    maxHp: 82,
+    maxHp: 85,
     maxMp: 20,
     atk: 13,
     def: 8,
@@ -127,7 +127,7 @@ const PARTY_DEFS = {
   },
   LUTNICK: {
     label: "LUTNICK",
-    maxHp: 76,
+    maxHp: 80,
     maxMp: 30,
     atk: 10,
     def: 5,
@@ -190,7 +190,7 @@ const PARTY_DEFS = {
   },
   RFK: {
     label: "RFK JR.",
-    maxHp: 70,
+    maxHp: 75,
     maxMp: 36,
     atk: 9,
     def: 4,
