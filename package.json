@@ -1,0 +1,27 @@
+{
+  "name": "capitol-quest",
+  "description": "Work-in-progress satirical Canvas RPG.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node tests/game.mjs && node tests/sprites.mjs",
+    "test:parity": "node tests/compare.mjs",
+    "review:sprites": "node scripts/sprite-review.mjs",
+    "screenshots": "npm run build && node scripts/screenshots.mjs",
+    "format": "prettier --write src scripts tests styles index.html",
+    "format:check": "prettier --check src scripts tests styles index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h1ddenpr0cess20/capitol-quest.git"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.8",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.6"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}
