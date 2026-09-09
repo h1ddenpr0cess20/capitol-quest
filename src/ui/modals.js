@@ -5,7 +5,7 @@ function drawPuzzleModal() {
       "PARTY TRAINING",
       "$" +
         state.cash +
-        " available · Permanent upgrades: +30 HP, +12 MP, and stronger attacks.",
+        " available · Permanent upgrades: +20 HP, +8 MP, and stronger attacks.",
     );
     state.party.forEach((p, i) => {
       const tier = a.upgrades[p.name] || 0,
@@ -27,7 +27,7 @@ function drawPuzzleModal() {
           sub:
             tier >= 2
               ? "Fully trained"
-              : `Tier ${tier + 1}/2 · $${cost} · +7 ${i < 2 ? "ATK" : "MAG"}, +3 ${i < 2 ? "MAG" : "ATK"}`,
+              : `Tier ${tier + 1}/2 · $${cost} · +4 ${i < 2 ? "ATK" : "MAG"}, +2 ${i < 2 ? "MAG" : "ATK"}`,
         },
       );
     });
@@ -199,7 +199,7 @@ function drawModal() {
   if (modal.type === "talents") {
     modalFrame(
       "PARTY PROGRESSION",
-      "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 6 and 9.",
+      "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 7 and 11.",
     );
     state.party.forEach((p, i) => {
       const x = 58 + i * 295;

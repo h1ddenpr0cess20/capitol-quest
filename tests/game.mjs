@@ -11,6 +11,24 @@ for (let i = 0; i < 4; i++) g.input("enter");
 assert.equal(g.mode, "world");
 assert.equal(g.state.party.length, 4);
 assert(g.state.party.every((p) => p.lvl === 1));
+assert.deepEqual(
+  plain(
+    g.state.party.map(({ maxHp, maxMp, atk, def, mag }) => [
+      maxHp,
+      maxMp,
+      atk,
+      def,
+      mag,
+    ]),
+  ),
+  [
+    [220, 48, 26, 12, 9],
+    [205, 42, 24, 15, 8],
+    [190, 60, 20, 11, 19],
+    [185, 72, 17, 10, 25],
+  ],
+);
+assert.equal(g.xpRequired(g.state.party[0]), 120);
 g.state.mainStage = 9;
 g.state.settings.sound = false;
 
@@ -86,7 +104,7 @@ g.startBattle(
     { type: "PROTESTER", level: 1 },
     { type: "TEACHER", level: 1 },
   ],
-  { gold: 50, xp: 120 },
+  { gold: 50, xp: 140 },
 );
 g.setAutoMode(1);
 for (let i = 0; i < 6000 && g.getBattle()?.phase !== "victory"; i++) {
@@ -105,7 +123,7 @@ assert.equal(g.mode, "world");
 const p = g.state.party[0],
   atk = p.atk;
 g.buyTalent(p, { id: "power", name: "Power", max: 7 });
-assert.equal(p.atk, atk + 4);
+assert.equal(p.atk, atk + 3);
 assert.equal(p.points, 0);
 g.saveGame(false);
 const saved = plain(g.state);

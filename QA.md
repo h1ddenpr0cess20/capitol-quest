@@ -10,6 +10,7 @@ Covered checks:
 - Save/reload in the current runtime and a fresh runtime; migration of older save fields.
 - Retreat and starting a challenge-board trial.
 - All 125 sprite frames retain their dimensions; retained pixels are byte-identical and cached frames are reused. Targeted checks verify that known background patches disappear while adjoining clothing, furniture, rails and water survive.
+- A new game starts at level 1 with role-specific baseline stats and a smaller supply kit. XP thresholds, level growth, talent ranks, skill unlocks, and permanent training upgrades are covered by the gameplay balance checks.
 
 `npm run review:sprites` generates 22 before/after pages in `.tmp/review/`, covering all 54 character frames, 11 props, 5 landmarks, and 55 item/effect frames. These include unchanged frames. All pages were visually inspected on contrasting backgrounds.
 

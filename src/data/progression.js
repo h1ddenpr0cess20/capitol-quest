@@ -4,19 +4,19 @@ const TALENTS = [
   {
     id: "power",
     name: "Power",
-    desc: "+4 ATK / rank",
+    desc: "+3 ATK / rank",
     max: 7,
   },
   {
     id: "focus",
     name: "Focus",
-    desc: "+4 MAG, +6 max MP / rank",
+    desc: "+3 MAG, +4 max MP / rank",
     max: 7,
   },
   {
     id: "vitality",
     name: "Vitality",
-    desc: "+24 max HP, +2 DEF / rank",
+    desc: "+16 max HP, +1 DEF / rank",
     max: 7,
   },
 ];
@@ -30,7 +30,7 @@ const RELICS = {
   VAULT: "Complete Record",
 };
 
-const SKILL_LEVELS = [1, 2, 4, 6, 9];
+const SKILL_LEVELS = [1, 2, 4, 7, 11];
 
 const TRIALS = [
   {

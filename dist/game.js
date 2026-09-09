@@ -446,12 +446,12 @@
   const PARTY_DEFS = {
     TRUMP: {
       label: "TRUMP",
-      maxHp: 320,
-      maxMp: 80,
-      atk: 38,
-      def: 18,
-      mag: 13,
-      luck: 12,
+      maxHp: 220,
+      maxMp: 48,
+      atk: 26,
+      def: 12,
+      mag: 9,
+      luck: 8,
       skills: [
         {
           name: "Hard Push",
@@ -508,12 +508,12 @@
     },
     HEGSETH: {
       label: "HEGSETH",
-      maxHp: 280,
-      maxMp: 60,
-      atk: 35,
-      def: 23,
-      mag: 10,
-      luck: 16,
+      maxHp: 205,
+      maxMp: 42,
+      atk: 24,
+      def: 15,
+      mag: 8,
+      luck: 11,
       skills: [
         {
           name: "Field Shot",
@@ -572,12 +572,12 @@
     },
     LUTNICK: {
       label: "LUTNICK",
-      maxHp: 260,
-      maxMp: 100,
-      atk: 29,
-      def: 16,
-      mag: 27,
-      luck: 22,
+      maxHp: 190,
+      maxMp: 60,
+      atk: 20,
+      def: 11,
+      mag: 19,
+      luck: 14,
       skills: [
         {
           name: "Market Swing",
@@ -635,12 +635,12 @@
     },
     RFK: {
       label: "RFK JR.",
-      maxHp: 240,
-      maxMp: 140,
-      atk: 24,
-      def: 14,
-      mag: 38,
-      luck: 18,
+      maxHp: 185,
+      maxMp: 72,
+      atk: 17,
+      def: 10,
+      mag: 25,
+      luck: 12,
       skills: [
         {
           name: "Green Spark",
@@ -1675,19 +1675,19 @@
     {
       id: "power",
       name: "Power",
-      desc: "+4 ATK / rank",
+      desc: "+3 ATK / rank",
       max: 7
     },
     {
       id: "focus",
       name: "Focus",
-      desc: "+4 MAG, +6 max MP / rank",
+      desc: "+3 MAG, +4 max MP / rank",
       max: 7
     },
     {
       id: "vitality",
       name: "Vitality",
-      desc: "+24 max HP, +2 DEF / rank",
+      desc: "+16 max HP, +1 DEF / rank",
       max: 7
     }
   ];
@@ -1699,7 +1699,7 @@
     STATION: "Transit Badge",
     VAULT: "Complete Record"
   };
-  const SKILL_LEVELS = [1, 2, 4, 6, 9];
+  const SKILL_LEVELS = [1, 2, 4, 7, 11];
   const TRIALS = [
     {
       name: "First Principles",
@@ -1892,14 +1892,14 @@
         status: {}
       })),
       inventory: {
-        POTION: 4,
-        SUPER: 2,
+        POTION: 2,
+        SUPER: 1,
         MEDKIT: 1,
-        STEAK: 1,
-        BURGER: 2,
-        SERUM: 2
+        STEAK: 0,
+        BURGER: 1,
+        SERUM: 1
       },
-      cash: 140,
+      cash: 100,
       flags: {
         veteranClue: false,
         teacherClue: false,
@@ -3480,7 +3480,7 @@
     if (modal.type === "upgrade") {
       modalFrame(
         "PARTY TRAINING",
-        "$" + state.cash + " available \xB7 Permanent upgrades: +30 HP, +12 MP, and stronger attacks."
+        "$" + state.cash + " available \xB7 Permanent upgrades: +20 HP, +8 MP, and stronger attacks."
       );
       state.party.forEach((p, i) => {
         const tier = a.upgrades[p.name] || 0, cost = 140 + tier * 120;
@@ -3498,7 +3498,7 @@
           {
             active: modal.selection === i,
             disabled: tier >= 2 || state.cash < cost,
-            sub: tier >= 2 ? "Fully trained" : `Tier ${tier + 1}/2 \xB7 $${cost} \xB7 +7 ${i < 2 ? "ATK" : "MAG"}, +3 ${i < 2 ? "MAG" : "ATK"}`
+            sub: tier >= 2 ? "Fully trained" : `Tier ${tier + 1}/2 \xB7 $${cost} \xB7 +4 ${i < 2 ? "ATK" : "MAG"}, +2 ${i < 2 ? "MAG" : "ATK"}`
           }
         );
       });
@@ -3663,7 +3663,7 @@
     if (modal.type === "talents") {
       modalFrame(
         "PARTY PROGRESSION",
-        "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 6 and 9."
+        "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 7 and 11."
       );
       state.party.forEach((p, i) => {
         const x = 58 + i * 295;
@@ -8119,17 +8119,17 @@
     if (state.cash < cost) return notify("NEED " + cost + " CASH");
     state.cash -= cost;
     adv().upgrades[p.name] = tier + 1;
-    p.maxHp += 30;
-    p.hp = Math.min(p.maxHp, p.hp + 30);
-    p.maxMp += 12;
-    p.mp = Math.min(p.maxMp, p.mp + 12);
-    p.atk += i === 0 || i === 1 ? 7 : 3;
-    p.mag += i === 2 || i === 3 ? 7 : 3;
+    p.maxHp += 20;
+    p.hp = Math.min(p.maxHp, p.hp + 20);
+    p.maxMp += 8;
+    p.mp = Math.min(p.maxMp, p.mp + 8);
+    p.atk += i === 0 || i === 1 ? 4 : 2;
+    p.mag += i === 2 || i === 3 ? 4 : 2;
     notify(p.label + " TRAINING UPGRADED");
     saveGame(false);
   }
   function xpRequired(p) {
-    return p.lvl >= 20 ? 0 : 100 + (p.lvl - 1) * 45;
+    return p.lvl >= 20 ? 0 : 120 + (p.lvl - 1) * 60;
   }
   function grantPartyXP(xp) {
     state.expedition.totalXP += xp;
@@ -8153,16 +8153,16 @@
     if (p.points < 1 || p.talents[t.id] >= t.max) return;
     p.points--;
     p.talents[t.id]++;
-    if (t.id === "power") p.atk += 4;
+    if (t.id === "power") p.atk += 3;
     if (t.id === "focus") {
-      p.mag += 4;
-      p.maxMp += 6;
-      p.mp += 6;
+      p.mag += 3;
+      p.maxMp += 4;
+      p.mp += 4;
     }
     if (t.id === "vitality") {
-      p.maxHp += 24;
-      p.hp += 24;
-      p.def += 2;
+      p.maxHp += 16;
+      p.hp += 16;
+      p.def += 1;
     }
     saveGame(false);
     sfx("save");
@@ -8176,15 +8176,15 @@
       p.xp -= xpRequired(p);
       p.lvl++;
       p.points++;
-      p.maxHp += 20;
-      p.maxMp += 7;
-      p.atk += 4;
-      p.def += 2;
-      p.mag += 4;
+      p.maxHp += 14;
+      p.maxMp += 4;
+      p.atk += 2;
+      p.def += 1;
+      p.mag += 2;
       p.luck++;
-      p.hp = p.maxHp;
-      p.mp = p.maxMp;
-      p.alive = true;
+      p.hp = Math.min(p.maxHp, p.hp + Math.round(p.maxHp * 0.35));
+      p.mp = Math.min(p.maxMp, p.mp + Math.round(p.maxMp * 0.35));
+      p.alive = p.hp > 0;
       levels.push(p.lvl);
       log(p.label + " reached level " + p.lvl + " \xB7 +1 talent point");
     }

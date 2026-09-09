@@ -3,16 +3,46 @@ import { loadGame } from "./harness.mjs";
 const before = await loadGame({ baseline: true });
 const after = await loadGame({ masks: false });
 const plain = (v) => JSON.parse(JSON.stringify(v));
+const withoutBalance = (value) => {
+  const copy = plain(value);
+  for (const p of copy.party || [])
+    for (const key of [
+      "lvl",
+      "xp",
+      "hp",
+      "maxHp",
+      "mp",
+      "maxMp",
+      "atk",
+      "def",
+      "mag",
+      "luck",
+      "points",
+      "talents",
+    ])
+      delete p[key];
+  // Starting resources are part of the balance pass and intentionally differ
+  // from the historical build used for structural parity.
+  delete copy.inventory;
+  delete copy.cash;
+  return copy;
+};
 assert.deepEqual(
-  plain(after.game.freshState()),
-  plain(before.game.freshState()),
+  withoutBalance(after.game.freshState()),
+  withoutBalance(before.game.freshState()),
 );
-assert.deepEqual(plain(after.game.state), plain(before.game.state));
+assert.deepEqual(
+  withoutBalance(after.game.state),
+  withoutBalance(before.game.state),
+);
 for (const g of [before.game, after.game]) {
   g.startNewGame();
   for (let i = 0; i < 4; i++) g.input("enter");
 }
-assert.deepEqual(plain(after.game.state), plain(before.game.state));
+assert.deepEqual(
+  withoutBalance(after.game.state),
+  withoutBalance(before.game.state),
+);
 for (const zone of Object.keys(before.game.DISTRICTS)) {
   for (const { game: g } of [before, after]) {
     g.state.zone = zone;

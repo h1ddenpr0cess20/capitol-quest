@@ -1,12 +1,12 @@
 const PARTY_DEFS = {
   TRUMP: {
     label: "TRUMP",
-    maxHp: 320,
-    maxMp: 80,
-    atk: 38,
-    def: 18,
-    mag: 13,
-    luck: 12,
+    maxHp: 220,
+    maxMp: 48,
+    atk: 26,
+    def: 12,
+    mag: 9,
+    luck: 8,
     skills: [
       {
         name: "Hard Push",
@@ -63,12 +63,12 @@ const PARTY_DEFS = {
   },
   HEGSETH: {
     label: "HEGSETH",
-    maxHp: 280,
-    maxMp: 60,
-    atk: 35,
-    def: 23,
-    mag: 10,
-    luck: 16,
+    maxHp: 205,
+    maxMp: 42,
+    atk: 24,
+    def: 15,
+    mag: 8,
+    luck: 11,
     skills: [
       {
         name: "Field Shot",
@@ -127,12 +127,12 @@ const PARTY_DEFS = {
   },
   LUTNICK: {
     label: "LUTNICK",
-    maxHp: 260,
-    maxMp: 100,
-    atk: 29,
-    def: 16,
-    mag: 27,
-    luck: 22,
+    maxHp: 190,
+    maxMp: 60,
+    atk: 20,
+    def: 11,
+    mag: 19,
+    luck: 14,
     skills: [
       {
         name: "Market Swing",
@@ -190,12 +190,12 @@ const PARTY_DEFS = {
   },
   RFK: {
     label: "RFK JR.",
-    maxHp: 240,
-    maxMp: 140,
-    atk: 24,
-    def: 14,
-    mag: 38,
-    luck: 18,
+    maxHp: 185,
+    maxMp: 72,
+    atk: 17,
+    def: 10,
+    mag: 25,
+    luck: 12,
     skills: [
       {
         name: "Green Spark",
