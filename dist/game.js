@@ -446,16 +446,16 @@
   const PARTY_DEFS = {
     TRUMP: {
       label: "TRUMP",
-      maxHp: 320,
-      maxMp: 80,
-      atk: 38,
-      def: 18,
-      mag: 13,
-      luck: 12,
+      maxHp: 90,
+      maxMp: 24,
+      atk: 14,
+      def: 6,
+      mag: 6,
+      luck: 8,
       skills: [
         {
           name: "Hard Push",
-          cost: 12,
+          cost: 6,
           target: "enemy",
           kind: "physical",
           power: 1.45,
@@ -464,7 +464,7 @@
         },
         {
           name: "Rallying Cry",
-          cost: 16,
+          cost: 8,
           target: "allies",
           kind: "buffAtk",
           pose: 1,
@@ -472,7 +472,7 @@
         },
         {
           name: "Golden Gut",
-          cost: 20,
+          cost: 10,
           target: "ally",
           kind: "heal",
           power: 1.05,
@@ -481,7 +481,7 @@
         },
         {
           name: "Follow Through",
-          cost: 26,
+          cost: 13,
           target: "enemy",
           kind: "physical",
           power: 2.05,
@@ -490,7 +490,7 @@
         },
         {
           name: "Mandate",
-          cost: 32,
+          cost: 16,
           target: "allies",
           kind: "formation",
           pose: 1,
@@ -508,16 +508,16 @@
     },
     HEGSETH: {
       label: "HEGSETH",
-      maxHp: 280,
-      maxMp: 60,
-      atk: 35,
-      def: 23,
-      mag: 10,
-      luck: 16,
+      maxHp: 85,
+      maxMp: 20,
+      atk: 13,
+      def: 8,
+      mag: 5,
+      luck: 11,
       skills: [
         {
           name: "Field Shot",
-          cost: 12,
+          cost: 6,
           target: "enemy",
           kind: "physical",
           power: 1.35,
@@ -527,7 +527,7 @@
         },
         {
           name: "Brace",
-          cost: 14,
+          cost: 7,
           target: "self",
           kind: "buffDef",
           pose: 1,
@@ -535,7 +535,7 @@
         },
         {
           name: "Covering Fire",
-          cost: 22,
+          cost: 11,
           target: "enemies",
           kind: "physicalAll",
           power: 0.88,
@@ -544,7 +544,7 @@
         },
         {
           name: "Pinning Shot",
-          cost: 24,
+          cost: 12,
           target: "enemy",
           kind: "physical",
           power: 1.8,
@@ -553,7 +553,7 @@
         },
         {
           name: "Hold Formation",
-          cost: 28,
+          cost: 14,
           target: "allies",
           kind: "protect",
           pose: 1,
@@ -572,16 +572,16 @@
     },
     LUTNICK: {
       label: "LUTNICK",
-      maxHp: 260,
-      maxMp: 100,
-      atk: 29,
-      def: 16,
-      mag: 27,
-      luck: 22,
+      maxHp: 80,
+      maxMp: 30,
+      atk: 10,
+      def: 5,
+      mag: 11,
+      luck: 14,
       skills: [
         {
           name: "Market Swing",
-          cost: 16,
+          cost: 8,
           target: "enemy",
           kind: "hybrid",
           power: 1.45,
@@ -590,7 +590,7 @@
         },
         {
           name: "Cashout",
-          cost: 20,
+          cost: 10,
           target: "allies",
           kind: "healAll",
           power: 0.63,
@@ -599,7 +599,7 @@
         },
         {
           name: "Money Rain",
-          cost: 26,
+          cost: 13,
           target: "enemies",
           kind: "magicAll",
           power: 0.96,
@@ -608,7 +608,7 @@
         },
         {
           name: "Arbitration",
-          cost: 30,
+          cost: 15,
           target: "enemies",
           kind: "hybridAll",
           power: 1.25,
@@ -617,7 +617,7 @@
         },
         {
           name: "Buyback",
-          cost: 36,
+          cost: 18,
           target: "ally",
           kind: "revive",
           pose: 0,
@@ -635,16 +635,16 @@
     },
     RFK: {
       label: "RFK JR.",
-      maxHp: 240,
-      maxMp: 140,
-      atk: 24,
-      def: 14,
-      mag: 38,
-      luck: 18,
+      maxHp: 75,
+      maxMp: 36,
+      atk: 9,
+      def: 4,
+      mag: 15,
+      luck: 12,
       skills: [
         {
           name: "Green Spark",
-          cost: 14,
+          cost: 7,
           target: "ally",
           kind: "healRegen",
           power: 1.1,
@@ -653,7 +653,7 @@
         },
         {
           name: "Clean Signal",
-          cost: 22,
+          cost: 11,
           target: "enemy",
           kind: "magic",
           power: 1.45,
@@ -662,7 +662,7 @@
         },
         {
           name: "Signal Cascade",
-          cost: 30,
+          cost: 15,
           target: "allies",
           kind: "buffMag",
           pose: 2,
@@ -670,7 +670,7 @@
         },
         {
           name: "Second Wind",
-          cost: 28,
+          cost: 14,
           target: "ally",
           kind: "revive",
           pose: 0,
@@ -678,7 +678,7 @@
         },
         {
           name: "Aurora",
-          cost: 36,
+          cost: 18,
           target: "enemies",
           kind: "magicAll",
           power: 1.35,
@@ -700,10 +700,10 @@
     PROTESTER: {
       label: "Protester",
       sprite: "PROTESTER",
-      hp: 150,
-      atk: 23,
-      def: 9,
-      mag: 12,
+      hp: 105,
+      atk: 16,
+      def: 5,
+      mag: 8,
       ai: "protester",
       trait: "Crowd",
       quote: "NO KINGS!"
@@ -711,10 +711,10 @@
     ACTIVIST: {
       label: "Activist",
       sprite: "ACTIVIST",
-      hp: 165,
-      atk: 24,
-      def: 9,
-      mag: 18,
+      hp: 115,
+      atk: 17,
+      def: 5,
+      mag: 13,
       ai: "activist",
       trait: "Crowd",
       quote: "READ THE SOURCE!"
@@ -722,10 +722,10 @@
     VETERAN: {
       label: "Veteran",
       sprite: "VETERAN",
-      hp: 225,
-      atk: 31,
-      def: 18,
-      mag: 8,
+      hp: 158,
+      atk: 22,
+      def: 11,
+      mag: 6,
       ai: "veteran",
       trait: "Armored",
       quote: "HOLD THE LINE."
@@ -733,10 +733,10 @@
     TEACHER: {
       label: "Teacher",
       sprite: "TEACHER",
-      hp: 170,
-      atk: 20,
-      def: 10,
-      mag: 26,
+      hp: 119,
+      atk: 14,
+      def: 6,
+      mag: 18,
       ai: "teacher",
       trait: "Scholar",
       quote: "CITE YOUR SOURCE."
@@ -744,10 +744,10 @@
     JOURNALIST: {
       label: "Journalist",
       sprite: "JOURNALIST",
-      hp: 155,
-      atk: 22,
-      def: 8,
-      mag: 29,
+      hp: 108,
+      atk: 15,
+      def: 5,
+      mag: 20,
       ai: "journalist",
       trait: "Media",
       quote: "ON THE RECORD."
@@ -755,10 +755,10 @@
     UNION: {
       label: "Union Worker",
       sprite: "UNION",
-      hp: 215,
-      atk: 30,
-      def: 15,
-      mag: 10,
+      hp: 150,
+      atk: 21,
+      def: 9,
+      mag: 7,
       ai: "union",
       trait: "Guard",
       quote: "STAND TOGETHER."
@@ -766,10 +766,10 @@
     FARMER: {
       label: "Farmer",
       sprite: "FARMER",
-      hp: 205,
-      atk: 29,
-      def: 13,
-      mag: 10,
+      hp: 144,
+      atk: 20,
+      def: 8,
+      mag: 7,
       ai: "farmer",
       trait: "Tough",
       quote: "BACK TO WORK."
@@ -777,10 +777,10 @@
     STUDENT: {
       label: "Student",
       sprite: "STUDENT",
-      hp: 145,
-      atk: 20,
-      def: 8,
-      mag: 21,
+      hp: 102,
+      atk: 14,
+      def: 5,
+      mag: 15,
       ai: "student",
       trait: "Quick",
       quote: "PROVE IT."
@@ -788,10 +788,10 @@
     SENIOR: {
       label: "Senior",
       sprite: "SENIOR",
-      hp: 180,
-      atk: 20,
-      def: 14,
-      mag: 18,
+      hp: 126,
+      atk: 14,
+      def: 8,
+      mag: 13,
       ai: "senior",
       trait: "Steady",
       quote: "I HAVE SEEN ENOUGH."
@@ -799,10 +799,10 @@
     NURSE: {
       label: "Nurse",
       sprite: "NURSE",
-      hp: 170,
-      atk: 18,
-      def: 11,
-      mag: 30,
+      hp: 119,
+      atk: 13,
+      def: 7,
+      mag: 21,
       ai: "nurse",
       trait: "Medic",
       quote: "STAY WITH ME."
@@ -810,10 +810,10 @@
     SCIENTIST: {
       label: "Scientist",
       sprite: "SCIENTIST",
-      hp: 185,
-      atk: 20,
-      def: 10,
-      mag: 36,
+      hp: 130,
+      atk: 14,
+      def: 6,
+      mag: 25,
       ai: "scientist",
       trait: "Tech",
       quote: "CHECK THE DATA."
@@ -821,10 +821,10 @@
     EVERYDAY: {
       label: "Everyday American",
       sprite: "EVERYDAY",
-      hp: 190,
-      atk: 25,
-      def: 12,
-      mag: 15,
+      hp: 133,
+      atk: 18,
+      def: 7,
+      mag: 10,
       ai: "everyday",
       trait: "Balanced",
       quote: "ENOUGH ALREADY."
@@ -832,10 +832,10 @@
     SENTINEL: {
       label: "Capitol Sentinel",
       sprite: "VETERAN",
-      hp: 460,
-      atk: 39,
-      def: 24,
-      mag: 21,
+      hp: 253,
+      atk: 21,
+      def: 14,
+      mag: 12,
       ai: "sentinel",
       trait: "Boss \u2022 Armored",
       quote: "ACCESS DENIED.",
@@ -844,10 +844,10 @@
     FIXER: {
       label: "Media Fixer",
       sprite: "JOURNALIST",
-      hp: 520,
-      atk: 34,
-      def: 15,
-      mag: 40,
+      hp: 286,
+      atk: 19,
+      def: 9,
+      mag: 22,
       ai: "fixer",
       trait: "Boss \u2022 Media",
       quote: "CUT THE FEED.",
@@ -856,10 +856,10 @@
     CHAIR: {
       label: "Committee Chair",
       sprite: "TEACHER",
-      hp: 650,
-      atk: 41,
-      def: 22,
-      mag: 46,
+      hp: 358,
+      atk: 23,
+      def: 13,
+      mag: 25,
       ai: "chair",
       trait: "Boss \u2022 Scholar",
       quote: "ORDER IN THE CHAMBER.",
@@ -868,10 +868,10 @@
     CURATOR: {
       label: "The Curator",
       sprite: "FARMER",
-      hp: 340,
-      atk: 28,
-      def: 12,
-      mag: 22,
+      hp: 187,
+      atk: 15,
+      def: 7,
+      mag: 12,
       ai: "curator",
       trait: "Boss \u2022 Tough",
       boss: true
@@ -879,10 +879,10 @@
     ENGINEER: {
       label: "Relay Engineer",
       sprite: "SCIENTIST",
-      hp: 400,
-      atk: 27,
-      def: 16,
-      mag: 30,
+      hp: 220,
+      atk: 15,
+      def: 10,
+      mag: 16,
       ai: "engineer",
       trait: "Boss \u2022 Tech",
       boss: true
@@ -890,10 +890,10 @@
     AUDITOR: {
       label: "The Auditor",
       sprite: "SENIOR",
-      hp: 430,
-      atk: 30,
-      def: 19,
-      mag: 30,
+      hp: 237,
+      atk: 16,
+      def: 11,
+      mag: 16,
       ai: "auditor",
       trait: "Boss \u2022 Steady",
       boss: true
@@ -901,10 +901,10 @@
     DIRECTOR: {
       label: "The Director",
       sprite: "JOURNALIST",
-      hp: 460,
-      atk: 31,
-      def: 18,
-      mag: 37,
+      hp: 253,
+      atk: 17,
+      def: 11,
+      mag: 20,
       ai: "director",
       trait: "Boss \u2022 Media",
       boss: true
@@ -912,10 +912,10 @@
     CONDUCTOR: {
       label: "The Conductor",
       sprite: "UNION",
-      hp: 500,
-      atk: 38,
-      def: 22,
-      mag: 28,
+      hp: 275,
+      atk: 21,
+      def: 13,
+      mag: 15,
       ai: "conductor",
       trait: "Boss \u2022 Guard",
       boss: true
@@ -923,10 +923,10 @@
     CUSTODIAN: {
       label: "The Custodian",
       sprite: "VETERAN",
-      hp: 620,
-      atk: 40,
-      def: 24,
-      mag: 38,
+      hp: 341,
+      atk: 22,
+      def: 14,
+      mag: 21,
       ai: "custodian",
       trait: "Boss \u2022 Armored",
       boss: true
@@ -935,39 +935,39 @@
   const ITEMS = {
     POTION: {
       name: "Potion",
-      desc: "Restore 80 HP.",
-      heal: 80,
+      desc: "Restore 30 HP.",
+      heal: 30,
       price: 28
     },
     SUPER: {
       name: "Super Potion",
-      desc: "Restore 160 HP.",
-      heal: 160,
+      desc: "Restore 65 HP.",
+      heal: 65,
       price: 58
     },
     MEDKIT: {
       name: "Medkit",
-      desc: "Revive or restore 280 HP.",
-      heal: 280,
+      desc: "Revive or restore 80 HP.",
+      heal: 80,
       revive: true,
       price: 95
     },
     STEAK: {
       name: "Steak",
-      desc: "Restore 120 HP.",
-      heal: 120,
+      desc: "Restore 45 HP.",
+      heal: 45,
       price: 44
     },
     BURGER: {
       name: "Burger",
-      desc: "Restore 60 HP.",
-      heal: 60,
+      desc: "Restore 20 HP.",
+      heal: 20,
       price: 22
     },
     SERUM: {
       name: "Freedom Serum",
-      desc: "Restore 75 MP.",
-      mp: 75,
+      desc: "Restore 18 MP.",
+      mp: 18,
       price: 48
     }
   };
@@ -1521,7 +1521,7 @@
       verb: "Power relay junctions",
       items: ["West breaker", "Center breaker", "East breaker"],
       relic: "Copper Circuit",
-      reward: "Basic attacks restore +3 MP",
+      reward: "Basic attacks restore +1 MP",
       intro: "The backup relay has gone dark. Restore the west, center, and east junctions, then face the Engineer at the relay engine."
     },
     RECORDS: {
@@ -1675,19 +1675,19 @@
     {
       id: "power",
       name: "Power",
-      desc: "+4 ATK / rank",
+      desc: "+1 ATK / rank",
       max: 7
     },
     {
       id: "focus",
       name: "Focus",
-      desc: "+4 MAG, +6 max MP / rank",
+      desc: "+1 MAG, +2 max MP / rank",
       max: 7
     },
     {
       id: "vitality",
       name: "Vitality",
-      desc: "+24 max HP, +2 DEF / rank",
+      desc: "+6 max HP, +1 DEF / rank",
       max: 7
     }
   ];
@@ -1699,7 +1699,7 @@
     STATION: "Transit Badge",
     VAULT: "Complete Record"
   };
-  const SKILL_LEVELS = [1, 2, 4, 6, 9];
+  const SKILL_LEVELS = [1, 2, 4, 7, 11];
   const TRIALS = [
     {
       name: "First Principles",
@@ -1877,7 +1877,7 @@
       party: Object.entries(PARTY_DEFS).map(([name, d]) => ({
         name,
         label: d.label,
-        lvl: 3,
+        lvl: 1,
         xp: 0,
         hp: d.maxHp,
         maxHp: d.maxHp,
@@ -1892,14 +1892,14 @@
         status: {}
       })),
       inventory: {
-        POTION: 4,
-        SUPER: 2,
+        POTION: 2,
+        SUPER: 1,
         MEDKIT: 1,
-        STEAK: 1,
-        BURGER: 2,
-        SERUM: 2
+        STEAK: 0,
+        BURGER: 1,
+        SERUM: 1
       },
-      cash: 140,
+      cash: 100,
       flags: {
         veteranClue: false,
         teacherClue: false,
@@ -2155,6 +2155,7 @@
     const s = createBaseState();
     s.expedition = {
       version: 6,
+      balanceVersion: 3,
       missions: {},
       trials: {},
       talents: {},
@@ -2231,10 +2232,20 @@
           0,
           t.max
         );
+      if (src.expedition?.balanceVersion !== 3) {
+        const training = clamp(
+          Math.floor(Number(dst.adventure.upgrades[p.name]) || 0),
+          0,
+          2
+        );
+        dst.adventure.upgrades[p.name] = training;
+        rebuildHeroStats(p, training, true);
+      }
       p.hp = clamp(p.hp, 0, p.maxHp);
       p.mp = clamp(p.mp, 0, p.maxMp);
       p.alive = p.hp > 0;
     }
+    dst.expedition.balanceVersion = 3;
     for (const [z, m] of Object.entries(dst.expedition.missions)) {
       if (!SIDE_MISSIONS[z]) {
         delete dst.expedition.missions[z];
@@ -2276,14 +2287,15 @@
   }
   function migrateLegacy(data) {
     const s = freshState(), old = data?.state || {};
+    delete s.expedition.balanceVersion;
     if (old.party)
       s.party = old.party.map(
         (p, i) => Object.assign({}, s.party[i], {
           lvl: p.lvl || 3,
           xp: p.xp || 0,
-          hp: p.hp || s.party[i].hp,
+          hp: p.hp ?? s.party[i].hp,
           maxHp: p.maxHp || s.party[i].maxHp,
-          mp: p.mp || s.party[i].mp,
+          mp: p.mp ?? s.party[i].mp,
           maxMp: p.maxMp || s.party[i].maxMp,
           atk: p.atk || s.party[i].atk,
           def: p.def || s.party[i].def,
@@ -3480,7 +3492,7 @@
     if (modal.type === "upgrade") {
       modalFrame(
         "PARTY TRAINING",
-        "$" + state.cash + " available \xB7 Permanent upgrades: +30 HP, +12 MP, and stronger attacks."
+        "$" + state.cash + " available \xB7 Permanent upgrades: +8 HP, +3 MP, and stronger attacks."
       );
       state.party.forEach((p, i) => {
         const tier = a.upgrades[p.name] || 0, cost = 140 + tier * 120;
@@ -3498,7 +3510,7 @@
           {
             active: modal.selection === i,
             disabled: tier >= 2 || state.cash < cost,
-            sub: tier >= 2 ? "Fully trained" : `Tier ${tier + 1}/2 \xB7 $${cost} \xB7 +7 ${i < 2 ? "ATK" : "MAG"}, +3 ${i < 2 ? "MAG" : "ATK"}`
+            sub: tier >= 2 ? "Fully trained" : `Tier ${tier + 1}/2 \xB7 $${cost} \xB7 +2 ${i < 2 ? "ATK" : "MAG"}, +1 ${i < 2 ? "MAG" : "ATK"}`
           }
         );
       });
@@ -3663,7 +3675,7 @@
     if (modal.type === "talents") {
       modalFrame(
         "PARTY PROGRESSION",
-        "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 6 and 9."
+        "Earn XP through battles and exploration. Each level grants a talent point; skills unlock at levels 1, 2, 4, 7 and 11."
       );
       state.party.forEach((p, i) => {
         const x = 58 + i * 295;
@@ -5531,7 +5543,7 @@
       delete u.status[k];
   }
   function damagePhysical(a, t, power = 1, critBonus = 0) {
-    let base = effective(a, "atk") * power - effective(t, "def") * 0.52 + randInt(-6, 8);
+    let base = effective(a, "atk") * power - effective(t, "def") * 0.52 + randInt(-2, 3);
     let crit = Math.random() < (a.luck || 8) / 250 + critBonus;
     if (t.status?.vulnerable) base *= 1.22;
     if (t.guard) base *= 0.5;
@@ -5542,7 +5554,7 @@
     };
   }
   function damageMagic(a, t, power = 1) {
-    let base = effective(a, "mag") * power - effective(t, "def") * 0.26 + randInt(-5, 7);
+    let base = effective(a, "mag") * power - effective(t, "def") * 0.26 + randInt(-2, 3);
     if (t.trait?.includes("Tech") && a.name === "RFK") base *= 1.2;
     if (t.status?.vulnerable) base *= 1.22;
     if (t.guard) base *= 0.62;
@@ -5552,7 +5564,7 @@
     };
   }
   function damageHybrid(a, t, power = 1) {
-    let base = (effective(a, "atk") * 0.45 + effective(a, "mag") * 0.72) * power - effective(t, "def") * 0.34 + randInt(-6, 8);
+    let base = (effective(a, "atk") * 0.45 + effective(a, "mag") * 0.72) * power - effective(t, "def") * 0.34 + randInt(-2, 3);
     if (t.status?.vulnerable) base *= 1.2;
     if (t.guard) base *= 0.58;
     let crit = Math.random() < (a.luck || 8) / 300;
@@ -5584,12 +5596,12 @@
     for (const u of units) {
       if (u.hp <= 0) continue;
       if (u.status.regen) {
-        const amt = Math.max(8, Math.round(u.maxHp * 0.06));
+        const amt = Math.max(2, Math.round(u.maxHp * 0.04));
         u.hp = Math.min(u.maxHp, u.hp + amt);
         addFloater(u, `+${amt}`, "#7dff9f");
       }
       if (u.status.mpRegen && u.maxMp) {
-        const amt = Math.max(6, Math.round(u.maxMp * 0.06));
+        const amt = Math.max(1, Math.round(u.maxMp * 0.04));
         u.mp = Math.min(u.maxMp, u.mp + amt);
         addFloater(u, `+${amt} MP`, "#76ddff");
       }
@@ -6858,7 +6870,6 @@
     const reward = battle.reward || {};
     if (won) {
       state.party.forEach((p) => {
-        p.hp = Math.min(p.maxHp, p.hp + Math.round(p.maxHp * 0.12));
         p.mp = Math.min(p.maxMp, p.mp + Math.round(p.maxMp * 0.1));
         p.alive = p.hp > 0;
         p.status = {};
@@ -6886,7 +6897,7 @@
     initializeBattle(specs, reward);
     if (!battle) return;
     refreshIntents();
-    battle.message = reward.practice ? "PRACTICE \xB7 Hit a weakness twice to BREAK an enemy. Defend against charged attacks." : `${reward.label || "ENCOUNTER"} \xB7 Read enemy intentions before choosing.`;
+    battle.message = reward.practice ? "PRACTICE \xB7 Hit a weakness twice to BREAK an enemy. After recovering, it resists BREAK for one round." : `${reward.label || "ENCOUNTER"} \xB7 Read enemy intentions before choosing.`;
     battle.autoTimer = 0;
   }
   function loseBattle() {
@@ -7006,7 +7017,7 @@
     const gains = practice ? [] : grantPartyXP(xp);
     if (!practice) {
       adv().battles++;
-      state.party.forEach((p) => p.limit = Math.min(100, p.limit + 18));
+      state.party.forEach((p) => p.limit = Math.min(100, p.limit + 6));
     }
     if (r.worldMob) state.defeated[r.worldMob] = true;
     let relic = null;
@@ -7179,7 +7190,7 @@
     if (a.kind === "basic") {
       const res = p.name === "RFK" ? damageMagic(p, a.target, 1) : p.name === "LUTNICK" ? damageHybrid(p, a.target, 1) : damagePhysical(p, a.target, 1, 0);
       applyDamage(a.target, res);
-      p.limit = Math.min(100, p.limit + 20);
+      p.limit = Math.min(100, p.limit + 10);
       battle.message = `${p.label} attacks ${a.target.name}${res.crit ? " \u2014 CRITICAL" : ""}.`;
       addFx(
         p.name === "HEGSETH" ? "gun" : p.name === "LUTNICK" ? "money" : p.name === "RFK" ? "magic" : "hit",
@@ -7199,7 +7210,7 @@
         enemyPos(t).x,
         enemyPos(t).y - 70
       );
-      p.limit = Math.min(100, p.limit + 18);
+      p.limit = Math.min(100, p.limit + 10);
     } else if (["physicalAll", "magicAll", "hybridAll"].includes(s.kind)) {
       for (const t of targets) {
         const res = s.kind === "physicalAll" ? damagePhysical(p, t, s.power, s.crit || 0) : s.kind === "magicAll" ? damageMagic(p, t, s.power) : damageHybrid(p, t, s.power);
@@ -7212,7 +7223,7 @@
         900,
         315
       );
-      p.limit = Math.min(100, p.limit + 20);
+      p.limit = Math.min(100, p.limit + 10);
     } else if (s.kind === "buffAtk") {
       for (const t of targets) addStatus(t, "atkUp", 3);
       addFx("buff", 420, 365);
@@ -7224,11 +7235,11 @@
       for (const t of targets) {
         addStatus(t, "magUp", 3);
         addStatus(t, "mpRegen", 3);
-        t.mp = Math.min(t.maxMp, t.mp + 18);
+        t.mp = Math.min(t.maxMp, t.mp + 6);
       }
       addFx("buff", 420, 365);
     } else if (s.kind === "heal" || s.kind === "healRegen") {
-      const t = targets[0], amt = Math.round(62 + effective(p, "mag") * s.power), before = t.hp;
+      const t = targets[0], amt = Math.round(8 + effective(p, "mag") * s.power), before = t.hp;
       t.hp = Math.min(t.maxHp, t.hp + amt);
       t.alive = true;
       if (s.kind === "healRegen") addStatus(t, "regen", 3);
@@ -7237,7 +7248,7 @@
       addFx("heal", partyPos(t).x, partyPos(t).y - 70);
       sfx("heal");
     } else if (s.kind === "healAll" || s.kind === "healAllCleanse") {
-      const amt = Math.round(36 + effective(p, "mag") * s.power);
+      const amt = Math.round(6 + effective(p, "mag") * s.power);
       for (const t of targets) {
         const before = t.hp;
         t.hp = Math.min(t.maxHp, t.hp + amt);
@@ -7301,9 +7312,9 @@
     if (a.kind === "basic")
       p.mp = Math.min(
         p.maxMp,
-        p.mp + 5 + (sideState("TUNNELS").complete ? 3 : 0)
+        p.mp + 2 + (sideState("TUNNELS").complete ? 1 : 0)
       );
-    if (a.kind === "guard") p.mp = Math.min(p.maxMp, p.mp + 10);
+    if (a.kind === "guard") p.mp = Math.min(p.maxMp, p.mp + 4);
     if (s?.name === "Follow Through")
       a.targets.forEach((t) => addStatus(t, "vulnerable", 2));
     if (s?.name === "Pinning Shot")
@@ -7316,7 +7327,7 @@
   function resolveEnemyAction(e) {
     if (e.broken) {
       e.broken = false;
-      if (e.boss) e.resolveTurns = 2;
+      e.resolveTurns = 2;
       e.intent = planIntent(e);
       battle.message = e.name + " is broken and loses its action.";
       return;
@@ -8113,23 +8124,40 @@
     if (state.settings.autoMode)
       panelText("Esc \xB7 manual control", 18, 131, 11, UI_GOLD);
   }
+  function rebuildHeroStats(p, training = 0, preserveRatio = false) {
+    const d = PARTY_DEFS[p.name], levels = p.lvl - 1;
+    const oldHp = p.maxHp, oldMp = p.maxMp, hp = p.hp, mp = p.mp;
+    const martial = p.name === "TRUMP" || p.name === "HEGSETH";
+    p.maxHp = d.maxHp + levels * 6 + p.talents.vitality * 6 + training * 8;
+    p.maxMp = d.maxMp + levels * 2 + p.talents.focus * 2 + training * 3;
+    p.atk = d.atk + levels + p.talents.power + training * (martial ? 2 : 1);
+    p.mag = d.mag + levels + p.talents.focus + training * (martial ? 1 : 2);
+    p.def = d.def + Math.floor(p.lvl / 2) + p.talents.vitality;
+    p.luck = d.luck + Math.floor(levels / 3);
+    p.hp = hp > 0 ? clamp(
+      preserveRatio ? Math.round(hp / oldHp * p.maxHp) : hp + p.maxHp - oldHp,
+      1,
+      p.maxHp
+    ) : 0;
+    p.mp = clamp(
+      preserveRatio ? Math.round(mp / oldMp * p.maxMp) : mp + p.maxMp - oldMp,
+      0,
+      p.maxMp
+    );
+    p.alive = p.hp > 0;
+  }
   function buyUpgrade(i) {
     const p = state.party[i], tier = adv().upgrades[p.name] || 0, cost = 140 + tier * 120;
     if (tier >= 2) return notify("TRAINING COMPLETE");
     if (state.cash < cost) return notify("NEED " + cost + " CASH");
     state.cash -= cost;
     adv().upgrades[p.name] = tier + 1;
-    p.maxHp += 30;
-    p.hp = Math.min(p.maxHp, p.hp + 30);
-    p.maxMp += 12;
-    p.mp = Math.min(p.maxMp, p.mp + 12);
-    p.atk += i === 0 || i === 1 ? 7 : 3;
-    p.mag += i === 2 || i === 3 ? 7 : 3;
+    rebuildHeroStats(p, tier + 1);
     notify(p.label + " TRAINING UPGRADED");
     saveGame(false);
   }
   function xpRequired(p) {
-    return p.lvl >= 20 ? 0 : 100 + (p.lvl - 1) * 45;
+    return p.lvl >= 20 ? 0 : 120 + (p.lvl - 1) * 60;
   }
   function grantPartyXP(xp) {
     state.expedition.totalXP += xp;
@@ -8153,17 +8181,7 @@
     if (p.points < 1 || p.talents[t.id] >= t.max) return;
     p.points--;
     p.talents[t.id]++;
-    if (t.id === "power") p.atk += 4;
-    if (t.id === "focus") {
-      p.mag += 4;
-      p.maxMp += 6;
-      p.mp += 6;
-    }
-    if (t.id === "vitality") {
-      p.maxHp += 24;
-      p.hp += 24;
-      p.def += 2;
-    }
+    rebuildHeroStats(p, adv().upgrades[p.name] || 0);
     saveGame(false);
     sfx("save");
     notify(
@@ -8176,15 +8194,7 @@
       p.xp -= xpRequired(p);
       p.lvl++;
       p.points++;
-      p.maxHp += 20;
-      p.maxMp += 7;
-      p.atk += 4;
-      p.def += 2;
-      p.mag += 4;
-      p.luck++;
-      p.hp = p.maxHp;
-      p.mp = p.maxMp;
-      p.alive = true;
+      rebuildHeroStats(p, adv().upgrades[p.name] || 0);
       levels.push(p.lvl);
       log(p.label + " reached level " + p.lvl + " \xB7 +1 talent point");
     }

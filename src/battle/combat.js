@@ -52,7 +52,6 @@ function finishStoryBattle(won, escaped) {
   const reward = battle.reward || {};
   if (won) {
     state.party.forEach((p) => {
-      p.hp = Math.min(p.maxHp, p.hp + Math.round(p.maxHp * 0.12));
       p.mp = Math.min(p.maxMp, p.mp + Math.round(p.maxMp * 0.1));
       p.alive = p.hp > 0;
       p.status = {};
@@ -82,7 +81,7 @@ function startBattleWithIntents(specs, reward = {}) {
   if (!battle) return;
   refreshIntents();
   battle.message = reward.practice
-    ? "PRACTICE · Hit a weakness twice to BREAK an enemy. Defend against charged attacks."
+    ? "PRACTICE · Hit a weakness twice to BREAK an enemy. After recovering, it resists BREAK for one round."
     : `${reward.label || "ENCOUNTER"} · Read enemy intentions before choosing.`;
   battle.autoTimer = 0;
 }
@@ -234,7 +233,7 @@ function winBattle() {
   const gains = practice ? [] : grantPartyXP(xp);
   if (!practice) {
     adv().battles++;
-    state.party.forEach((p) => (p.limit = Math.min(100, p.limit + 18)));
+    state.party.forEach((p) => (p.limit = Math.min(100, p.limit + 6)));
   }
   if (r.worldMob) state.defeated[r.worldMob] = true;
   let relic = null;

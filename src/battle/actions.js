@@ -63,7 +63,7 @@ function resolveCorePlayerAction(a) {
           ? damageHybrid(p, a.target, 1)
           : damagePhysical(p, a.target, 1, 0);
     applyDamage(a.target, res);
-    p.limit = Math.min(100, p.limit + 20);
+    p.limit = Math.min(100, p.limit + 10);
     battle.message = `${p.label} attacks ${a.target.name}${res.crit ? " — CRITICAL" : ""}.`;
     addFx(
       p.name === "HEGSETH"
@@ -103,7 +103,7 @@ function resolveCorePlayerAction(a) {
       enemyPos(t).x,
       enemyPos(t).y - 70,
     );
-    p.limit = Math.min(100, p.limit + 18);
+    p.limit = Math.min(100, p.limit + 10);
   } else if (["physicalAll", "magicAll", "hybridAll"].includes(s.kind)) {
     for (const t of targets) {
       const res =
@@ -125,7 +125,7 @@ function resolveCorePlayerAction(a) {
       900,
       315,
     );
-    p.limit = Math.min(100, p.limit + 20);
+    p.limit = Math.min(100, p.limit + 10);
   } else if (s.kind === "buffAtk") {
     for (const t of targets) addStatus(t, "atkUp", 3);
     addFx("buff", 420, 365);
@@ -137,12 +137,12 @@ function resolveCorePlayerAction(a) {
     for (const t of targets) {
       addStatus(t, "magUp", 3);
       addStatus(t, "mpRegen", 3);
-      t.mp = Math.min(t.maxMp, t.mp + 18);
+      t.mp = Math.min(t.maxMp, t.mp + 6);
     }
     addFx("buff", 420, 365);
   } else if (s.kind === "heal" || s.kind === "healRegen") {
     const t = targets[0],
-      amt = Math.round(62 + effective(p, "mag") * s.power),
+      amt = Math.round(8 + effective(p, "mag") * s.power),
       before = t.hp;
     t.hp = Math.min(t.maxHp, t.hp + amt);
     t.alive = true;
@@ -152,7 +152,7 @@ function resolveCorePlayerAction(a) {
     addFx("heal", partyPos(t).x, partyPos(t).y - 70);
     sfx("heal");
   } else if (s.kind === "healAll" || s.kind === "healAllCleanse") {
-    const amt = Math.round(36 + effective(p, "mag") * s.power);
+    const amt = Math.round(6 + effective(p, "mag") * s.power);
     for (const t of targets) {
       const before = t.hp;
       t.hp = Math.min(t.maxHp, t.hp + amt);
@@ -219,9 +219,9 @@ function resolvePlayerAction(a) {
   if (a.kind === "basic")
     p.mp = Math.min(
       p.maxMp,
-      p.mp + 5 + (sideState("TUNNELS").complete ? 3 : 0),
+      p.mp + 2 + (sideState("TUNNELS").complete ? 1 : 0),
     );
-  if (a.kind === "guard") p.mp = Math.min(p.maxMp, p.mp + 10);
+  if (a.kind === "guard") p.mp = Math.min(p.maxMp, p.mp + 4);
   if (s?.name === "Follow Through")
     a.targets.forEach((t) => addStatus(t, "vulnerable", 2));
   if (s?.name === "Pinning Shot")
@@ -235,7 +235,7 @@ function resolvePlayerAction(a) {
 function resolveEnemyAction(e) {
   if (e.broken) {
     e.broken = false;
-    if (e.boss) e.resolveTurns = 2;
+    e.resolveTurns = 2;
     e.intent = planIntent(e);
     battle.message = e.name + " is broken and loses its action.";
     return;
