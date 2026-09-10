@@ -114,25 +114,7 @@ function beginIntroduction() {
   mode = "cutscene";
   cutscene = {
     i: 0,
-    pages: [
-      {
-        speaker: "NARRATOR",
-        text: "The Civic Relay goes live tonight. Its public archive is supposed to carry every word of the final hearing. Someone has queued a different version.",
-      },
-      {
-        speaker: "NARRATOR",
-        text: "Then the relay key disappears inside a ceremonial megaphone. The trail leads from a rally on the Mall to the locked doors of the Capitol.",
-      },
-      {
-        speaker: "TRUMP",
-        portrait: "TRUMP",
-        text: "A missing megaphone. In this town. Nobody is going to believe that. Find the cart, get the key, and keep every original.",
-      },
-      {
-        speaker: "NARRATOR",
-        text: "Start with the Protester on the Mall. Follow the gold objective marker. Hold Shift to sprint; use the rest points to recover and save. The training post offers an optional practice battle.",
-      },
-    ],
+    pages: STORY_INTRO.map((page) => ({ ...page })),
     onDone: () => {
       mode = "world";
       setStage(0, true);
@@ -457,8 +439,6 @@ function startNewGame() {
   walkPath = [];
   walkTarget = null;
   beginIntroduction();
-  cutscene.pages[3].text =
-    "Meet the rally witness on the Mall. Click to walk, or use WASD. The district atlas connects twelve areas; the garden offers your first side mission. Battles earn XP. P opens talents, and B opens auto-battle options.";
 }
 
 function migrateLegacy(data) {

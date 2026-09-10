@@ -10,17 +10,23 @@ function drawWorld() {
       : [0, 0];
   ctx.translate(-camera.x + shake[0], -camera.y + shake[1]);
   drawMapBase(state.zone);
-  drawMapObjects(state.zone);
   drawWorldEntities();
+  drawMapObjects(state.zone);
   ctx.restore();
   if (mode === "world" && !overlay) drawWorldHUD();
 }
 
 function drawWorldEntities() {
-  const actors = npcList().map((n) => ({
-    y: n.y,
-    draw: () => drawNPC(n),
-  }));
+  const actors = sceneryEntities(state.zone).concat(
+    npcList().map((n) => ({
+      y: n.y,
+      draw: () => drawNPC(n),
+    })),
+  );
+  for (const it of interactables()) {
+    if (!it.hidden?.())
+      actors.push({ y: it.y, draw: () => drawFieldObject(it) });
+  }
   for (const mob of WORLD_ENCOUNTERS[state.zone] || []) {
     if (state.defeated[mobKey(state.zone, mob.id)]) continue;
     const mm = worldMobMotion[mobKey(state.zone, mob.id)] || mob;

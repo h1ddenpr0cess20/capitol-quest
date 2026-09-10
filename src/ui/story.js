@@ -51,7 +51,10 @@ function drawDialogue() {
 }
 
 function drawStoryJournal() {
-  modalFrame("CASE JOURNAL", "The record, the route, and what remains.");
+  modalFrame(
+    "CASE JOURNAL",
+    "The directives, the receipts, and who signed them.",
+  );
   const q = MAIN_STAGES[state.mainStage];
   box(58, 168, 715, 157, "#1c2c43", "#688199");
   pill("CHAPTER " + state.chapter, 78, 184, "#95bedc");
@@ -107,10 +110,10 @@ function drawStoryJournal() {
 function drawEnding() {
   drawHeadingBackdrop();
   box(45, 40, 1190, 640, "#0c172bf5", "#698198");
-  topLabel("THE COMPLETE RECORD", "The final decision");
+  topLabel("THE VICTORY ENGINE", "The final decision");
   if (ending.step === "choice") {
     wrapped(
-      "The source trail is verified. The hearing is over. Decide how the complete record reaches the public.",
+      "The Engine followed your instructions. The costs are real, the signatures are yours, and the launch is live. What do you do?",
       58,
       170,
       1130,
@@ -120,12 +123,12 @@ function drawEnding() {
     );
     [
       [
-        "BROADCAST NOW",
-        "Release the complete source package immediately, with the corrections attached.",
+        "PUBLISH & ROLL BACK",
+        "Publish your directives and the receipts. Shut down the Engine and reopen public services.",
       ],
       [
-        "FILE WITH THE HEARING",
-        "Enter the package into the hearing record before the public relay opens.",
+        "REBRAND & RELAUNCH",
+        "Keep the Engine, rename the costs, and present the same system as a fresh victory.",
       ],
     ].forEach((o, i) =>
       uiButton(

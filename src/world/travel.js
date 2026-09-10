@@ -85,14 +85,7 @@ function getObjective() {
   if (side && !sideState(z).complete) {
     const s = sideState(z),
       n = [0, 1, 2].find((i) => !s.nodes.includes(i)),
-      pos =
-        n === undefined
-          ? [960, 390]
-          : [
-              [300, 490],
-              [960, 600],
-              [1610, 490],
-            ][n];
+      pos = n === undefined ? DISTRICTS[z].boss : DISTRICTS[z].nodes[n];
     return {
       zone: z,
       x: pos[0],
@@ -106,13 +99,13 @@ function getObjective() {
   let target;
   switch (state.mainStage) {
     case 0:
-      target = ["MALL", "protester", "Speak to the rally witness"];
+      target = ["MALL", "protester", "Hear the unapproved feedback"];
       break;
     case 1:
       target = [
         "MALL",
         state.flags.veteranClue ? "teacher" : "veteran",
-        "Interview both service-route witnesses",
+        "Follow the shutdown receipts",
       ];
       break;
     case 2: {
@@ -121,13 +114,13 @@ function getObjective() {
         "GROUNDS",
         i === undefined ? "megaphone" : "breaker" + i,
         i === undefined
-          ? "Recover the relay key"
+          ? "Recover your own override key"
           : "Restore relay switches (" + adv().breakers.length + "/3)",
       ];
       break;
     }
     case 3:
-      target = ["ROTUNDA", "sentinel", "Clear the Sentinel checkpoint"];
+      target = ["ROTUNDA", "sentinel", "Pass the loyalty test"];
       break;
     case 4: {
       const i = [0, 1, 2].find((i) => !adv().catalog.includes(i));
@@ -135,7 +128,7 @@ function getObjective() {
         "ARCHIVE",
         i === undefined ? "ledger" : "catalog" + i,
         i === undefined
-          ? "Unlock the ledger vault"
+          ? "Read the unadjusted invoices"
           : "Find catalog cards (" + adv().catalog.length + "/3)",
       ];
       break;
@@ -152,15 +145,11 @@ function getObjective() {
           ? "Tune the relay · 2 / 4 / 1"
           : !state.flags.fixer
             ? "Defeat the Media Fixer"
-            : "Recover the source transcript",
+            : "Recover the uncropped directive",
       ];
       break;
     case 6:
-      target = [
-        "PRESS",
-        "factchecker",
-        "Verify both originals with the Fact Checker",
-      ];
+      target = ["PRESS", "factchecker", "Find out whose signatures are on it"];
       break;
     case 7: {
       const i = [0, 1].find((i) => !adv().briefs.includes(i));
@@ -168,19 +157,19 @@ function getObjective() {
         "HEARING",
         i === undefined ? "chair" : "brief" + i,
         i === undefined
-          ? "Challenge the Committee Chair"
+          ? "Interrupt the mandatory celebration"
           : "File both evidence packages",
       ];
       break;
     }
     case 8:
-      target = ["HEARING", "record", "Choose the future of the public record"];
+      target = ["HEARING", "record", "Roll back the Engine or double down"];
       break;
     default:
       return {
         zone: "HEARING",
         x: 260,
-        y: 370,
+        y: 420,
         label: "Explore the Federal Vault and finish side missions",
       };
   }

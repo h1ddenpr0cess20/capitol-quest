@@ -16,3 +16,9 @@ All 125 frames were reviewed: 54 character frames (walking, actions, enemies and
 Character masks live in `scripts/actor-masks.mjs`. A single exterior pass removes neutral fringe pixels against darker outlines; reviewed regions handle enclosed background islands. The tree's shaded canopy, pale prop interiors, and retained character artwork are protected. No frame rectangles, foot anchors, facing rules or retained pixel colors change.
 
 Masks are bundled into the game. Applying them requires neither pixel readback nor additional network requests, retaining local-file support. To adjust a mask, edit the generator and run `npm run build` and `npm test`. Run `npm run review:sprites` to render every frame before/after on contrasting backgrounds in `.tmp/review/`. Its inventory includes unchanged frames so an entire category cannot silently disappear from review. Check these pages after changing color thresholds; pixel invariants alone cannot judge a silhouette.
+
+## District scenery and rifle animation
+
+The district rebuild retains the original character PNGs and all source atlases. Furniture, columns, plants, flags, doors, and trees reuse their cleaned source frames at consistent scales. Architectural facades, shelves, benches, machines, platforms, and small field markers are code-native pixel art in `src/rendering/scenery.js`; no external asset pack is required. Cached object canvases have their own vertical rise while the district rectangles describe their ground footprint.
+
+Hegseth's firing artwork is unchanged. Its baked-in flash now appears only during the firing beat, and the separate tracer uses the firing frame's barrel position and the actor's current transform. Support actions do not select the firing frame.

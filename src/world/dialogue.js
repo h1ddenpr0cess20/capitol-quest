@@ -55,8 +55,8 @@ function startDialogue(n) {
   if (id === "protester") {
     if (state.mainStage === 0) {
       lines = [
-        "The megaphone vanished when the service cart rolled east.",
-        "Do not trust the loudest version of the story. Ask the Veteran and the Teacher; both saw different parts of the route.",
+        "The scoreboard says we have never been better off. The clinic is closed, my bus is cancelled, and it just labelled me a hostile encounter. Does the scoreboard need anything from the shop?",
+        "Your launch crew put the override key in the golden megaphone, then sold the cart as surplus. The Veteran saw where it went. The Teacher kept the receipt. Try listening before the combat music starts.",
       ];
       onDone = () => {
         setStage(1);
@@ -64,12 +64,12 @@ function startDialogue(n) {
       };
     } else
       lines = [
-        "The rally can wait. Bring back the authentication key and the complete record.",
+        "You can clear every encounter on this lawn. The complaints will still be true tomorrow. Bring back something more useful than a victory animation.",
       ];
   } else if (id === "veteran") {
     lines = [
-      "I saw the cart leave by the south service lane.",
-      "The megaphone was still on it when it passed the fountain. The driver stopped near the Capitol maintenance yard.",
+      "The maintenance crew was dismissed at nine. At nine-oh-five, a contractor offered to do the same work for three times the price. The cart took the south service lane.",
+      "C-4 yard, beside the Capitol. The megaphone is there. You will need to restore all three relay switches. Turns out electricity was not a redundant position.",
     ];
     onDone = () => {
       state.flags.veteranClue = true;
@@ -77,8 +77,8 @@ function startDialogue(n) {
     };
   } else if (id === "teacher") {
     lines = [
-      "A student photographed the cart tag before it left: maintenance route C-4.",
-      "That route ends at the Capitol service yard. The route number and the Veteran's sighting should be enough to find it.",
+      "The lesson plan says tariffs are paid by a country. The invoice says our supplier paid one, then charged us. I have brought a calculator to this patriotic disagreement.",
+      "The cart receipt says C-4, Capitol service yard. Follow the invoices from there to the archive. Numbers remain stubborn even when you put flags around them.",
     ];
     onDone = () => {
       state.flags.teacherClue = true;
@@ -86,13 +86,13 @@ function startDialogue(n) {
     };
   } else if (id === "student") {
     lines = [
-      "I sent the route photo to the public archive before my battery died.",
-      "If the archive copy and the service log disagree, keep both. Differences are evidence too.",
+      "The Engine made a game where every obstacle is a person with a question. You are the heroes, obviously. It says so on the character select screen.",
+      "I uploaded the cart photo to the archive. If it vanishes, check the folder marked “efficiency”. That is where they put things they would rather not explain.",
     ];
   } else if (id === "nurse") {
     lines = [
-      "Take a breather. I can get everyone back on their feet.",
-      "Your HP and MP are restored. Medkits can revive a fallen ally in battle; open Party & Supplies to use items on the road.",
+      "The Engine calls my clinic inefficient because sick people keep coming back. Its proposed solution was to stop letting them in.",
+      "I restored your HP and MP. This is called care. You may announce it as a personal victory if that gets the clinic reopened. Carry medkits for fallen allies.",
     ];
     onDone = () => {
       state.party.forEach((p) => {
@@ -109,65 +109,65 @@ function startDialogue(n) {
   } else if (id === "gateOfficer") {
     lines = state.flags.megaphone
       ? [
-          "The key in that megaphone matches the visitor relay.",
-          "The interior checkpoint is still locked by the Sentinel. Use the north doors.",
+          "Your own override key. Impressive work recovering property your own office sold.",
+          "North doors to the rotunda. The Sentinel only admits loyal people. It has been refusing its own supervisors all afternoon.",
         ]
       : [
-          "Visitor access is open, but the relay key is missing.",
-          "Check the maintenance yard before entering.",
+          "The access system is completely secure. Nobody can use it. Security metrics have never looked better.",
+          "Power the three relay switches, then open the C-4 service cart for the override key. Our technician could do it, but his post was abolished.",
         ];
   } else if (id === "scientist") {
     lines = [
-      "The bad record is not random corruption. The edits follow a chain.",
-      "If you find the Red Ledger, compare its hand-off codes with the broadcast transcript.",
+      "The system was told that bad news was sabotage. It did not become intelligent. It became a very fast press secretary.",
+      "The Red Ledger records the costs. The broadcast transcript records the instructions to hide them. Compare those before somebody blames a mysterious outside agitator.",
     ];
   } else if (id === "civilian")
     lines = [
-      "The east lawn is quieter. That makes it easier to spot the maintenance cart.",
+      "I came here to renew a permit. I have now been redirected through four victory experiences. Is there still a counter with a person at it?",
     ];
   else if (id === "clerk")
     lines = [
-      "The Sentinel locked the archive passage when the relay key disappeared.",
-      "Defeat it and the east passage should reopen.",
+      "The Sentinel equates loyalty with never correcting a superior. Its superior ordered it to correct the lock. We have been here all day.",
+      "The checkpoint is north. Once you get through, the archive passage is east. Please retain the audit log; it is the only employee that was not laid off.",
     ];
   else if (id === "guard2")
     lines = [
-      "The rotunda checkpoint is north. The archive passage is east of the dais.",
+      "North checkpoint, east archive passage. We used to put that on a sign. Now the sign requires a communications strategy.",
     ];
   else if (id === "archivist") {
     lines = state.flags.sentinel
       ? [
-          "The Red Ledger is in the secured reading room.",
-          "Take the original. The broadcast center will need its chain-of-custody stamps.",
+          "Three catalog cards open the ledger vault: intake 04, transfer 17, release 29. Apparently the people purging records forgot that librarians invented retrieval.",
+          "The Red Ledger has actual invoices: tariff charges, cancelled services, and replacement contractors. The broadcast dashboard displays the same entries under “historic savings”.",
         ]
       : [
-          "The archive passage is sealed until the Capitol checkpoint is restored.",
+          "Clear the rotunda checkpoint first. I would lend you a book on institutional failure, but the system has reclassified it as fiction.",
         ];
   } else if (id === "journalist")
     lines = [
-      "A clipped quote can be true and still hide the meaning of the full exchange.",
-      "The source transcript at the broadcast center is the only clean comparison copy.",
+      "The launch film has fighter jets, soaring music, and no shot of the people waiting for the bus. Apparently that footage tested poorly.",
+      "Keep the ledger. In the broadcast center, get the full source transcript. You cannot fact-check a montage.",
     ];
   else if (id === "organizer")
     lines = [
-      "People disagree about the conclusion. They should still be able to inspect the same record.",
+      "Winning an argument with me will not repair the pump. You could try repairing the pump. I realize this is an experimental approach.",
     ];
   else if (id === "editor") {
     lines = state.flags.fixer
       ? [
-          "The Fixer is out of the control room.",
-          "The source locker is unlocked now. Take the original transcript to the Fact Checker.",
+          "The Fixer is off the console. For the first time today, the unedited feed and the clock are showing the same minute.",
+          "The source locker is open. Take its full transcript and the Red Ledger to the Fact Checker. Yes, we still have one. Freelance.",
         ]
       : [
-          "Someone in the control room keeps replacing the queued transcript with a cut version.",
-          "Stop the Fixer first; then I can unlock the source copy.",
+          "The Fixer has cut every failure from the victory broadcast. It is now eleven seconds long, including six seconds of eagle.",
+          "Tune the center relay to 2 / 4 / 1, then confront the Fixer in the east control room. The full directive is in the west source locker.",
         ];
   } else if (id === "factchecker") {
     if (state.flags.ledger && state.flags.transcript) {
       lines = [
-        "The ledger and transcript match at every verified hand-off except one: the hearing chamber queue.",
-        "That is enough to establish the chain. I am signing the verification card now.",
-        "Take the complete record to the hearing.",
+        "The signatures match. These were your instructions. Not a hacker. Not a rogue intern. The Engine did exactly what the administration rewarded it for doing.",
+        "The ledger shows who paid. The transcript shows who said to call it winning. I have verified both; my signature does not make your conclusion for you.",
+        "Take the two exhibits to the hearing desks. The Chair is preparing a ceremony to certify success. You appear to be bringing a different presentation.",
       ];
       onDone = () => {
         state.flags.factChecked = true;
@@ -175,23 +175,25 @@ function startDialogue(n) {
       };
     } else
       lines = [
-        "I need both originals: the Red Ledger and the source transcript.",
-        "Without both, we can spot a mismatch but cannot prove the chain.",
+        "Bring the Red Ledger from the archive and the full source transcript from this building. I need the invoices and the instruction, not two screenshots of the same post.",
+        "No, a high score is not a source. Neither is the word “official” in a gold font.",
       ];
   } else if (id === "producer")
     lines = [
-      "The hearing feed is on the upper channel. Once the Fact Checker signs off, the chamber door will open.",
+      "The hearing is billed as an unprecedented celebration of unprecedented results. Once the Fact Checker signs off, you can enter. I have quietly prepared a second lower-third: “Developing Story”.",
     ];
   else if (id === "marshal")
     lines = state.flags.factChecked
       ? [
-          "Verification card accepted. The hearing is live.",
-          "The Committee Chair is at the dais.",
+          "Verified exhibits accepted. File the source originals at the west desk and the verification card at the east desk. The Chair is at the dais.",
+          "The applause track is automatic. Do not mistake it for agreement.",
         ]
-      : ["The chamber is closed until the record is verified."];
+      : [
+          "Get both originals verified at the broadcast center. We can stage a ceremony without evidence. We cannot hold a hearing without it.",
+        ];
   else if (id === "observer")
     lines = [
-      "Whatever you decide after the hearing, leave the source trail intact.",
+      "If you shut it down, people will know what you ordered. If you leave it running, people will keep living with it. There is no button that changes both of those facts.",
     ];
   dialogue = {
     speaker: n.name,
@@ -224,15 +226,29 @@ function startEnding() {
 }
 
 function endingPages() {
+  const m = state.expedition.missions;
+  const repairs = [
+    m.GARDEN?.complete
+      ? "The garden's protected samples survive the rebranding."
+      : "The garden's samples are still waiting for someone to value the results over the slogan.",
+    m.TUNNELS?.complete
+      ? "The relays you restored keep the clinic's lights on."
+      : "The service relays still need people who know how to fix them.",
+    m.STATION?.complete
+      ? "The passenger manifests put the missing people back on the list."
+      : "At Union Station, the people left off the scoreboard are still waiting.",
+  ].join(" ");
   if (state.endingChoice === 0)
     return [
-      "The complete source package goes live with the ledger, transcript, verification card, and every correction attached.",
-      "The first hour is chaotic. People argue about the meaning, but they are finally arguing from the same record.",
-      "The Civic Relay stays online as an open archive. The team leaves the chamber with one rule intact: source first, conclusion second.",
+      "The receipts go live beside the original directives. The signatures are yours. The launch screen drops from a billion points to no score at all. The lights stay on. For once, that is the result being measured.",
+      "Trump calls the rollback the most successful shutdown of a thing he personally invented. Hegseth asks for a maintenance roster. Lutnick discovers a cost cannot be negotiated out of existence. RFK requests the sample data. Nobody gets a redemption parade.",
+      repairs,
+      "The victory arcade closes. The public counter reopens, understaffed and embarrassingly ordinary. People arrive with problems. The clerk asks what they need. It is a small ending, and it involves actual work.",
     ];
   return [
-    "The complete source package is entered into the public hearing record before the broadcast begins.",
-    "The delay frustrates the crowd, but the chain of custody survives every challenge placed on it.",
-    "When the broadcast finally opens, it carries the hearing record beside the source. The team leaves with one rule intact: preserve the trail.",
+    "You retain the Engine and rename it VICTORY PLUS. The invoices move to a submenu. The tariff costs become Freedom Contributions; cancelled services become Premium Self-Reliance. The launch trailer wins its own award.",
+    "The cabinet appears on the title screen. The scoreboard breaks another record. Outside, the same people wait by the same locked doors. The machine did not take over the government. The government renewed its subscription.",
+    repairs,
+    "A student posts the ledger you carried across town. The launch crew labels it a new enemy encounter. Somewhere under the applause track, the combat music starts again. You can still explore the city. It has not stopped needing help.",
   ];
 }

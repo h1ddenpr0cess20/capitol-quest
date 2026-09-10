@@ -621,15 +621,11 @@ function interactables() {
       }
     }
     for (const [child, m] of Object.entries(SIDE_MISSIONS))
-      if (m.parent === z) arr.push(departure(z, child, 260, 370));
+      if (m.parent === z) arr.push(departure(z, child, 260, 420));
   } else {
     const s = sideState(z);
     arr.push(departure(z, side.parent, 140, 1040));
-    const spots = [
-      [300, 490],
-      [960, 600],
-      [1610, 490],
-    ];
+    const spots = d.nodes;
     spots.forEach(([x, y], i) =>
       arr.push({
         id: "mission_" + i,
@@ -653,8 +649,8 @@ function interactables() {
     );
     arr.push({
       id: "mission_boss",
-      x: 960,
-      y: 390,
+      x: d.boss[0],
+      y: d.boss[1],
       label: s.complete ? "Mission complete" : ENEMY_DEFS[side.boss].label,
       hidden: () => s.complete,
       boss: true,
@@ -695,8 +691,8 @@ function interactables() {
     });
     arr.push({
       id: "cache",
-      x: 1700,
-      y: 940,
+      x: d.cache?.[0] || 1700,
+      y: d.cache?.[1] || 940,
       label: "Supply cache",
       icon: "FILE",
       hidden: () => adv().chests[z],

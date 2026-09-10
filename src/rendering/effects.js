@@ -92,32 +92,43 @@ function drawBattleEffects() {
     a?.actor &&
     a.t > 0.12 &&
     a.t < 0.36 &&
-    attackType(a) !== "none" &&
+    ["physical", "magic", "hybrid"].includes(attackType(a)) &&
     a.actor.name !== "TRUMP"
   ) {
     const targets = (a.target ? [a.target] : a.targets || []).filter((e) =>
       battle.enemies.includes(e),
     );
     for (const target of targets) {
-      const from = partyPos(a.actor),
-        to = enemyPos(target),
-        t = clamp((a.t - 0.12) / 0.24, 0, 1),
-        key =
-          a.actor.name === "HEGSETH"
-            ? "gun"
-            : a.actor.name === "LUTNICK"
-              ? "money"
-              : "heal",
-        frame = a.actor.name === "HEGSETH" ? 1 : 2;
-      const r = EXTRA[key][frame];
-      drawExtra(
-        key,
-        lerp(from.x + 35, to.x, t) - r[2] / 2,
-        lerp(from.y - 72, to.y - 64, t) - r[3] / 2,
-        r[2] * 1.3,
-        r[3] * 1.3,
-        frame,
-      );
+      const pose = battlePartyPose(a.actor),
+        to = enemyPos(target);
+      if (a.actor.name === "HEGSETH") {
+        if (!pose.firing || a.t >= 0.36) continue;
+        const t = clamp((a.t - 0.21) / 0.15, 0, 1);
+        const x = lerp(pose.muzzle.x, to.x, t),
+          y = lerp(pose.muzzle.y, to.y - 64, t);
+        // A short tracer, not a second travelling muzzle-flash sprite.
+        ctx.strokeStyle = "#ffdf93";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(x - 12, y);
+        ctx.lineTo(x + 4, y);
+        ctx.stroke();
+      } else {
+        const from = partyPos(a.actor),
+          t = clamp((a.t - 0.12) / 0.24, 0, 1);
+        const key = a.actor.name === "LUTNICK" ? "money" : "heal",
+          frame = 2,
+          r = EXTRA[key][frame],
+          sc = 1.3;
+        drawExtra(
+          key,
+          lerp(from.x + 35, to.x, t) - (r[2] * sc) / 2,
+          lerp(from.y - 72, to.y - 64, t) - (r[3] * sc) / 2,
+          r[2] * sc,
+          r[3] * sc,
+          frame,
+        );
+      }
     }
   }
   drawEffectParticles();

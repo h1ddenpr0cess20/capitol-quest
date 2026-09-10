@@ -67,7 +67,7 @@ function resolveCorePlayerAction(a) {
     battle.message = `${p.label} attacks ${a.target.name}${res.crit ? " — CRITICAL" : ""}.`;
     addFx(
       p.name === "HEGSETH"
-        ? "gun"
+        ? "hit"
         : p.name === "LUTNICK"
           ? "money"
           : p.name === "RFK"
@@ -93,7 +93,7 @@ function resolveCorePlayerAction(a) {
     addFx(
       s.kind === "physical"
         ? p.name === "HEGSETH"
-          ? "gun"
+          ? "hit"
           : p.name === "LUTNICK"
             ? "money"
             : "hit"

@@ -64,7 +64,10 @@ function updateMobs(dt) {
 }
 
 function npcList() {
-  return NPCS[state.zone] || [];
+  return (NPCS[state.zone] || []).map((n) => {
+    const p = LOCATIONS[state.zone]?.[n.id];
+    return p ? { ...n, x: p[0], y: p[1] } : n;
+  });
 }
 
 function currentMap() {

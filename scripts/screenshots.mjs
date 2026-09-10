@@ -23,3 +23,61 @@ game.getBattle().phase = "input";
 game.draw();
 await writeFile("screenshots/battle.png", canvas.toBuffer("image/png"));
 console.log("Updated exploration, atlas and battle screenshots.");
+
+// District contact sheet uses the exact cached world geometry, including scenery.
+const { createCanvas } = await import("@napi-rs/canvas");
+const contact = createCanvas(1920, 1872),
+  cg = contact.getContext("2d");
+cg.fillStyle = "#142b34";
+cg.fillRect(0, 0, contact.width, contact.height);
+let n = 0;
+for (const [zone, d] of Object.entries(game.DISTRICTS)) {
+  const x = (n % 3) * 640,
+    y = Math.floor(n / 3) * 468;
+  cg.fillStyle = "#e1d3ae";
+  cg.font = "700 16px QuestMono";
+  cg.fillText(d.name, x + 18, y + 24);
+  cg.drawImage(game.districtScene(zone, true), x + 8, y + 36, 624, 416);
+  n++;
+}
+await writeFile("screenshots/districts.png", contact.toBuffer("image/png"));
+// Capture the firing sequence from the same pose helper used during real combat.
+const p = game.state.party[1],
+  b = game.getBattle(),
+  pos = game.partyPos(p);
+b.phase = "action";
+b.action = {
+  kind: "basic",
+  actor: p,
+  target: b.enemies[0],
+  pose: 2,
+  duration: 0.82,
+  t: 0,
+};
+const cc = canvas.getContext("2d");
+cc.fillStyle = "#2d444a";
+cc.fillRect(0, 0, 1280, 720);
+for (const [i, t] of [0, 0.14, 0.27, 0.46, 0.72].entries()) {
+  b.action.t = t;
+  const pose = game.battlePartyPose(p);
+  game.drawActorFrame(
+    pose.meta,
+    100 + i * 245 + pose.x - pos.x,
+    210,
+    pose.scale,
+  );
+  cc.font = "700 16px QuestMono";
+  cc.fillStyle = "#e3d4aa";
+  cc.textAlign = "center";
+  cc.fillText(
+    ["READY", "RAISE", "FIRE", "RECOVER", "READY"][i],
+    110 + i * 245,
+    250,
+  );
+}
+const strip = createCanvas(1280, 280);
+strip.getContext("2d").drawImage(canvas, 0, 0);
+await writeFile("screenshots/hegseth-firing.png", strip.toBuffer("image/png"));
+console.log(
+  "Updated twelve-district contact sheet and Hegseth firing sequence.",
+);

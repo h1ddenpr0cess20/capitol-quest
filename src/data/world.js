@@ -27,10 +27,11 @@ const WORLD_ENCOUNTERS = Object.fromEntries(
   Object.entries(DISTRICTS).map(([zone, d]) => [
     zone,
     (
+      d.mobs ||
       MOB_LAYOUT[zone] || [
-        [310, 730, "STUDENT"],
-        [960, 740, "SCIENTIST"],
-        [1610, 730, "UNION"],
+        [d.nodes[0][0], d.nodes[0][1] + 100, "STUDENT"],
+        [d.nodes[1][0] + 65, d.nodes[1][1], "SCIENTIST"],
+        [d.nodes[2][0], d.nodes[2][1] + 110, "UNION"],
       ]
     ).map(([x, y, type], i) => ({
       id: "v6_" + i,

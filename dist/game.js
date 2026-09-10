@@ -94,93 +94,115 @@
   const SAVE_KEY = "capitol_quest_v6";
   const PREVIOUS_SAVE_KEY = "capitol_quest_v5";
   const LEGACY_KEY = "capitol_quest_rebuilt_v2";
+  const STORY_INTRO = [
+    {
+      speaker: "NARRATOR",
+      text: "Tonight, the administration launches the VICTORY ENGINE: a government arcade that turns every policy into a high score. At rehearsal, the score reaches a billion. Outside, the lights go out. This is a fictional satire."
+    },
+    {
+      speaker: "TRUMP",
+      portrait: "TRUMP",
+      text: "The machine says everyone is winning. The people outside say they are not. Obviously one of them needs an update. Hegseth, Lutnick, Bobby: find the problem before the live demonstration."
+    },
+    {
+      speaker: "NARRATOR",
+      text: "The Engine has classified complaints as enemy encounters, deleted maintenance as waste, and locked its own override key inside a promotional megaphone. Your cabinet must cross the city it has optimized."
+    },
+    {
+      speaker: "HEGSETH",
+      portrait: "HEGSETH",
+      text: "We have a rifle, a broker, a wellness plan, and no maintenance staff. Start with the rally witness on the Mall. WASD or click to move; E to talk. The garden is optional. Rest points recover the party and save."
+    }
+  ];
   const BOSS_SCENES = {
     SENTINEL: [
       {
-        speaker: "NARRATOR",
-        text: "The relay key clears the checkpoint. The Sentinel log shows the same hand-off code repeated beside an archive transfer: RED-17."
+        speaker: "SENTINEL / AUDIT LOG",
+        text: "ACCESS TEST: demonstrate loyalty. Loyalty means compliance. Compliance means refusing all unauthorized corrections. Override accepted only after force was applied. Model confidence: excellent."
       },
       {
         speaker: "HEGSETH",
         portrait: "HEGSETH",
-        text: "That gives us a route, not a conclusion. We follow RED-17 to the original ledger and compare every hand-off."
-      },
-      {
-        speaker: "NARRATOR",
-        text: "The east passage opens. The Public Archive is now reachable."
-      }
-    ],
-    FIXER: [
-      {
-        speaker: "NARRATOR",
-        text: "The control room comes back online. Its queue contains a clipped broadcast copy, but the source locker still holds the untouched transcript."
-      },
-      {
-        speaker: "LUTNICK",
-        portrait: "LUTNICK",
-        text: "The ledger tells us who handled the record. The transcript tells us what changed. We need both verified before the hearing."
-      },
-      {
-        speaker: "NARRATOR",
-        text: "Recover the source transcript, then take both originals to the Fact Checker."
-      }
-    ],
-    CHAIR: [
-      {
-        speaker: "NARRATOR",
-        text: "The gavel falls. The verified chain of custody is entered into the hearing record without breaking the source trail."
+        text: "We ordered a system that never backs down. It followed the order. Apparently \u201Cchain of command\u201D becomes a circle if nobody is allowed to say the plan is bad."
       },
       {
         speaker: "TRUMP",
         portrait: "TRUMP",
-        text: "We have the complete record. Now the last choice is procedure: publish it immediately, or file it with the hearing first."
+        text: "Fine. Find out who gave it those instructions. Start with the ledger in the archive. And if it was us, find the earlier draft."
+      }
+    ],
+    FIXER: [
+      {
+        speaker: "CONTROL ROOM / SOURCE TRANSCRIPT",
+        text: "DIRECTIVE: treat every cost as an investment, every cancellation as efficiency, and every complaint as hostile interference. Do not display the underlying figures during the victory presentation."
+      },
+      {
+        speaker: "LUTNICK",
+        portrait: "LUTNICK",
+        text: "The invoice went up. The dashboard called it revenue. The shop paid it and called it a bill. I see the accounting problem: we let three people name the same number."
+      },
+      {
+        speaker: "RFK",
+        portrait: "RFK",
+        text: "The broadcast says the city is healthier because it stopped collecting sick reports. Even I would like to see the control group. Take the uncropped transcript to the Fact Checker."
+      }
+    ],
+    CHAIR: [
+      {
+        speaker: "COMMITTEE CHAIR",
+        text: "The Engine was never broken. You asked for a government that could only win. We removed every way to report a loss. The hearing was supposed to congratulate you, not investigate the specification."
+      },
+      {
+        speaker: "TRUMP",
+        portrait: "TRUMP",
+        text: "So it is our machine, our instructions, and our signatures. Tremendous chain of custody. Is there any chance the chain belongs to the previous administration?"
       },
       {
         speaker: "NARRATOR",
-        text: "Approach the Public Record at the center aisle to choose the ending."
+        text: "No hidden mastermind appears. The public terminal offers two real choices: publish the receipts and roll back the Engine, or keep the system and relaunch it under a better name. Approach the center aisle."
       }
     ]
   };
   const MAIN_STAGES = [
     {
-      title: "A Missing Voice",
-      desc: "Speak with the Protester at the Mall rally."
+      title: "The Score Is Perfect",
+      desc: "Find out why the victory launch has a protest outside."
     },
     {
-      title: "The Service Route",
-      desc: "Interview the Veteran and Teacher about the missing megaphone."
+      title: "Unapproved Feedback",
+      desc: "Interview the Veteran and Teacher about the shutdown."
     },
     {
-      title: "Recover the Megaphone",
-      desc: "Search the service yard on the Capitol Grounds."
+      title: "Efficiency in the Dark",
+      desc: "Restore three relays and recover the override megaphone."
     },
     {
-      title: "The Locked Rotunda",
-      desc: "Enter the Capitol and defeat the Sentinel."
+      title: "Loyalty Test",
+      desc: "Get past the checkpoint that treats correction as disloyalty."
     },
     {
-      title: "The Red Ledger",
-      desc: "Reach the Public Archive and secure the original ledger."
+      title: "Who Pays for Winning?",
+      desc: "Find the invoices the dashboard counted as victories."
     },
     {
-      title: "The Missing Transcript",
-      desc: "Reach the Broadcast Center, defeat the Fixer, and open the source locker."
+      title: "The Victory Edit",
+      desc: "Break into the broadcast queue and recover the full directive."
     },
     {
-      title: "Chain of Custody",
-      desc: "Bring the ledger and transcript to the Fact Checker."
+      title: "Our Signatures",
+      desc: "Have the Fact Checker compare the directive with the invoices."
     },
     {
-      title: "The Final Hearing",
-      desc: "Enter the hearing chamber and defeat the Committee Chair."
+      title: "Mandatory Celebration",
+      desc: "Submit both exhibits and confront the Committee Chair."
     },
     {
-      title: "The Public Record",
-      desc: "Choose what happens to the complete source record."
+      title: "The Undo Button",
+      desc: "Choose accountability or another launch."
     },
     {
-      title: "After the Broadcast",
-      desc: "The case is closed. Explore, finish side objectives, or start again."
+      title: "After the Scoreboard",
+      desc: "Return to the city and finish its unfinished work."
     }
   ];
   const BG = {
@@ -1179,305 +1201,549 @@
   const DISTRICTS = {
     MALL: {
       name: "NATIONAL MALL",
-      tag: "The gathering",
+      tag: "The victory launch",
       theme: "outdoor",
       level: 1,
       color: "#91bea3",
       at: [180, 360],
       roads: [
-        [100, 850, 1720, 160],
-        [320, 350, 150, 660],
-        [920, 340, 150, 670],
-        [1500, 340, 150, 670],
-        [320, 400, 1330, 120]
+        [100, 860, 1720, 180],
+        [290, 380, 160, 540],
+        [1420, 380, 160, 540],
+        [290, 380, 1290, 120],
+        [790, 1010, 200, 170]
       ],
       objects: [
-        ["building", 650, 130, 550, 210, "CIVIC VISITORS CENTER"],
-        ["water", 590, 575, 730, 175],
-        ["garden", 150, 570, 180, 180],
-        ["garden", 1450, 570, 230, 180],
-        ["tent", 210, 1050, 220, 100, "SUPPLIES"],
-        ["garden", 650, 1060, 750, 100]
+        ["building", 650, 200, 610, 155, "OFFICE OF WINNING"],
+        ["water", 580, 560, 760, 180],
+        ["garden", 510, 500, 70, 270],
+        ["garden", 1340, 500, 70, 270],
+        ["tent", 220, 1070, 180, 75, "FREEDOM MART"],
+        ["bench", 550, 785, 130, 36],
+        ["bench", 1240, 785, 130, 36],
+        ["monument", 890, 380, 100, 65],
+        ["tree", 165, 570, 52, 30],
+        ["tree", 1640, 590, 52, 30],
+        ["tree", 165, 730, 52, 30],
+        ["tree", 1640, 750, 52, 30],
+        ["garden", 1010, 1090, 400, 65],
+        ["tree", 190, 285, 52, 30],
+        ["tree", 1700, 285, 52, 30],
+        ["tree", 460, 255, 52, 30],
+        ["tree", 1430, 255, 52, 30],
+        ["tree", 1120, 1170, 52, 30],
+        ["tree", 1380, 1170, 52, 30],
+        ["bench", 1100, 805, 110, 32],
+        ["kiosk", 1620, 1100, 74, 50, "MAP"],
+        ["flag", 600, 310, 24, 20],
+        ["flag", 1290, 310, 24, 20]
       ],
-      rest: [490, 1050],
-      spawn: [410, 925]
+      rest: [485, 1115],
+      spawn: [410, 940],
+      signs: [
+        [780, 830, "VICTORY LAUNCH \u2192"],
+        [780, 1180, "EVERYTHING IS FINE. OFFICIALLY."]
+      ]
     },
     GROUNDS: {
       name: "CAPITOL GROUNDS",
-      tag: "The service route",
+      tag: "The efficiency dividend",
       theme: "outdoor",
       level: 3,
       color: "#a6c3a0",
       at: [420, 360],
       roads: [
-        [100, 940, 1720, 150],
-        [220, 360, 140, 700],
-        [860, 340, 160, 710],
-        [1530, 330, 140, 720],
-        [220, 430, 1450, 120],
-        [220, 730, 1450, 110]
+        [100, 960, 1720, 150],
+        [220, 380, 140, 670],
+        [220, 380, 820, 135],
+        [860, 380, 170, 640],
+        [980, 710, 710, 130],
+        [1540, 410, 145, 600]
       ],
       objects: [
-        ["building", 650, 120, 660, 230, "CAPITOL \u2022 VISITOR ENTRANCE"],
-        ["garden", 460, 570, 270, 125],
-        ["garden", 1110, 570, 290, 125],
-        ["depot", 470, 850, 210, 75, "SERVICE C-4"],
-        ["water", 1150, 1100, 320, 100]
+        ["building", 600, 210, 760, 155, "DEPARTMENT OF LESS"],
+        ["garden", 430, 565, 295, 120],
+        ["garden", 1100, 465, 310, 140],
+        ["depot", 470, 840, 210, 65, "C-4 / SURPLUS"],
+        ["crate", 1180, 870, 70, 50],
+        ["crate", 1290, 875, 70, 50],
+        ["wall", 1110, 640, 305, 45],
+        ["tree", 170, 590, 50, 30],
+        ["tree", 170, 780, 50, 30],
+        ["tree", 1730, 535, 50, 30],
+        ["tree", 425, 300, 52, 30],
+        ["tree", 1470, 300, 52, 30],
+        ["tree", 760, 1170, 52, 30],
+        ["tree", 1560, 1160, 52, 30],
+        ["bench", 1160, 680, 120, 32],
+        ["machine", 465, 780, 115, 45, "OFFLINE"],
+        ["crate", 705, 850, 60, 45]
       ],
       rest: [420, 1100],
-      spawn: [180, 1020]
+      spawn: [180, 1020],
+      signs: [
+        [515, 740, "MAINTENANCE: ELIMINATED"],
+        [1220, 1135, "SAVINGS DO NOT INCLUDE REPAIRS"]
+      ]
     },
     ROTUNDA: {
       name: "CAPITOL ROTUNDA",
-      tag: "The checkpoint",
+      tag: "The loyalty checkpoint",
       theme: "interior",
       level: 4,
       color: "#d1be9b",
       at: [650, 360],
       roads: [
-        [110, 970, 1700, 120],
-        [220, 400, 150, 650],
-        [870, 350, 180, 700],
-        [1550, 390, 140, 650],
-        [220, 430, 1430, 130]
+        [780, 970, 360, 200],
+        [240, 880, 1460, 130],
+        [240, 400, 155, 560],
+        [1525, 400, 155, 560],
+        [240, 400, 1440, 140],
+        [795, 400, 330, 580]
       ],
       objects: [
-        ["dais", 630, 160, 680, 200, "THE CHECKPOINT"],
-        ["column", 480, 600, 60, 110],
-        ["column", 1330, 600, 60, 110],
-        ["garden", 430, 800, 260, 90],
-        ["garden", 1240, 800, 260, 90],
-        ["seal", 900, 640, 100, 100]
+        ["dais", 660, 210, 600, 160, "CERTIFIED LOYAL"],
+        ["column", 590, 550, 54, 35],
+        ["column", 1250, 550, 54, 35],
+        ["column", 470, 700, 54, 35],
+        ["column", 1370, 700, 54, 35],
+        ["column", 590, 850, 54, 35],
+        ["column", 1250, 850, 54, 35],
+        ["seal", 860, 650, 200, 160],
+        ["bench", 260, 640, 130, 36],
+        ["bench", 1530, 640, 130, 36],
+        ["plant", 370, 1060, 40, 30],
+        ["plant", 1490, 1060, 40, 30],
+        ["wall", 110, 305, 340, 55],
+        ["wall", 1450, 305, 350, 55],
+        ["desk", 170, 1095, 124, 40],
+        ["desk", 1580, 1100, 124, 40],
+        ["flag", 550, 320, 24, 20],
+        ["flag", 1350, 320, 24, 20],
+        ["plant", 230, 620, 40, 30],
+        ["plant", 1680, 620, 40, 30]
       ],
       rest: [490, 1080],
-      spawn: [950, 1040]
+      spawn: [950, 1040],
+      signs: [[960, 1040, "LOYALTY IS A SECURITY CLEARANCE"]]
     },
     ARCHIVE: {
       name: "PUBLIC ARCHIVE",
-      tag: "The paper trail",
+      tag: "The cost of winning",
       theme: "archive",
       level: 5,
       color: "#c2a17e",
       at: [900, 360],
       roads: [
-        [110, 960, 1700, 140],
-        [200, 340, 130, 680],
-        [570, 340, 140, 680],
-        [1e3, 340, 140, 680],
-        [1510, 340, 140, 680],
-        [220, 370, 1440, 130],
-        [220, 690, 1440, 120]
+        [110, 970, 1700, 140],
+        [210, 390, 125, 640],
+        [565, 390, 145, 640],
+        [995, 390, 150, 640],
+        [1505, 390, 150, 640],
+        [215, 390, 1440, 120],
+        [565, 700, 1090, 110]
       ],
       objects: [
-        ["shelf", 350, 500, 150, 140],
-        ["shelf", 740, 500, 180, 140],
-        ["shelf", 1210, 500, 180, 140],
-        ["shelf", 350, 810, 150, 100],
-        ["shelf", 740, 810, 180, 100],
-        ["shelf", 1210, 810, 180, 100],
-        ["vault", 790, 170, 360, 160, "LEDGER VAULT"]
+        ["shelf", 355, 545, 145, 85],
+        ["shelf", 355, 745, 145, 85],
+        ["shelf", 745, 545, 175, 85],
+        ["shelf", 745, 845, 175, 65],
+        ["shelf", 1210, 545, 180, 85],
+        ["shelf", 1210, 845, 180, 65],
+        ["vault", 790, 210, 360, 125, "UNADJUSTED TOTALS"],
+        ["desk", 380, 900, 124, 40],
+        ["desk", 1120, 1080, 124, 40],
+        ["plant", 1750, 570, 40, 30],
+        ["wall", 110, 310, 560, 55],
+        ["wall", 1270, 310, 530, 55],
+        ["wall", 680, 210, 45, 185],
+        ["wall", 1210, 210, 45, 185],
+        ["shelf", 355, 210, 150, 70],
+        ["shelf", 1480, 210, 165, 70],
+        ["desk", 800, 1090, 124, 40],
+        ["plant", 225, 1145, 40, 30]
       ],
       rest: [410, 1100],
-      spawn: [180, 1030]
+      spawn: [180, 1030],
+      signs: [
+        [630, 680, "A\u2013F / ORIGINAL INVOICES"],
+        [1290, 780, "G\u2013Z / REVISED VICTORIES"]
+      ]
     },
     PRESS: {
       name: "BROADCAST CENTER",
-      tag: "The missing signal",
+      tag: "The victory edit",
       theme: "press",
       level: 7,
       color: "#91b4d4",
       at: [1130, 360],
       roads: [
-        [100, 960, 1720, 130],
-        [210, 370, 150, 680],
-        [860, 300, 160, 730],
-        [1510, 330, 160, 710],
-        [220, 460, 1440, 130],
-        [220, 750, 1440, 130]
+        [100, 980, 1720, 120],
+        [210, 400, 155, 650],
+        [855, 400, 180, 650],
+        [1505, 400, 165, 650],
+        [210, 450, 1455, 150],
+        [210, 760, 1455, 120]
       ],
       objects: [
-        ["studio", 430, 190, 340, 230, "STUDIO A"],
-        ["studio", 1160, 190, 340, 230, "CONTROL ROOM"],
-        ["desk", 430, 640, 270, 65],
-        ["desk", 1150, 640, 270, 65],
-        ["desk", 570, 880, 170, 60],
-        ["desk", 1200, 880, 170, 60]
+        ["studio", 430, 245, 340, 150, "STUDIO A / WINNING"],
+        ["studio", 1160, 245, 340, 150, "APPROVED REALITY"],
+        ["desk", 400, 660, 124, 42],
+        ["desk", 610, 660, 124, 42],
+        ["desk", 1110, 660, 124, 42],
+        ["desk", 1340, 660, 124, 42],
+        ["camera", 640, 750, 40, 28],
+        ["camera", 1330, 750, 40, 28],
+        ["machine", 570, 900, 160, 50, "FEED 01"],
+        ["machine", 1210, 900, 160, 50, "FEED 02"],
+        ["wall", 390, 200, 30, 385],
+        ["wall", 780, 200, 30, 385],
+        ["wall", 1120, 200, 30, 385],
+        ["wall", 1510, 200, 30, 385],
+        ["camera", 470, 535, 35, 26],
+        ["camera", 1435, 535, 35, 26],
+        ["bench", 490, 1110, 150, 32],
+        ["plant", 1700, 1140, 40, 30],
+        ["plant", 200, 1140, 40, 30],
+        ["wall", 395, 590, 90, 30],
+        ["wall", 665, 590, 105, 30],
+        ["wall", 1120, 590, 85, 30],
+        ["wall", 1385, 590, 105, 30]
       ],
       rest: [470, 1090],
-      spawn: [180, 1030]
+      spawn: [180, 1030],
+      signs: [[935, 1120, "LIVE / NO FOLLOW-UP QUESTIONS"]]
     },
     HEARING: {
       name: "HEARING CHAMBER",
-      tag: "On the record",
+      tag: "The mandatory celebration",
       theme: "hearing",
       level: 9,
       color: "#d6ac8d",
       at: [1130, 160],
       roads: [
-        [170, 970, 1570, 130],
-        [870, 340, 180, 690],
-        [210, 440, 1460, 110],
-        [250, 440, 130, 650],
-        [1540, 440, 130, 650]
+        [800, 910, 320, 265],
+        [865, 410, 190, 610],
+        [205, 470, 1460, 110],
+        [220, 470, 155, 575],
+        [1525, 470, 155, 575],
+        [205, 965, 1475, 120]
       ],
       objects: [
-        ["dais", 510, 160, 900, 210, "THE PUBLIC RECORD"],
-        ["bench", 490, 610, 230, 70],
-        ["bench", 1190, 610, 230, 70],
-        ["bench", 490, 800, 230, 70],
-        ["bench", 1190, 800, 230, 70]
+        ["dais", 510, 210, 900, 160, "THE VICTORY CERTIFICATION"],
+        ["bench", 465, 620, 250, 38],
+        ["bench", 1195, 620, 250, 38],
+        ["bench", 465, 765, 250, 38],
+        ["bench", 1195, 765, 250, 38],
+        ["bench", 465, 910, 250, 38],
+        ["bench", 1195, 910, 250, 38],
+        ["desk", 235, 445, 124, 36],
+        ["desk", 1540, 445, 124, 36],
+        ["podium", 915, 625, 90, 46],
+        ["flag", 420, 350, 24, 20],
+        ["flag", 1470, 350, 24, 20],
+        ["column", 195, 640, 54, 35],
+        ["column", 1730, 640, 54, 35],
+        ["column", 195, 820, 54, 35],
+        ["column", 1730, 820, 54, 35],
+        ["plant", 750, 1110, 40, 30],
+        ["plant", 1100, 1110, 40, 30]
       ],
       rest: [1420, 1090],
-      spawn: [950, 1060]
+      spawn: [950, 1060],
+      signs: [[960, 1140, "APPLAUSE IS ENTERED INTO THE RECORD"]]
     },
     GARDEN: {
       name: "BOTANIC GARDEN",
-      tag: "A quiet resistance",
+      tag: "Evidence grows here",
       theme: "garden",
       level: 2,
       color: "#88c6a0",
       at: [180, 150],
       roads: [
-        [100, 980, 1710, 120],
-        [230, 350, 130, 700],
-        [890, 340, 140, 720],
-        [1550, 340, 130, 730],
-        [230, 440, 1450, 120],
-        [230, 720, 1450, 110]
+        [110, 995, 1650, 120],
+        [245, 420, 140, 670],
+        [245, 420, 1400, 115],
+        [1510, 420, 135, 690],
+        [750, 715, 870, 115],
+        [750, 715, 140, 350]
       ],
       objects: [
-        ["glass", 640, 140, 640, 210, "THE CONSERVATORY"],
-        ["garden", 430, 570, 310, 120],
-        ["garden", 1150, 570, 300, 120],
-        ["water", 530, 840, 270, 90],
-        ["garden", 1190, 850, 240, 90]
+        ["glass", 615, 220, 700, 160, "WELLNESS WITHOUT EVIDENCE"],
+        ["garden", 460, 580, 245, 310],
+        ["water", 950, 580, 390, 100],
+        ["garden", 1040, 870, 380, 80],
+        ["garden", 1720, 550, 55, 340],
+        ["bench", 1e3, 735, 130, 36],
+        ["tree", 140, 580, 50, 30],
+        ["tree", 1410, 650, 50, 30],
+        ["tree", 1410, 830, 50, 30],
+        ["tree", 145, 280, 52, 30],
+        ["tree", 1750, 300, 52, 30],
+        ["tree", 460, 320, 52, 30],
+        ["tree", 1420, 320, 52, 30],
+        ["bench", 960, 1140, 130, 32],
+        ["plant", 830, 635, 40, 30],
+        ["plant", 875, 625, 40, 30],
+        ["kiosk", 1710, 1080, 70, 45, "SEEDS"]
       ],
       rest: [430, 1090],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [310, 610],
+        [815, 905],
+        [1575, 650]
+      ],
+      boss: [955, 445],
+      cache: [1510, 1140],
+      signs: [[1160, 1050, "TEST PLOT / DO NOT REBRAND"]],
+      mobs: [
+        [320, 770, "STUDENT"],
+        [850, 820, "SCIENTIST"],
+        [1580, 835, "UNION"]
+      ]
     },
     TUNNELS: {
       name: "SERVICE TUNNELS",
-      tag: "Below the noise",
+      tag: "The people under the savings",
       theme: "tunnel",
       level: 4,
       color: "#849eac",
       at: [420, 560],
       roads: [
-        [100, 980, 1720, 130],
-        [220, 320, 140, 750],
-        [870, 320, 170, 750],
-        [1540, 320, 140, 750],
-        [220, 410, 1450, 130],
-        [220, 700, 1450, 130]
+        [110, 980, 850, 135],
+        [250, 740, 130, 360],
+        [250, 740, 1140, 130],
+        [1220, 460, 170, 360],
+        [870, 460, 510, 140],
+        [870, 330, 170, 220],
+        [1510, 460, 170, 600],
+        [1230, 980, 450, 130]
       ],
       objects: [
-        ["wall", 420, 570, 330, 90],
-        ["wall", 1120, 570, 370, 90],
-        ["wall", 480, 850, 240, 80],
-        ["wall", 1180, 850, 230, 80],
-        ["machine", 730, 160, 470, 160, "RELAY ENGINE"]
+        ["wall", 100, 560, 960, 110],
+        ["wall", 450, 885, 640, 55],
+        ["wall", 1110, 870, 60, 340],
+        ["wall", 1430, 650, 60, 285],
+        ["machine", 720, 210, 470, 110, "AUTOMATION / MANUAL RESET"],
+        ["machine", 460, 700, 155, 40, "PUMP 04"],
+        ["machine", 1580, 350, 130, 55, "EAST RELAY"],
+        ["crate", 720, 1050, 65, 45],
+        ["crate", 810, 1050, 65, 45],
+        ["machine", 170, 325, 150, 55, "AUX 01"],
+        ["machine", 380, 325, 150, 55, "AUX 02"],
+        ["crate", 170, 470, 60, 45],
+        ["crate", 270, 470, 60, 45],
+        ["rail", 1115, 410, 290, 16],
+        ["machine", 1450, 1150, 170, 45, "DRAINAGE"]
       ],
       rest: [430, 1120],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [315, 805],
+        [1320, 525],
+        [1590, 805]
+      ],
+      boss: [955, 400],
+      cache: [1720, 1040],
+      signs: [
+        [680, 810, "ESSENTIAL STAFF: 0"],
+        [1450, 1150, "CONTRACTOR ENTRANCE"]
+      ],
+      mobs: [
+        [520, 800, "STUDENT"],
+        [970, 470, "SCIENTIST"],
+        [1590, 880, "UNION"]
+      ]
     },
     RECORDS: {
       name: "RECORDS ANNEX",
-      tag: "Duplicate originals",
+      tag: "The originals department",
       theme: "archive",
       level: 6,
       color: "#c3ac87",
       at: [900, 560],
       roads: [
-        [100, 980, 1720, 120],
-        [230, 330, 130, 700],
-        [880, 340, 160, 700],
-        [1540, 320, 140, 740],
-        [230, 430, 1460, 120],
-        [230, 730, 1450, 130]
+        [100, 980, 1700, 125],
+        [245, 375, 145, 675],
+        [245, 375, 1420, 130],
+        [1505, 375, 160, 670],
+        [520, 720, 1110, 140],
+        [870, 400, 150, 400]
       ],
       objects: [
-        ["shelf", 420, 580, 300, 100],
-        ["shelf", 1140, 580, 300, 100],
-        ["shelf", 440, 860, 230, 80],
-        ["shelf", 1200, 860, 230, 80],
-        ["vault", 720, 170, 500, 160, "DUPLICATE RECORDS"]
+        ["shelf", 460, 565, 315, 85],
+        ["shelf", 1100, 565, 320, 85],
+        ["shelf", 450, 865, 265, 65],
+        ["shelf", 1130, 865, 265, 65],
+        ["wall", 770, 875, 280, 55],
+        ["vault", 720, 210, 500, 120, "DO NOT RETAIN"],
+        ["desk", 510, 700, 124, 36],
+        ["desk", 1100, 700, 124, 36],
+        ["crate", 1720, 660, 65, 45],
+        ["wall", 410, 315, 365, 45],
+        ["wall", 1150, 315, 300, 45],
+        ["crate", 480, 235, 60, 45],
+        ["crate", 560, 235, 60, 45],
+        ["crate", 1280, 235, 60, 45],
+        ["crate", 1360, 235, 60, 45],
+        ["desk", 1150, 1100, 124, 40]
       ],
       rest: [430, 1100],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [315, 565],
+        [945, 760],
+        [1575, 565]
+      ],
+      boss: [955, 390],
+      signs: [[625, 820, "INTAKE \u2192 TRANSFER \u2192 RELEASE"]],
+      mobs: [
+        [320, 735, "STUDENT"],
+        [980, 625, "SCIENTIST"],
+        [1590, 795, "UNION"]
+      ]
     },
     ROOFTOPS: {
       name: "ROOFTOP RELAY",
-      tag: "Above the static",
+      tag: "The amplification business",
       theme: "roof",
       level: 8,
       color: "#9fa6cc",
       at: [1130, 560],
       roads: [
-        [100, 980, 1720, 130],
-        [230, 330, 140, 750],
-        [870, 320, 170, 750],
-        [1540, 330, 140, 750],
-        [230, 440, 1450, 130],
-        [230, 720, 1450, 120]
+        [110, 970, 1650, 140],
+        [235, 440, 160, 600],
+        [235, 440, 820, 145],
+        [880, 440, 175, 585],
+        [880, 725, 790, 140],
+        [1510, 440, 160, 625]
       ],
       objects: [
-        ["machine", 420, 580, 300, 100, "VENTILATION"],
-        ["machine", 1160, 580, 290, 100, "VENTILATION"],
-        ["water", 480, 850, 210, 85],
-        ["machine", 720, 140, 460, 180, "TRANSMISSION TOWER"]
+        ["gap", 440, 590, 365, 300],
+        ["gap", 1110, 355, 310, 325],
+        ["machine", 455, 960, 180, 75, "HVAC"],
+        ["machine", 1160, 960, 170, 75, "HVAC"],
+        ["antenna", 880, 215, 155, 105, "VICTORY SIGNAL"],
+        ["machine", 1490, 305, 200, 65, "JAMMER ARRAY"],
+        ["crate", 1740, 760, 65, 45],
+        ["rail", 430, 565, 390, 16],
+        ["rail", 1100, 700, 330, 16],
+        ["rail", 120, 220, 550, 16],
+        ["rail", 1230, 220, 565, 16],
+        ["machine", 460, 380, 150, 60, "INTAKE"],
+        ["machine", 600, 1120, 170, 55, "COOLING"],
+        ["antenna", 1680, 1120, 95, 70, ""],
+        ["rail", 440, 895, 370, 16]
       ],
       rest: [430, 1120],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [315, 700],
+        [970, 650],
+        [1590, 575]
+      ],
+      boss: [955, 385],
+      cache: [1730, 890],
+      signs: [[930, 1120, "ORGANIC ENTHUSIASM / ROOF ACCESS"]],
+      mobs: [
+        [315, 835, "STUDENT"],
+        [970, 855, "SCIENTIST"],
+        [1590, 700, "UNION"]
+      ]
     },
     STATION: {
       name: "UNION STATION",
-      tag: "The last departure",
+      tag: "The people off the scoreboard",
       theme: "station",
       level: 10,
       color: "#bdad96",
       at: [650, 150],
       roads: [
-        [100, 980, 1720, 140],
-        [220, 330, 150, 760],
-        [860, 320, 190, 760],
-        [1510, 330, 170, 760],
-        [230, 420, 1440, 150],
-        [220, 740, 1460, 120]
+        [110, 985, 1700, 140],
+        [240, 400, 150, 660],
+        [240, 400, 1420, 175],
+        [1500, 400, 170, 650],
+        [240, 730, 1430, 130],
+        [850, 560, 180, 490]
       ],
       objects: [
-        ["train", 410, 160, 1090, 180, "PLATFORM 04"],
-        ["bench", 440, 600, 260, 70],
-        ["bench", 1160, 600, 260, 70],
-        ["bench", 440, 870, 260, 60],
-        ["bench", 1160, 870, 260, 60]
+        ["train", 400, 240, 1100, 145, "SERVICE CANCELLED / TARGET MET"],
+        ["bench", 480, 640, 210, 36],
+        ["bench", 1190, 640, 210, 36],
+        ["bench", 480, 900, 210, 36],
+        ["bench", 1190, 900, 210, 36],
+        ["kiosk", 1070, 855, 80, 55, "TICKETS"],
+        ["machine", 430, 200, 100, 35, ""],
+        ["plant", 1690, 680, 40, 30],
+        ["column", 200, 640, 54, 35],
+        ["column", 1740, 640, 54, 35],
+        ["column", 200, 890, 54, 35],
+        ["column", 1740, 890, 54, 35],
+        ["kiosk", 650, 1110, 80, 55, "INFO"],
+        ["kiosk", 1240, 1110, 80, 55, "CLOSED"]
       ],
       rest: [440, 1100],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [315, 535],
+        [945, 810],
+        [1580, 535]
+      ],
+      boss: [955, 445],
+      signs: [[955, 1190, "NO DELAYS IF NOTHING DEPARTS"]],
+      mobs: [
+        [330, 815, "STUDENT"],
+        [970, 650, "SCIENTIST"],
+        [1590, 820, "UNION"]
+      ]
     },
     VAULT: {
       name: "FEDERAL VAULT",
-      tag: "The final safeguard",
+      tag: "The undo button",
       theme: "vault",
       level: 12,
       color: "#a2b8b1",
       at: [900, 150],
       roads: [
-        [100, 980, 1720, 120],
-        [230, 330, 140, 730],
-        [850, 320, 200, 740],
-        [1510, 330, 180, 730],
-        [230, 430, 1430, 130],
-        [230, 710, 1430, 130]
+        [110, 980, 1680, 130],
+        [250, 425, 160, 620],
+        [250, 425, 1400, 135],
+        [1490, 425, 160, 620],
+        [855, 425, 200, 620],
+        [250, 745, 1400, 125]
       ],
       objects: [
-        ["wall", 430, 570, 280, 100],
-        ["wall", 1170, 570, 280, 100],
-        ["vault", 690, 150, 560, 190, "MASTER BACKUP"],
-        ["column", 510, 870, 70, 100],
-        ["column", 1320, 870, 70, 100]
+        ["wall", 460, 600, 310, 85],
+        ["wall", 1140, 600, 300, 85],
+        ["vault", 690, 215, 560, 125, "FACTORY SETTINGS"],
+        ["machine", 470, 900, 200, 65, "IDENTITY"],
+        ["machine", 1240, 900, 200, 65, "INTEGRITY"],
+        ["column", 560, 450, 54, 35],
+        ["column", 1330, 450, 54, 35],
+        ["column", 780, 910, 54, 35],
+        ["column", 1060, 910, 54, 35],
+        ["machine", 200, 240, 175, 65, "BACKUP 01"],
+        ["machine", 430, 240, 175, 65, "BACKUP 02"],
+        ["machine", 1340, 240, 175, 65, "BACKUP 03"],
+        ["machine", 1570, 240, 175, 65, "BACKUP 04"],
+        ["rail", 430, 385, 315, 16],
+        ["rail", 1190, 385, 280, 16]
       ],
       rest: [430, 1100],
-      spawn: [180, 1040]
+      spawn: [180, 1040],
+      nodes: [
+        [325, 655],
+        [955, 815],
+        [1570, 655]
+      ],
+      boss: [955, 405],
+      signs: [[955, 1150, "UNDO REQUIRES EXECUTIVE APPROVAL"]],
+      mobs: [
+        [325, 810, "STUDENT"],
+        [950, 690, "SCIENTIST"],
+        [1580, 810, "UNION"]
+      ]
     }
   };
   const CORE_ZONES = [
@@ -1506,82 +1772,86 @@
       parent: "MALL",
       stage: 0,
       boss: "CURATOR",
-      title: "Seeds of Doubt",
-      verb: "Recover seed crates",
-      items: ["North collection", "Glasshouse sample", "East collection"],
+      title: "Peer Review Is Not a Boss Fight",
+      verb: "Protect research samples",
+      items: ["Untreated control", "Test sample", "Replication batch"],
       relic: "Living Remedy",
       reward: "Victory recovery +6% HP",
-      intro: "Three research crates went missing before tonight\u2019s hearing. Recover them from the garden, then challenge the Curator at the conservatory."
+      intro: "The wellness launch requires a miracle before the results are in. Protect three samples from being relabelled, then confront the Curator who was told to certify the slogan. RFK might have to read a methods section."
     },
     TUNNELS: {
       parent: "GROUNDS",
       stage: 2,
       boss: "ENGINEER",
-      title: "Underground Current",
-      verb: "Power relay junctions",
-      items: ["West breaker", "Center breaker", "East breaker"],
+      title: "Essential, Apparently",
+      verb: "Restore service relays",
+      items: ["Clinic circuit", "Pump circuit", "Transit circuit"],
       relic: "Copper Circuit",
       reward: "Basic attacks restore +1 MP",
-      intro: "The backup relay has gone dark. Restore the west, center, and east junctions, then face the Engineer at the relay engine."
+      intro: "The efficiency dashboard counts dismissed technicians as savings and replacement contracts as growth. The city counts hours without power. Restore the three service relays, then get the Engineer to release the manual override."
     },
     RECORDS: {
       parent: "ARCHIVE",
       stage: 4,
       boss: "AUDITOR",
-      title: "The Carbon Copy",
-      verb: "Authenticate originals",
-      items: ["Intake original", "Transfer original", "Release original"],
+      title: "Delete the Duplicates",
+      verb: "Preserve original records",
+      items: ["Intake invoice", "Transfer contract", "Release order"],
       relic: "Certified Seal",
       reward: "Start encounters with +15 Limit",
-      intro: "The annex holds three duplicate originals. Authenticate them in intake, transfer, release order and confront the Auditor."
+      intro: "The purge classified every inconvenient original as a duplicate. Stamp the intake invoice, transfer contract, and release order in that sequence. Then face the Auditor, whose job is to count savings without counting the bill."
     },
     ROOFTOPS: {
       parent: "PRESS",
       stage: 5,
       boss: "DIRECTOR",
-      title: "Clear the Air",
-      verb: "Disable signal jammers",
-      items: ["West jammer", "Carrier jammer", "East jammer"],
+      title: "Organic Enthusiasm",
+      verb: "Disable applause jammers",
+      items: ["West amplifier", "Carrier amplifier", "East amplifier"],
       relic: "Clear Frequency",
       reward: "Magic damage +10%",
-      intro: "Three jammers surround the transmitter. Disable them to expose the Director, whose charged signal strikes the entire party."
+      intro: "The launch claims the applause is spontaneous. Three rooftop jammers drown out everything else. Disable them and confront the Director. The first unfiltered sound may not be flattering."
     },
     STATION: {
       parent: "ROTUNDA",
       stage: 7,
       boss: "CONDUCTOR",
-      title: "The Last Departure",
-      verb: "Secure passenger manifests",
-      items: ["West manifest", "Ticket log", "East manifest"],
+      title: "Zero Delays, Zero Trains",
+      verb: "Restore passenger records",
+      items: [
+        "West passenger list",
+        "Cancelled ticket log",
+        "East passenger list"
+      ],
       relic: "Transit Badge",
       reward: "Physical damage +10%",
-      intro: "The last train carries the missing witnesses. Secure all three passenger records and challenge the Conductor before the evidence leaves town."
+      intro: "The Engine achieved perfect punctuality by cancelling the trains and removing stranded passengers from the count. Recover their records and challenge the Conductor. A person does not stop existing when a dashboard loses their row."
     },
     VAULT: {
       parent: "HEARING",
       stage: 9,
       boss: "CUSTODIAN",
-      title: "The Final Safeguard",
-      verb: "Unlock security seals",
-      items: ["Identity seal", "Source seal", "Integrity seal"],
+      title: "The Instructions Were Ours",
+      verb: "Authenticate rollback seals",
+      items: ["Signer identity", "Original directive", "Integrity check"],
       relic: "Complete Record",
       reward: "All heroes gain +2 talent points",
-      intro: "One master backup remains. Unlock all three seals, then survive three consecutive security waves to recover the complete record."
+      intro: "The master backup contains the first specification: victory must be permanent and failure must be invisible. Authenticate its three seals and survive the Custodian\u2019s security waves. There is no foreign mastermind in the final folder. Just an approved requirements document."
     }
   };
   const LOCATIONS = {
     MALL: {
-      protester: [940, 890],
+      protester: [780, 950],
       veteran: [1490, 860],
-      teacher: [1010, 490],
+      teacher: [1180, 450],
       student: [1600, 1e3],
       nurse: [1160, 1050],
-      vendor: [450, 1150],
+      vendor: [325, 1180],
       toGrounds: [1780, 940],
       usbMall: [1530, 1120],
-      upgrade: [610, 1020],
-      tutorial: [730, 1020],
-      cache: [250, 500]
+      upgrade: [620, 1100],
+      tutorial: [740, 1100],
+      cache: [220, 470]
     },
     GROUNDS: {
       gateOfficer: [850, 870],
@@ -1644,7 +1914,7 @@
     MALL: [
       [1610, 520, "STUDENT"],
       [1190, 950, "EVERYDAY"],
-      [310, 780, "PROTESTER"]
+      [1540, 790, "PROTESTER"]
     ],
     GROUNDS: [
       [320, 760, "VETERAN"],
@@ -1781,10 +2051,10 @@
   const WORLD_ENCOUNTERS = Object.fromEntries(
     Object.entries(DISTRICTS).map(([zone, d]) => [
       zone,
-      (MOB_LAYOUT[zone] || [
-        [310, 730, "STUDENT"],
-        [960, 740, "SCIENTIST"],
-        [1610, 730, "UNION"]
+      (d.mobs || MOB_LAYOUT[zone] || [
+        [d.nodes[0][0], d.nodes[0][1] + 100, "STUDENT"],
+        [d.nodes[1][0] + 65, d.nodes[1][1], "SCIENTIST"],
+        [d.nodes[2][0], d.nodes[2][1] + 110, "UNION"]
       ]).map(([x, y, type], i) => ({
         id: "v6_" + i,
         x,
@@ -1974,25 +2244,7 @@
     mode = "cutscene";
     cutscene = {
       i: 0,
-      pages: [
-        {
-          speaker: "NARRATOR",
-          text: "The Civic Relay goes live tonight. Its public archive is supposed to carry every word of the final hearing. Someone has queued a different version."
-        },
-        {
-          speaker: "NARRATOR",
-          text: "Then the relay key disappears inside a ceremonial megaphone. The trail leads from a rally on the Mall to the locked doors of the Capitol."
-        },
-        {
-          speaker: "TRUMP",
-          portrait: "TRUMP",
-          text: "A missing megaphone. In this town. Nobody is going to believe that. Find the cart, get the key, and keep every original."
-        },
-        {
-          speaker: "NARRATOR",
-          text: "Start with the Protester on the Mall. Follow the gold objective marker. Hold Shift to sprint; use the rest points to recover and save. The training post offers an optional practice battle."
-        }
-      ],
+      pages: STORY_INTRO.map((page) => ({ ...page })),
       onDone: () => {
         mode = "world";
         setStage(0, true);
@@ -2283,7 +2535,6 @@
     walkPath = [];
     walkTarget = null;
     beginIntroduction();
-    cutscene.pages[3].text = "Meet the rally witness on the Mall. Click to walk, or use WASD. The district atlas connects twelve areas; the garden offers your first side mission. Battles earn XP. P opens talents, and B opens auto-battle options.";
   }
   function migrateLegacy(data) {
     const s = freshState(), old = data?.state || {};
@@ -2965,7 +3216,7 @@
     return [
       {
         label: "NEW GAME",
-        sub: "Begin the investigation",
+        sub: "Fix the victory launch",
         run: startNewGame
       },
       {
@@ -3082,17 +3333,11 @@
     ctx.fillStyle = "#0b242755";
     ctx.fillRect(0, 0, W, H);
     box(46, 42, 722, 628, "#102a31f7", "#748b83");
-    panelText(
-      "DISTRICTS OF DISCOVERY  /  WORK IN PROGRESS",
-      85,
-      79,
-      13,
-      "#a6c8b9"
-    );
+    panelText("THE VICTORY ENGINE  /  FICTIONAL SATIRE", 85, 79, 13, "#a6c8b9");
     text("CAPITOL", 80, 137, 65, UI_INK);
     text("QUEST", 80, 201, 88, UI_GOLD);
     wrapped(
-      "An expanded adventure through the city above, the tunnels below, and the records in between.",
+      "The score is perfect. The city is falling apart. Lead the cabinet through the consequences of its own instructions.",
       85,
       321,
       594,
@@ -3286,16 +3531,22 @@
     const shake = screenShake && state.settings.shake ? [randInt(-screenShake, screenShake), randInt(-screenShake, screenShake)] : [0, 0];
     ctx.translate(-camera.x + shake[0], -camera.y + shake[1]);
     drawMapBase(state.zone);
-    drawMapObjects(state.zone);
     drawWorldEntities();
+    drawMapObjects(state.zone);
     ctx.restore();
     if (mode === "world" && !overlay) drawWorldHUD();
   }
   function drawWorldEntities() {
-    const actors = npcList().map((n) => ({
-      y: n.y,
-      draw: () => drawNPC(n)
-    }));
+    const actors = sceneryEntities(state.zone).concat(
+      npcList().map((n) => ({
+        y: n.y,
+        draw: () => drawNPC(n)
+      }))
+    );
+    for (const it of interactables()) {
+      if (!it.hidden?.())
+        actors.push({ y: it.y, draw: () => drawFieldObject(it) });
+    }
     for (const mob of WORLD_ENCOUNTERS[state.zone] || []) {
       if (state.defeated[mobKey(state.zone, mob.id)]) continue;
       const mm = worldMobMotion[mobKey(state.zone, mob.id)] || mob;
@@ -4100,7 +4351,10 @@
     uiButton("Continue \u2192", 1030, 628, 175, 45, () => handleInput("enter"));
   }
   function drawStoryJournal() {
-    modalFrame("CASE JOURNAL", "The record, the route, and what remains.");
+    modalFrame(
+      "CASE JOURNAL",
+      "The directives, the receipts, and who signed them."
+    );
     const q = MAIN_STAGES[state.mainStage];
     box(58, 168, 715, 157, "#1c2c43", "#688199");
     pill("CHAPTER " + state.chapter, 78, 184, "#95bedc");
@@ -4153,10 +4407,10 @@
   function drawEnding() {
     drawHeadingBackdrop();
     box(45, 40, 1190, 640, "#0c172bf5", "#698198");
-    topLabel("THE COMPLETE RECORD", "The final decision");
+    topLabel("THE VICTORY ENGINE", "The final decision");
     if (ending.step === "choice") {
       wrapped(
-        "The source trail is verified. The hearing is over. Decide how the complete record reaches the public.",
+        "The Engine followed your instructions. The costs are real, the signatures are yours, and the launch is live. What do you do?",
         58,
         170,
         1130,
@@ -4166,12 +4420,12 @@
       );
       [
         [
-          "BROADCAST NOW",
-          "Release the complete source package immediately, with the corrections attached."
+          "PUBLISH & ROLL BACK",
+          "Publish your directives and the receipts. Shut down the Engine and reopen public services."
         ],
         [
-          "FILE WITH THE HEARING",
-          "Enter the package into the hearing record before the public relay opens."
+          "REBRAND & RELAUNCH",
+          "Keep the Engine, rename the costs, and present the same system as a fresh victory."
         ]
       ].forEach(
         (o, i) => uiButton(
@@ -4403,15 +4657,596 @@
       }
     ];
   }
+  const sceneryFrames = /* @__PURE__ */ new Map();
+  const SCENERY_RISE = {
+    building: 120,
+    glass: 115,
+    studio: 80,
+    train: 80,
+    vault: 90,
+    dais: 45,
+    machine: 45,
+    shelf: 82,
+    wall: 40,
+    bench: 40,
+    desk: 54,
+    depot: 55,
+    tent: 70,
+    column: 100,
+    tree: 108,
+    plant: 68,
+    flag: 135,
+    camera: 70,
+    podium: 60,
+    antenna: 185,
+    kiosk: 100,
+    crate: 34,
+    monument: 165,
+    rail: 30,
+    garden: 12,
+    water: 0,
+    seal: 0,
+    gap: 0
+  };
+  const GROUND_OBJECTS = /* @__PURE__ */ new Set(["water", "seal", "gap"]);
+  const SCENE_PALETTES = {
+    outdoor: ["#45644a", "#c2b896", "#aea585", "#dacda8"],
+    garden: ["#355b48", "#b2a987", "#9a9677", "#cec29e"],
+    interior: ["#252e36", "#c2bca6", "#ada791", "#ded5b8"],
+    archive: ["#302d30", "#82725d", "#76664f", "#b3a080"],
+    press: ["#1b2938", "#415164", "#374759", "#697c8c"],
+    hearing: ["#292e35", "#aa9676", "#978567", "#cbb895"],
+    tunnel: ["#172932", "#34464e", "#2b3d45", "#5c7076"],
+    roof: ["#111f32", "#53616e", "#475562", "#7b8992"],
+    station: ["#253139", "#a69b81", "#958a72", "#c4b79a"],
+    vault: ["#182a30", "#4d6366", "#405659", "#788f8a"]
+  };
   function drawHeadingBackdrop() {
     if (battleBackdrop.width) {
       ctx.drawImage(battleBackdrop, 0, 0, W, H);
       ctx.fillStyle = "#07142677";
-      ctx.fillRect(0, 0, W, H);
-    } else {
-      ctx.fillStyle = "#172c43";
-      ctx.fillRect(0, 0, W, H);
+    } else ctx.fillStyle = "#172c43";
+    ctx.fillRect(0, 0, W, H);
+  }
+  function sceneRect(g, x, y, w, h, c) {
+    g.fillStyle = c;
+    g.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
+  }
+  function sceneText(g, s, x, y, size = 13, c = "#e8d8ab") {
+    g.font = "700 " + size + "px QuestMono,monospace";
+    g.fillStyle = c;
+    g.textAlign = "center";
+    g.fillText(s, x, y);
+  }
+  function sceneProp(g, k, x, foot, scale = 1) {
+    const r = PROPS[k];
+    if (!r || !propsAtlas.naturalWidth) return;
+    g.drawImage(
+      spriteFrame("props", propsAtlas, r),
+      Math.round(x - r[2] * scale / 2),
+      Math.round(foot - r[3] * scale),
+      r[2] * scale,
+      r[3] * scale
+    );
+  }
+  function sceneryFrame(o) {
+    const [type, , , w, h, name = ""] = o, ready = !!propsAtlas.naturalWidth && !!landmarkAtlas.naturalWidth;
+    const key = JSON.stringify([type, w, h, name, ready]);
+    if (sceneryFrames.has(key)) return sceneryFrames.get(key);
+    const rise = SCENERY_RISE[type] || 0, pad = type === "tree" ? 36 : type === "flag" ? 20 : 8, c = document.createElement("canvas");
+    c.width = w + pad * 2;
+    c.height = h + rise + pad * 2;
+    const g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.translate(pad, pad);
+    const r = (x, y2, ww, hh, color) => sceneRect(g, x, y2, ww, hh, color), label = (s, x, y2, size = 12) => sceneText(g, s, x, y2, size);
+    const y = rise;
+    if (!GROUND_OBJECTS.has(type)) r(4, y + 6, w, h, "#10232b55");
+    const cabinet = (x, yy, ww, hh, metal = false) => {
+      r(x, yy, ww, hh, "#192a30");
+      r(x + 2, yy + 2, ww - 4, hh - 5, metal ? "#667d83" : "#936b45");
+      r(x + 4, yy + 3, ww - 8, 8, metal ? "#a4b5b2" : "#c69962");
+      r(x + ww - 7, yy + 11, 5, hh - 15, metal ? "#3e535d" : "#5c402f");
+    };
+    if (type === "water") {
+      r(-4, y - 4, w + 8, h + 8, "#263e45");
+      r(-2, y - 2, w + 4, h + 4, "#d1c6a0");
+      r(5, y + 5, w - 10, h - 10, "#264a59");
+      r(9, y + 9, w - 18, h - 18, "#397082");
+      for (let yy = 18; yy < h - 12; yy += 18)
+        for (let xx = 14; xx < w - 28; xx += 53)
+          r(xx + yy % 3 * 5, y + yy, 22, 2, "#8bb2ae");
+      r(9, y + 9, w - 18, 5, "#203e4e");
+    } else if (type === "gap") {
+      r(0, y, w, h, "#091523");
+      for (let yy = 20; yy < h; yy += 38)
+        for (let xx = 12; xx < w; xx += 42) {
+          r(xx, y + yy, 27, 25, "#152a3b");
+          r(xx + 5, y + yy + 5, 5, 8, "#40556a");
+        }
+      r(0, y, w, 12, "#253945");
+      r(0, y, 8, h, "#75828a");
+      r(w - 8, y, 8, h, "#75828a");
+    } else if (type === "seal") {
+      g.strokeStyle = "#8e774e";
+      g.lineWidth = 5;
+      g.beginPath();
+      g.ellipse(w / 2, y + h / 2, w / 2 - 6, h / 2 - 6, 0, 0, Math.PI * 2);
+      g.stroke();
+      sceneProp(g, "SEAL", w / 2, y + h / 2 + 45, 2);
+    } else if (type === "garden") {
+      r(0, y, w, h, "#203e35");
+      r(0, y, w, 6, "#c8b994");
+      r(0, y + h - 6, w, 6, "#7b785c");
+      for (let yy = y + 12; yy < y + h - 10; yy += 22)
+        for (let xx = 10; xx < w - 10; xx += 23) {
+          r(xx, yy, 16, 12, "#294b34");
+          r(xx + 2, yy - 3, 12, 10, "#65824d");
+          r(xx + 4, yy - 3, 6, 3, "#92a363");
+          if ((xx + yy) % 5 < 2) {
+            r(xx + 7, yy, 4, 4, "#d8ab77");
+            r(xx + 9, yy + 3, 4, 3, "#eed2a0");
+          }
+        }
+    } else if (type === "tree") {
+      const a = LAND.TREE;
+      if (ready) {
+        const sc = 2;
+        g.drawImage(
+          spriteFrame("landmarks", landmarkAtlas, a),
+          w / 2 - a[2] * sc / 2,
+          y + h - a[3] * sc,
+          a[2] * sc,
+          a[3] * sc
+        );
+      }
+    } else if (["column", "plant", "flag"].includes(type)) {
+      sceneProp(
+        g,
+        { column: "COLUMN", plant: "POTPLANT", flag: "FLAG" }[type],
+        w / 2,
+        y + h,
+        type === "column" ? 2 : type === "flag" ? 1.7 : 1.5
+      );
+    } else if (type === "desk") {
+      for (let xx = 62; xx < w; xx += 124) sceneProp(g, "DESK", xx, y + h, 2);
+      r(16, y - 16, 29, 19, "#dbd1ae");
+      r(19, y - 13, 20, 2, "#728488");
+      r(72, y - 20, 30, 22, "#1d303c");
+      r(76, y - 17, 22, 14, "#618b93");
+    } else if (type === "bench") {
+      r(9, y + h - 10, 9, 10, "#233239");
+      r(w - 18, y + h - 10, 9, 10, "#233239");
+      r(0, y - 20, w, 25, "#48372d");
+      for (let yy = y - 17; yy < y + 3; yy += 8) {
+        r(3, yy, w - 6, 5, "#b48b58");
+        r(3, yy, w - 6, 2, "#d0a975");
+      }
+      r(0, y + 7, w, h - 17, "#a2784e");
+      r(0, y + 7, w, 4, "#c49d66");
+      r(0, y - 15, 5, h + 5, "#2e3c40");
+      r(w - 5, y - 15, 5, h + 5, "#2e3c40");
+    } else if (type === "shelf") {
+      cabinet(0, 4, w, y + h - 4);
+      for (let yy = 16; yy < y + h - 24; yy += 33) {
+        r(7, yy, w - 17, 26, "#352d2a");
+        for (let xx = 11; xx < w - 19; xx += 13) {
+          const k = Math.floor(xx / 13 + yy / 33);
+          r(
+            xx,
+            yy + 3 + k % 3,
+            9,
+            21 - k % 3,
+            ["#a26f53", "#658387", "#b39b65", "#6c7459"][k % 4]
+          );
+          r(xx + 2, yy + 7, 5, 2, "#d1b990");
+        }
+        r(5, yy + 26, w - 11, 5, "#c0935b");
+      }
+    } else if (type === "crate" || type === "depot") {
+      cabinet(0, y - 25, w, h + 25);
+      r(8, y - 12, w - 20, h + 4, "#6b5038");
+      for (let xx = 12; xx < w - 12; xx += 22) r(xx, y - 10, 3, h, "#b68c55");
+      r(4, y - 22, w - 8, 6, "#dfba7a");
+      r(4, y + h - 10, w - 8, 7, "#c29a60");
+      if (name) {
+        r(18, y, w - 36, 23, "#303e3d");
+        label(name, w / 2, y + 16, 11);
+      }
+    } else if (type === "wall" || type === "rail") {
+      r(0, y - 24, w, h + 24, "#344750");
+      r(0, y - 24, w, 9, "#9aa79e");
+      for (let yy = y - 12; yy < y + h; yy += 19) {
+        r(0, yy, w, 2, "#21353e");
+        for (let xx = yy % 2 * 24; xx < w; xx += 48)
+          r(xx, yy, 2, 19, "#253c45");
+      }
+      r(0, y + h - 4, w, 4, "#182e38");
+    } else if (type === "tent") {
+      r(6, y, w - 12, h, "#654938");
+      r(12, y + 8, w - 24, h - 8, "#2c3c3c");
+      for (let xx = 0; xx < w; xx += 20) {
+        r(xx, y - 50, 20, 35, xx / 20 % 2 ? "#d4bd8c" : "#577f71");
+        r(xx, y - 15, 20, 15, xx / 20 % 2 ? "#b9a67c" : "#3e675c");
+      }
+      r(4, y, w - 8, 23, "#805d3f");
+      label(name, w / 2, y + 16, 11);
+      r(8, y + 48, w - 16, 14, "#bb9059");
+      r(12, y + 35, 30, 13, "#e7c986");
+      r(65, y + 29, 22, 19, "#6d927c");
+      r(113, y + 37, 31, 11, "#be7861");
+    } else if (type === "camera") {
+      r(w / 2 - 2, y - 20, 4, h + 20, "#101f2b");
+      for (let i = 0; i < 16; i++) {
+        r(w / 2 - i, y + h - 16 + i, 3, 2, "#263b46");
+        r(w / 2 + i, y + h - 16 + i, 3, 2, "#263b46");
+      }
+      cabinet(0, y - 46, w, 28, true);
+      r(w - 3, y - 40, 12, 16, "#13212c");
+      r(5, y - 40, 13, 12, "#405568");
+      r(3, y - 51, 6, 4, "#e26c5e");
+    } else if (type === "podium" || type === "kiosk") {
+      cabinet(
+        0,
+        type === "kiosk" ? 5 : y - 30,
+        w,
+        type === "kiosk" ? y + h - 5 : h + 30
+      );
+      if (type === "kiosk") {
+        r(7, 15, w - 14, 46, "#203743");
+        label(name, w / 2, 43, 11);
+        r(15, 70, w - 30, 24, "#668a83");
+      } else {
+        sceneProp(g, "SEAL", w / 2, y + h - 4, 1);
+        r(w / 2 + 20, y - 49, 3, 22, "#263840");
+        r(w / 2 + 12, y - 49, 12, 4, "#1b2a31");
+      }
+    } else if (type === "monument") {
+      r(0, y, w, h, "#817e6b");
+      r(5, y - 10, w - 10, 12, "#d2c7aa");
+      r(w / 2 - 17, 18, 34, y - 28, "#d4c8a5");
+      r(w / 2, 18, 17, y - 28, "#aba78d");
+      for (let i = 0; i < 17; i++) r(w / 2 - i, 18 - i, 2 * i, 2, "#dbceaa");
+      r(10, y + 10, w - 20, 26, "#b1a688");
+    } else if (type === "antenna") {
+      cabinet(0, y, w, h, true);
+      r(w / 2 - 3, 0, 6, y, "#bac5b8");
+      for (let yy = 30; yy < y; yy += 35) {
+        r(w / 2 - 38, yy, 76, 4, "#8eaaa8");
+        r(w / 2 - 38, yy - 8, 4, 20, "#526c77");
+        r(w / 2 + 34, yy - 8, 4, 20, "#526c77");
+      }
+      r(w / 2 - 5, 0, 10, 8, "#f4ab77");
+      r(13, y + 18, w - 26, h - 32, "#293f4b");
+    } else if (type === "machine") {
+      cabinet(0, 6, w, y + h - 6, true);
+      r(10, 21, w - 22, 22, "#233b48");
+      for (let xx = 16; xx < w - 20; xx += 13)
+        r(xx, 26, 6, 10, xx % 3 ? "#89b69c" : "#deac64");
+      for (let yy = 54; yy < y + h - 14; yy += 7) r(12, yy, w - 26, 3, "#304651");
+      if (name) {
+        r(8, y + h - 24, w - 18, 18, "#263b42");
+        label(name, w / 2, y + h - 11, 9);
+      }
+    } else if (type === "train") {
+      r(0, 9, w, y + h - 18, "#263b45");
+      r(8, 3, w - 16, 24, "#bac2b7");
+      r(4, 27, w - 8, y + h - 42, "#819b9d");
+      r(4, y + 55, w - 8, 12, "#ab6854");
+      for (let xx = 24; xx < w - 85; xx += 120) {
+        r(xx, 39, 85, 57, "#233c49");
+        r(xx + 4, 43, 77, 46, "#527281");
+        r(xx + 8, 44, 8, 43, "#91aaa6");
+        r(xx + 42, 43, 3, 47, "#b1b9a6");
+        r(xx + 7, y + h - 12, 60, 12, "#182b35");
+      }
+      r(w / 2 - 38, 30, 76, y + h - 37, "#b0b9ae");
+      r(w / 2 - 30, 40, 60, 45, "#324f5e");
+      r(w / 2 - 1, 30, 3, y + h - 37, "#405d64");
+      r(0, y + h - 5, w, 5, "#192d36");
+      label(name, w / 2, y + 45, 13);
+    } else if (["building", "glass", "studio", "vault", "dais"].includes(type)) {
+      const stone = type === "building" || type === "glass", metal = type === "vault";
+      const top = type === "dais" ? 8 : 6, height = y + h - top;
+      cabinet(0, top, w, height, metal);
+      r(4, top + 3, w - 8, 18, stone ? "#e0d2ae" : metal ? "#a6b8b1" : "#b28c5b");
+      r(
+        8,
+        top + 21,
+        w - 16,
+        height - 35,
+        stone ? "#aaab98" : metal ? "#3f5660" : type === "studio" ? "#253f51" : "#5d4334"
+      );
+      if (stone) {
+        for (let xx = 24; xx < w - 38; xx += 58) {
+          r(xx, top + 40, 38, height - 79, "#344f59");
+          r(
+            xx + 4,
+            top + 45,
+            30,
+            height - 90,
+            type === "glass" ? "#7ba4a0" : "#5f7e82"
+          );
+          r(xx + 17, top + 40, 4, height - 79, "#c3c2a5");
+          r(xx, top + 83, 38, 4, "#b6b99f");
+        }
+        if (type === "building")
+          for (let xx = 18; xx < w - 20; xx += 116) {
+            r(xx, top + 30, 14, height - 40, "#ddd1b1");
+            r(xx - 4, top + 26, 22, 8, "#efe0bd");
+            r(xx - 4, y + h - 19, 22, 10, "#c0b393");
+          }
+        r(w / 2 - 46, y + h - 92, 92, 92, "#d0c4a2");
+        sceneProp(g, "DOOR", w / 2, y + h, 1.25);
+        for (let i = 0; i < 3; i++) {
+          r(
+            -i * 2,
+            y + h - 8 + i * 3,
+            w + i * 4,
+            3,
+            i % 2 ? "#8d8d7a" : "#d3c9ab"
+          );
+        }
+      } else if (type === "vault") {
+        for (let xx = 18; xx < w - 24; xx += 40) {
+          r(xx, top + 36, 4, 4, "#a4beb4");
+          r(xx, y + h - 15, 4, 4, "#a4beb4");
+        }
+        const cx = w / 2, cy = y + h / 2;
+        g.fillStyle = "#7d9798";
+        g.beginPath();
+        g.ellipse(cx, cy, 62, 67, 0, 0, Math.PI * 2);
+        g.fill();
+        g.strokeStyle = "#b6c4b5";
+        g.lineWidth = 5;
+        g.stroke();
+        g.strokeStyle = "#2e4a55";
+        g.lineWidth = 8;
+        g.beginPath();
+        g.arc(cx, cy, 22, 0, Math.PI * 2);
+        g.stroke();
+        r(cx - 3, cy - 36, 6, 72, "#c7c9ae");
+        r(cx - 36, cy - 3, 72, 6, "#c7c9ae");
+      } else if (type === "dais") {
+        for (let xx = 65; xx < w - 40; xx += 110)
+          sceneProp(g, "CHAIR", xx, y + 25, 1.3);
+        r(8, y + 12, w - 16, h - 15, "#926642");
+        r(8, y + 12, w - 16, 7, "#d1a268");
+        for (let xx = 21; xx < w - 25; xx += 78) {
+          r(xx, y + 30, 60, h - 40, "#684a34");
+          r(xx + 3, y + 33, 54, 3, "#b28853");
+        }
+        sceneProp(g, "SEAL", w / 2, y + h - 8, 1.4);
+      } else {
+        for (let xx = 25; xx < w - 65; xx += 85) {
+          r(xx, 42, 65, 59, "#101e2c");
+          r(xx + 4, 46, 57, 48, "#3f6a7a");
+          r(xx + 8, 52, 20, 3, "#a6c0b3");
+          r(xx + 8, 60, 41, 2, "#789991");
+          r(xx + 8, 78, 31, 5, "#bd8b6c");
+        }
+        sceneProp(g, "DESK", w / 2, y + h - 12, 2);
+      }
+      if (name) {
+        const sz = Math.min(13, Math.floor((w - 24) / (name.length * 0.62)));
+        r(10, top + 21, w - 20, 23, "#20353b");
+        label(name, w / 2, top + 37, sz);
+      }
     }
+    const frame = { canvas: c, rise, pad };
+    sceneryFrames.set(key, frame);
+    return frame;
+  }
+  function drawSceneryObject(g, o) {
+    const f = sceneryFrame(o);
+    g.drawImage(f.canvas, o[1] - f.pad, o[2] - f.rise - f.pad);
+  }
+  function districtScene(z, overview = false) {
+    const ready = !!propsAtlas.naturalWidth && !!landmarkAtlas.naturalWidth;
+    const key = z + ":" + ready + ":" + overview;
+    if (districtCanvases.has(key)) return districtCanvases.get(key);
+    const d = DISTRICTS[z], p = SCENE_PALETTES[d.theme], out = ["outdoor", "garden"].includes(d.theme), dark = ["tunnel", "roof", "vault", "press"].includes(d.theme);
+    const c = document.createElement("canvas");
+    c.width = 1920;
+    c.height = 1280;
+    const g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    const r = (x, y, w, h, color) => sceneRect(g, x, y, w, h, color);
+    r(0, 0, 1920, 1280, p[0]);
+    if (out) {
+      for (let i = 0; i < 2700; i++) {
+        const x = (i * 137 + z.length * 91) % 1920, y = (i * 359 + 17) % 1280;
+        r(x, y, 2, 3, i % 3 ? "#6d835133" : "#142f2333");
+      }
+    } else {
+      r(70, 100, 1780, 1120, p[1]);
+      const size = d.theme === "hearing" ? 64 : d.theme === "press" ? 48 : 80;
+      for (let yy = 100; yy < 1220; yy += size)
+        for (let xx = 70; xx < 1850; xx += size) {
+          r(
+            xx + 1,
+            yy + 1,
+            size - 2,
+            size - 2,
+            ((xx - 70) / size + (yy - 100) / size) % 2 ? p[1] : p[1]
+          );
+          r(xx + 3, yy + 3, size - 6, 1, p[3] + "25");
+        }
+    }
+    for (const [x, y, w, h] of d.roads)
+      r(x - 6, y - 6, w + 12, h + 12, out ? "#8c8c6c" : p[2]);
+    for (const [x, y, w, h] of d.roads) r(x, y, w, h, out ? p[1] : p[2]);
+    g.save();
+    g.beginPath();
+    d.roads.forEach(([x, y, w, h]) => g.rect(x, y, w, h));
+    g.clip();
+    if (out) {
+      for (let yy = 100; yy < 1220; yy += 32) {
+        r(70, yy, 1780, 1, "#766f573b");
+        for (let xx = 70 + (yy % 64 ? 32 : 0); xx < 1850; xx += 64)
+          r(xx, yy, 1, 32, "#766f573b");
+      }
+    } else if (["interior", "hearing"].includes(d.theme)) {
+      r(845, 360, 230, 850, d.theme === "hearing" ? "#69433f" : "#49636a");
+      r(856, 360, 3, 850, "#bd9a60");
+      r(1061, 360, 3, 850, "#bd9a60");
+    } else if (dark) {
+      for (let yy = 180; yy < 1180; yy += 160) r(70, yy, 1780, 2, p[3] + "45");
+    }
+    g.restore();
+    if (z === "ROTUNDA") {
+      g.strokeStyle = "#8e825f";
+      g.lineWidth = 9;
+      g.beginPath();
+      g.ellipse(960, 710, 485, 315, 0, 0, Math.PI * 2);
+      g.stroke();
+      g.lineWidth = 2;
+      g.beginPath();
+      g.ellipse(960, 710, 466, 296, 0, 0, Math.PI * 2);
+      g.stroke();
+    }
+    if (z === "STATION") {
+      r(250, 180, 1430, 4, "#364a51");
+      r(250, 209, 1430, 4, "#364a51");
+      r(230, 404, 1440, 8, "#d7b969");
+      for (let xx = 240; xx < 1660; xx += 16) r(xx, 414, 6, 4, "#d7b969");
+    }
+    if (z === "TUNNELS") {
+      for (let yy = 175; yy < 260; yy += 23) {
+        r(95, yy, 1680, 10, "#253a43");
+        r(95, yy, 1680, 3, "#7b8b81");
+      }
+    }
+    r(60, 90, 1800, 12, p[3]);
+    r(60, 102, 1800, 38, out ? "#294936" : dark ? "#243b48" : "#6b7169");
+    r(60, 100, 10, 1120, p[3]);
+    r(1850, 100, 10, 1120, p[3]);
+    r(60, 1220, 1800, 10, p[3]);
+    if (!out)
+      for (let xx = 155; xx < 1790; xx += 240) {
+        r(xx, 108, 90, 18, dark ? "#506978" : "#a5b4aa");
+        r(xx + 8, 110, 74, 3, dark ? "#b8d0ba" : "#ddd5b8");
+      }
+    for (const [x, y, s] of d.signs || [])
+      sceneText(g, s, x, y, 12, out ? "#e3d8af" : "#e0c995");
+    for (const o of d.objects)
+      if (GROUND_OBJECTS.has(o[0])) drawSceneryObject(g, o);
+    if (overview) {
+      for (const o of [...d.objects].sort((a, b) => a[2] + a[4] - b[2] - b[4]))
+        if (!GROUND_OBJECTS.has(o[0])) drawSceneryObject(g, o);
+    }
+    districtCanvases.set(key, c);
+    return c;
+  }
+  function drawMapBase(z) {
+    ctx.drawImage(districtScene(z), 0, 0);
+  }
+  function sceneryEntities(z) {
+    return DISTRICTS[z].objects.filter((o) => !GROUND_OBJECTS.has(o[0])).map((o) => ({ y: o[2] + o[4], draw: () => drawSceneryObject(ctx, o) }));
+  }
+  function fieldObjectType(it) {
+    if (it.travel) return null;
+    if (it.id === "rest") return "medical";
+    if (it.id === "cache") return "crate";
+    if (it.id === "travel" || it.id === "trials" || it.id === "briefing" || it.id === "tutorial" || it.id === "upgrade")
+      return "board";
+    if (it.id.startsWith("breaker") || it.id === "channel") return "terminal";
+    if (it.id.startsWith("mission_") && it.id !== "mission_boss")
+      return ["TUNNELS", "ROOFTOPS", "VAULT"].includes(state.zone) ? "terminal" : "crate";
+    if (it.boss || ["sentinel", "fixer", "chair"].includes(it.id)) return null;
+    return "document";
+  }
+  function drawFieldObject(it) {
+    const boss = { sentinel: "SENTINEL", fixer: "FIXER", chair: "CHAIR" }[it.id] || (it.id === "mission_boss" ? SIDE_MISSIONS[state.zone]?.boss : null);
+    if (boss) {
+      drawShadow(it.x, it.y, 23, 0.22);
+      drawFacingEnemy(
+        ENEMY_DEFS[boss].sprite,
+        it.x,
+        it.y,
+        0.78,
+        state.player.x < it.x ? "left" : "right"
+      );
+      return;
+    }
+    const type = fieldObjectType(it);
+    if (!type) return;
+    const x = it.x, y = it.y, r = (a, b, w, h, c) => sceneRect(ctx, x + a, y + b, w, h, c);
+    if (type === "crate")
+      drawSceneryObject(ctx, ["crate", x - 24, y - 24, 48, 24]);
+    else if (type === "medical") {
+      r(-25, -38, 50, 35, "#d6d4b8");
+      r(-25, -38, 50, 6, "#7aa396");
+      r(-20, -4, 6, 6, "#263f43");
+      r(14, -4, 6, 6, "#263f43");
+      r(-4, -31, 8, 21, "#ac524e");
+      r(-10, -25, 20, 8, "#ac524e");
+    } else if (type === "terminal") {
+      r(-19, -55, 38, 49, "#68828a");
+      r(-15, -50, 30, 25, "#142e3e");
+      r(-11, -46, 22, 3, "#9fce9f");
+      r(-11, -39, 14, 3, "#9fce9f");
+      r(-13, -19, 7, 5, "#d4a568");
+      r(3, -19, 7, 5, "#8bbc9c");
+      r(-24, -6, 48, 6, "#30494f");
+    } else if (type === "board") {
+      r(-22, -59, 44, 40, "#ba955f");
+      r(-18, -55, 36, 32, "#304b4c");
+      r(-19, -19, 5, 19, "#6c5239");
+      r(14, -19, 5, 19, "#6c5239");
+      r(-12, -48, 24, 3, "#d8cda5");
+      r(-12, -40, 18, 2, "#92b9a3");
+      r(-12, -33, 21, 2, "#92b9a3");
+    } else {
+      r(-17, -19, 34, 16, "#69533c");
+      r(-13, -25, 26, 17, "#e1d3af");
+      r(-9, -21, 17, 2, "#728483");
+      r(-9, -16, 12, 2, "#728483");
+    }
+  }
+  function drawMapObjects() {
+    const ob = localObjective();
+    for (const it of interactables()) {
+      if (it.hidden?.()) continue;
+      const near = dist(it, state.player) < 155, rest = it.id === "rest", exit = !!it.travel;
+      const active = ob && dist(it, ob) < 12, c = rest ? "#a6e5bb" : active ? "#f6d785" : exit ? "#b7cfdb" : "#baaf89";
+      if (near || active || exit || rest) {
+        ctx.strokeStyle = c;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(it.x, it.y + 4, exit ? 25 : 20, 7, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      if (exit) {
+        sceneRect(ctx, it.x - 18, it.y - 4, 36, 5, c);
+        drawDiamond(it.x, it.y - 25, c, 7);
+      }
+      if (active)
+        drawDiamond(it.x, it.y - 76 + Math.sin(totalTime * 3) * 3, c, 6);
+      if (near || rest || exit) {
+        const label = rest ? "REST" : exit ? "\u2192 " + it.label : it.label, w = Math.min(320, label.length * 7 + 20);
+        box(it.x - w / 2, it.y + 17, w, 24, "#132d35ee", c);
+        panelText(label, it.x, it.y + 23, 11, c, "center");
+      }
+    }
+    if (ob && npcList().some((n) => dist(n, ob) < 12)) {
+      ctx.strokeStyle = "#f6d785";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(ob.x, ob.y + 5, 28, 9, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      drawDiamond(ob.x, ob.y - 110 + Math.sin(totalTime * 3) * 3, "#f6d785", 7);
+    }
+    if (walkPath.length) {
+      ctx.fillStyle = "#fff0b6";
+      for (let i = 0; i < walkPath.length; i += 3) {
+        const p = walkPath[i];
+        ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+      }
+    }
+  }
+  function drawStoryBackdrop(...args) {
+    return drawHeadingBackdrop(...args);
   }
   function tileRect(key, x, y, w, h, size = 64) {
     const r = TILE[key];
@@ -4434,340 +5269,9 @@
     ctx.fillRect(0, 0, w, h);
     ctx.restore();
   }
-  function districtScene(z) {
-    const ready = [atlas, landmarkAtlas, propsAtlas].every(
-      (im) => im.complete && im.naturalWidth
-    );
-    const key = z + ready;
-    if (districtCanvases.has(key)) return districtCanvases.get(key);
-    const c = document.createElement("canvas");
-    c.width = 1920;
-    c.height = 1280;
-    const g = c.getContext("2d");
-    g.imageSmoothingEnabled = false;
-    const d = DISTRICTS[z], out = ["outdoor", "garden"].includes(d.theme), roof = d.theme === "roof", dark = ["tunnel", "vault"].includes(d.theme);
-    const fill = (x, y, w, h, color) => {
-      g.fillStyle = color;
-      g.fillRect(x, y, w, h);
-    }, line = (x, y, w, h, color) => {
-      g.strokeStyle = color;
-      g.lineWidth = 2;
-      g.strokeRect(x + 1, y + 1, w - 2, h - 2);
-    }, label = (s, x, y, size = 16, color = "#e7ddbb") => {
-      g.font = "700 " + size + "px QuestMono,monospace";
-      g.fillStyle = color;
-      g.textAlign = "center";
-      g.fillText(s, x, y);
-    };
-    const prop = (k, x, y, w, h) => {
-      const r = PROPS[k];
-      if (!ready || !r) return;
-      const sc = Math.min(w / r[2], h / r[3]);
-      g.drawImage(
-        spriteFrame("props", propsAtlas, r),
-        x + (w - r[2] * sc) / 2,
-        y + h - r[3] * sc,
-        r[2] * sc,
-        r[3] * sc
-      );
-    };
-    const tree = (x, y, scale = 1.4) => {
-      const r = LAND.TREE;
-      if (ready)
-        g.drawImage(
-          spriteFrame("landmarks", landmarkAtlas, r),
-          x,
-          y,
-          r[2] * scale,
-          r[3] * scale
-        );
-    };
-    const tile = (k, x, y, w, h, size) => {
-      const r = TILE[k];
-      if (!ready || !r) return;
-      const p = document.createElement("canvas");
-      p.width = size;
-      p.height = size;
-      const pg = p.getContext("2d");
-      pg.imageSmoothingEnabled = false;
-      pg.drawImage(atlas, ...r, 0, 0, size, size);
-      g.save();
-      g.translate(x, y);
-      g.fillStyle = g.createPattern(p, "repeat");
-      g.fillRect(0, 0, w, h);
-      g.restore();
-    };
-    fill(
-      0,
-      0,
-      1920,
-      1280,
-      out ? "#476f52" : roof ? "#454f66" : dark ? "#303f4a" : "#8e928f"
-    );
-    if (out) {
-      for (let i = 0; i < 3700; i++) {
-        const x = (i * 131 + z.length * 93) % 1920, y = (i * 397 + z.charCodeAt(0)) % 1280;
-        fill(
-          x,
-          y,
-          3 + i % 4,
-          2,
-          i % 3 === 0 ? "#587f5b" : i % 3 === 1 ? "#3f684c" : "#4c7452"
-        );
-      }
-      for (let y = 140; y < 1200; y += 145) {
-        tree(85, y, 1.3);
-        tree(1770, y + 35, 1.5);
-      }
-      for (let x = 260; x < 1700; x += 140) tree(x, 80, 1.2);
-    } else {
-      tile("floor", 70, 100, 1780, 1110, 48);
-      fill(
-        70,
-        100,
-        1780,
-        1110,
-        dark ? "#10212b99" : roof ? "#34446499" : "#79644833"
-      );
-      for (let y = 100; y < 1210; y += 96) {
-        fill(70, y, 1780, 2, dark ? "#758e8f33" : "#d8d2b64d");
-      }
-      for (let x = 70; x < 1850; x += 96)
-        fill(x, 100, 2, 1110, dark ? "#758e8f33" : "#d8d2b64d");
-    }
-    for (const [x, y, w, h] of d.roads) {
-      fill(
-        x - 9,
-        y - 9,
-        w + 18,
-        h + 18,
-        out ? "#b5b39a" : dark ? "#5c7178" : "#c7c2aa"
-      );
-      fill(
-        x - 5,
-        y - 5,
-        w + 10,
-        h + 10,
-        out ? "#797d6e" : dark ? "#293943" : "#555e64"
-      );
-      tile("paving", x, y, w, h, 40);
-      fill(
-        x,
-        y,
-        w,
-        h,
-        out ? "#dbcaa022" : dark ? "#142936aa" : roof ? "#34415799" : "#a8916230"
-      );
-    }
-    if (!out) {
-      fill(70, 98, 1780, 27, dark ? "#586e78" : "#d4ccb6");
-      fill(70, 125, 1780, 35, dark ? "#243644" : "#616a6c");
-      fill(70, 100, 28, 1110, "#283e48");
-      fill(1822, 100, 28, 1110, "#283e48");
-      fill(70, 1186, 1780, 24, "#263c48");
-      for (let x = 200; x < 1800; x += 300) {
-        prop("POTPLANT", x, 165, 50, 70);
-        prop("FLAG", x + 100, 146, 45, 105);
-      }
-    }
-    for (const o of d.objects) {
-      const [type, x, y, w, h, name] = o;
-      fill(x + 9, y + 12, w, h, "#12283044");
-      if (type === "garden") {
-        fill(x - 5, y - 5, w + 10, h + 10, "#bfbb99");
-        fill(x, y, w, h, "#32553f");
-        for (let xx = x + 16; xx < x + w - 35; xx += 70) {
-          tree(xx, y + 8, 1.25);
-          for (let yy = y + 80; yy < y + h - 8; yy += 18)
-            fill(xx + 8, yy, 4, 4, xx % 3 ? "#d6b695" : "#d7bc76");
-        }
-      } else if (type === "water") {
-        fill(x - 6, y - 6, w + 12, h + 12, "#c1b89a");
-        fill(x - 2, y - 2, w + 4, h + 4, "#607f84");
-        fill(x, y, w, h, "#365f72");
-        for (let yy = y + 12; yy < y + h; yy += 20) {
-          fill(x + 8, yy, w - 16, 2, "#789b9944");
-          for (let xx = x + 16; xx < x + w - 20; xx += 61)
-            fill(xx + yy % 7, yy + 7, 22, 2, "#a7c6b47a");
-        }
-      } else if ([
-        "building",
-        "glass",
-        "studio",
-        "train",
-        "machine",
-        "vault",
-        "dais"
-      ].includes(type)) {
-        const metal = ["machine", "vault", "train"].includes(type), stone = ["building", "glass"].includes(type);
-        fill(x, y, w, h, metal ? "#536776" : stone ? "#c5c3af" : "#785849");
-        fill(x, y, w, 20, metal ? "#a2b4b0" : stone ? "#e7dcc0" : "#b5916c");
-        fill(
-          x + 12,
-          y + 25,
-          w - 24,
-          h - 38,
-          metal ? "#344953" : stone ? "#aaa995" : "#553e35"
-        );
-        if (type === "building" || type === "glass") {
-          for (let xx = x + 30; xx < x + w - 50; xx += 75) {
-            fill(
-              xx,
-              y + 50,
-              45,
-              h - 88,
-              type === "glass" ? "#719ea3" : "#6a8088"
-            );
-            fill(xx + 20, y + 50, 4, h - 88, "#c5c8ab");
-            fill(xx, y + 85, 45, 4, "#c5c8ab");
-          }
-          fill(x + w / 2 - 47, y + h - 82, 94, 82, "#5c625b");
-          fill(x + w / 2 - 38, y + h - 75, 76, 75, "#314955");
-          fill(x + w / 2 - 2, y + h - 75, 4, 75, "#bdaf83");
-        } else if (type === "vault") {
-          prop("DOOR", x + w / 2 - 45, y + 35, 90, h - 35);
-          for (let xx = x + 30; xx < x + w - 30; xx += 70)
-            fill(xx, y + 46, 5, 5, "#adcba3");
-        } else if (type === "dais") {
-          for (let xx = x + 65; xx < x + w - 60; xx += 170)
-            prop("CHAIR", xx, y + 55, 65, h - 60);
-          prop("SEAL", x + w / 2 - 36, y + 36, 72, 72);
-        } else if (type === "train") {
-          for (let xx = x + 26; xx < x + w - 80; xx += 110) {
-            fill(xx, y + 45, 77, 60, "#9baea3");
-            fill(xx + 6, y + 51, 65, 48, "#354f5e");
-          }
-          fill(x + 15, y + h - 23, w - 30, 7, "#cbb982");
-        } else {
-          for (let xx = x + 30; xx < x + w - 70; xx += 100) {
-            fill(xx, y + 50, 62, 55, "#142d3f");
-            fill(
-              xx + 6,
-              y + 57,
-              50,
-              29,
-              type === "machine" ? "#779f95" : "#7799b1"
-            );
-            fill(xx + 8, y + 94, 5, 4, "#e0bf73");
-          }
-          if (type === "studio") prop("DESK", x + 65, y + h - 80, w - 130, 78);
-        }
-        fill(x, y + h - 8, w, 8, "#222f34");
-        if (name) {
-          fill(x + 12, y + 23, w - 24, 27, "#223b42");
-          label(name, x + w / 2, y + 42, 13, "#e5d5aa");
-        }
-      } else if (type === "shelf") {
-        fill(x, y, w, h, "#583f33");
-        for (let yy = y + 8; yy < y + h - 12; yy += 46) {
-          for (let xx = x + 10; xx < x + w - 15; xx += 15) {
-            fill(
-              xx,
-              yy,
-              10,
-              30,
-              ["#a58459", "#738d8d", "#ae7863", "#597681"][(xx + yy) % 4]
-            );
-          }
-          fill(x + 4, yy + 32, w - 8, 6, "#b28b5e");
-        }
-        line(x, y, w, h, "#362f2d");
-      } else if (type === "wall") {
-        fill(x, y, w, h, "#586a70");
-        fill(x, y, w, 12, "#97aaa1");
-        for (let yy = y + 22; yy < y + h; yy += 24)
-          fill(x + 4, yy, w - 8, 2, "#344b55");
-      } else if (type === "column") {
-        prop("COLUMN", x, y, w, h);
-      } else if (type === "seal") {
-        prop("SEAL", x, y, w, h);
-      } else if (type === "tent") {
-        fill(x, y + 20, w, h - 20, "#81544b");
-        fill(x, y, w, 28, "#d4c9a8");
-        for (let xx = x; xx < x + w; xx += 40) fill(xx, y, 20, 28, "#568b83");
-        fill(x + 40, y + 46, w - 80, h - 46, "#324b4a");
-        label(name, x + w / 2, y + 46, 13);
-      } else {
-        fill(x, y, w, h, "#674b3a");
-        fill(x, y, w, 12, "#b79569");
-        fill(x + 10, y + 22, w - 20, 10, "#8f6d4c");
-        if (type === "desk")
-          for (let xx = x + 20; xx < x + w - 25; xx += 65)
-            fill(xx, y + 15, 30, 20, "#dad1ae");
-        if (name) label(name, x + w / 2, y + 46, 12);
-      }
-    }
-    for (const [x, y] of [
-      [130, 870],
-      [1730, 890],
-      [750, 1100],
-      [1350, 1100]
-    ]) {
-      fill(x, y - 63, 4, 66, "#253e43");
-      fill(x - 8, y - 64, 20, 5, "#e1c881");
-      fill(x - 4, y - 59, 12, 15, "#f0d9a1");
-      fill(x - 9, y, 23, 6, "#31484a");
-    }
-    fill(0, 0, 1920, 80, "#203c39");
-    districtCanvases.set(key, c);
-    return c;
-  }
-  function drawMapBase(z) {
-    ctx.drawImage(districtScene(z), 0, 0);
-  }
-  function drawMapObjects(z) {
-    const ob = localObjective();
-    for (const it of interactables()) {
-      if (it.hidden?.()) continue;
-      const isRest = it.id === "rest", isExit = !!it.travel, near = dist(it, state.player) < 210, c = isRest ? "#a6e5bb" : isExit ? "#adcbd9" : it.boss ? "#eea18e" : "#eed394";
-      ctx.save();
-      ctx.strokeStyle = c;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.ellipse(it.x, it.y + 5, isExit ? 31 : 22, 9, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-      if (it.icon) drawItem(it.icon, it.x, it.y - 22, 30);
-      else if (isExit) {
-        drawDiamond(it.x, it.y - 26, c, 9);
-        panelText("\u2197", it.x, it.y - 48, 17, c, "center");
-      } else drawDiamond(it.x, it.y - 35, c, 6);
-      if (near || isRest || isExit) {
-        const label = isRest ? "REST" : isExit ? (SIDE_MISSIONS[it.travel] ? "SIDE / " : "TO / ") + it.label : it.label;
-        const w = Math.min(320, label.length * 7.3 + 24);
-        box(it.x - w / 2, it.y + 20, w, 25, "#173033ef", c);
-        panelText(label, it.x, it.y + 26, 11, c, "center");
-      }
-    }
-    if (ob) {
-      ctx.strokeStyle = "#f7d986";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.ellipse(
-        ob.x,
-        ob.y + 9,
-        34 + Math.sin(totalTime * 3) * 3,
-        13,
-        0,
-        0,
-        Math.PI * 2
-      );
-      ctx.stroke();
-    }
-    if (walkPath.length) {
-      ctx.fillStyle = "#fff0b6";
-      for (let i = 0; i < walkPath.length; i += 3) {
-        const p = walkPath[i];
-        ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
-      }
-    }
-  }
-  function drawStoryBackdrop(...args) {
-    return drawHeadingBackdrop(...args);
-  }
   function miniMap(x, y, w, h, z = state.zone, details = false) {
     const m = MAPS[z], sc = Math.min(w / m.w, h / m.h), ox = x + (w - m.w * sc) / 2, oy = y + (h - m.h * sc) / 2;
-    ctx.drawImage(districtScene(z), ox, oy, m.w * sc, m.h * sc);
+    ctx.drawImage(districtScene(z, true), ox, oy, m.w * sc, m.h * sc);
     ctx.fillStyle = "#0a24351f";
     ctx.fillRect(ox, oy, m.w * sc, m.h * sc);
     const dot = (px, py, c, r) => {
@@ -4977,8 +5481,8 @@
     if (id === "protester") {
       if (state.mainStage === 0) {
         lines = [
-          "The megaphone vanished when the service cart rolled east.",
-          "Do not trust the loudest version of the story. Ask the Veteran and the Teacher; both saw different parts of the route."
+          "The scoreboard says we have never been better off. The clinic is closed, my bus is cancelled, and it just labelled me a hostile encounter. Does the scoreboard need anything from the shop?",
+          "Your launch crew put the override key in the golden megaphone, then sold the cart as surplus. The Veteran saw where it went. The Teacher kept the receipt. Try listening before the combat music starts."
         ];
         onDone = () => {
           setStage(1);
@@ -4986,12 +5490,12 @@
         };
       } else
         lines = [
-          "The rally can wait. Bring back the authentication key and the complete record."
+          "You can clear every encounter on this lawn. The complaints will still be true tomorrow. Bring back something more useful than a victory animation."
         ];
     } else if (id === "veteran") {
       lines = [
-        "I saw the cart leave by the south service lane.",
-        "The megaphone was still on it when it passed the fountain. The driver stopped near the Capitol maintenance yard."
+        "The maintenance crew was dismissed at nine. At nine-oh-five, a contractor offered to do the same work for three times the price. The cart took the south service lane.",
+        "C-4 yard, beside the Capitol. The megaphone is there. You will need to restore all three relay switches. Turns out electricity was not a redundant position."
       ];
       onDone = () => {
         state.flags.veteranClue = true;
@@ -4999,8 +5503,8 @@
       };
     } else if (id === "teacher") {
       lines = [
-        "A student photographed the cart tag before it left: maintenance route C-4.",
-        "That route ends at the Capitol service yard. The route number and the Veteran's sighting should be enough to find it."
+        "The lesson plan says tariffs are paid by a country. The invoice says our supplier paid one, then charged us. I have brought a calculator to this patriotic disagreement.",
+        "The cart receipt says C-4, Capitol service yard. Follow the invoices from there to the archive. Numbers remain stubborn even when you put flags around them."
       ];
       onDone = () => {
         state.flags.teacherClue = true;
@@ -5008,13 +5512,13 @@
       };
     } else if (id === "student") {
       lines = [
-        "I sent the route photo to the public archive before my battery died.",
-        "If the archive copy and the service log disagree, keep both. Differences are evidence too."
+        "The Engine made a game where every obstacle is a person with a question. You are the heroes, obviously. It says so on the character select screen.",
+        "I uploaded the cart photo to the archive. If it vanishes, check the folder marked \u201Cefficiency\u201D. That is where they put things they would rather not explain."
       ];
     } else if (id === "nurse") {
       lines = [
-        "Take a breather. I can get everyone back on their feet.",
-        "Your HP and MP are restored. Medkits can revive a fallen ally in battle; open Party & Supplies to use items on the road."
+        "The Engine calls my clinic inefficient because sick people keep coming back. Its proposed solution was to stop letting them in.",
+        "I restored your HP and MP. This is called care. You may announce it as a personal victory if that gets the clinic reopened. Carry medkits for fallen allies."
       ];
       onDone = () => {
         state.party.forEach((p) => {
@@ -5030,60 +5534,60 @@
       return;
     } else if (id === "gateOfficer") {
       lines = state.flags.megaphone ? [
-        "The key in that megaphone matches the visitor relay.",
-        "The interior checkpoint is still locked by the Sentinel. Use the north doors."
+        "Your own override key. Impressive work recovering property your own office sold.",
+        "North doors to the rotunda. The Sentinel only admits loyal people. It has been refusing its own supervisors all afternoon."
       ] : [
-        "Visitor access is open, but the relay key is missing.",
-        "Check the maintenance yard before entering."
+        "The access system is completely secure. Nobody can use it. Security metrics have never looked better.",
+        "Power the three relay switches, then open the C-4 service cart for the override key. Our technician could do it, but his post was abolished."
       ];
     } else if (id === "scientist") {
       lines = [
-        "The bad record is not random corruption. The edits follow a chain.",
-        "If you find the Red Ledger, compare its hand-off codes with the broadcast transcript."
+        "The system was told that bad news was sabotage. It did not become intelligent. It became a very fast press secretary.",
+        "The Red Ledger records the costs. The broadcast transcript records the instructions to hide them. Compare those before somebody blames a mysterious outside agitator."
       ];
     } else if (id === "civilian")
       lines = [
-        "The east lawn is quieter. That makes it easier to spot the maintenance cart."
+        "I came here to renew a permit. I have now been redirected through four victory experiences. Is there still a counter with a person at it?"
       ];
     else if (id === "clerk")
       lines = [
-        "The Sentinel locked the archive passage when the relay key disappeared.",
-        "Defeat it and the east passage should reopen."
+        "The Sentinel equates loyalty with never correcting a superior. Its superior ordered it to correct the lock. We have been here all day.",
+        "The checkpoint is north. Once you get through, the archive passage is east. Please retain the audit log; it is the only employee that was not laid off."
       ];
     else if (id === "guard2")
       lines = [
-        "The rotunda checkpoint is north. The archive passage is east of the dais."
+        "North checkpoint, east archive passage. We used to put that on a sign. Now the sign requires a communications strategy."
       ];
     else if (id === "archivist") {
       lines = state.flags.sentinel ? [
-        "The Red Ledger is in the secured reading room.",
-        "Take the original. The broadcast center will need its chain-of-custody stamps."
+        "Three catalog cards open the ledger vault: intake 04, transfer 17, release 29. Apparently the people purging records forgot that librarians invented retrieval.",
+        "The Red Ledger has actual invoices: tariff charges, cancelled services, and replacement contractors. The broadcast dashboard displays the same entries under \u201Chistoric savings\u201D."
       ] : [
-        "The archive passage is sealed until the Capitol checkpoint is restored."
+        "Clear the rotunda checkpoint first. I would lend you a book on institutional failure, but the system has reclassified it as fiction."
       ];
     } else if (id === "journalist")
       lines = [
-        "A clipped quote can be true and still hide the meaning of the full exchange.",
-        "The source transcript at the broadcast center is the only clean comparison copy."
+        "The launch film has fighter jets, soaring music, and no shot of the people waiting for the bus. Apparently that footage tested poorly.",
+        "Keep the ledger. In the broadcast center, get the full source transcript. You cannot fact-check a montage."
       ];
     else if (id === "organizer")
       lines = [
-        "People disagree about the conclusion. They should still be able to inspect the same record."
+        "Winning an argument with me will not repair the pump. You could try repairing the pump. I realize this is an experimental approach."
       ];
     else if (id === "editor") {
       lines = state.flags.fixer ? [
-        "The Fixer is out of the control room.",
-        "The source locker is unlocked now. Take the original transcript to the Fact Checker."
+        "The Fixer is off the console. For the first time today, the unedited feed and the clock are showing the same minute.",
+        "The source locker is open. Take its full transcript and the Red Ledger to the Fact Checker. Yes, we still have one. Freelance."
       ] : [
-        "Someone in the control room keeps replacing the queued transcript with a cut version.",
-        "Stop the Fixer first; then I can unlock the source copy."
+        "The Fixer has cut every failure from the victory broadcast. It is now eleven seconds long, including six seconds of eagle.",
+        "Tune the center relay to 2 / 4 / 1, then confront the Fixer in the east control room. The full directive is in the west source locker."
       ];
     } else if (id === "factchecker") {
       if (state.flags.ledger && state.flags.transcript) {
         lines = [
-          "The ledger and transcript match at every verified hand-off except one: the hearing chamber queue.",
-          "That is enough to establish the chain. I am signing the verification card now.",
-          "Take the complete record to the hearing."
+          "The signatures match. These were your instructions. Not a hacker. Not a rogue intern. The Engine did exactly what the administration rewarded it for doing.",
+          "The ledger shows who paid. The transcript shows who said to call it winning. I have verified both; my signature does not make your conclusion for you.",
+          "Take the two exhibits to the hearing desks. The Chair is preparing a ceremony to certify success. You appear to be bringing a different presentation."
         ];
         onDone = () => {
           state.flags.factChecked = true;
@@ -5091,21 +5595,23 @@
         };
       } else
         lines = [
-          "I need both originals: the Red Ledger and the source transcript.",
-          "Without both, we can spot a mismatch but cannot prove the chain."
+          "Bring the Red Ledger from the archive and the full source transcript from this building. I need the invoices and the instruction, not two screenshots of the same post.",
+          "No, a high score is not a source. Neither is the word \u201Cofficial\u201D in a gold font."
         ];
     } else if (id === "producer")
       lines = [
-        "The hearing feed is on the upper channel. Once the Fact Checker signs off, the chamber door will open."
+        "The hearing is billed as an unprecedented celebration of unprecedented results. Once the Fact Checker signs off, you can enter. I have quietly prepared a second lower-third: \u201CDeveloping Story\u201D."
       ];
     else if (id === "marshal")
       lines = state.flags.factChecked ? [
-        "Verification card accepted. The hearing is live.",
-        "The Committee Chair is at the dais."
-      ] : ["The chamber is closed until the record is verified."];
+        "Verified exhibits accepted. File the source originals at the west desk and the verification card at the east desk. The Chair is at the dais.",
+        "The applause track is automatic. Do not mistake it for agreement."
+      ] : [
+        "Get both originals verified at the broadcast center. We can stage a ceremony without evidence. We cannot hold a hearing without it."
+      ];
     else if (id === "observer")
       lines = [
-        "Whatever you decide after the hearing, leave the source trail intact."
+        "If you shut it down, people will know what you ordered. If you leave it running, people will keep living with it. There is no button that changes both of those facts."
       ];
     dialogue = {
       speaker: n.name,
@@ -5135,16 +5641,24 @@
     sfx("confirm");
   }
   function endingPages() {
+    const m = state.expedition.missions;
+    const repairs = [
+      m.GARDEN?.complete ? "The garden's protected samples survive the rebranding." : "The garden's samples are still waiting for someone to value the results over the slogan.",
+      m.TUNNELS?.complete ? "The relays you restored keep the clinic's lights on." : "The service relays still need people who know how to fix them.",
+      m.STATION?.complete ? "The passenger manifests put the missing people back on the list." : "At Union Station, the people left off the scoreboard are still waiting."
+    ].join(" ");
     if (state.endingChoice === 0)
       return [
-        "The complete source package goes live with the ledger, transcript, verification card, and every correction attached.",
-        "The first hour is chaotic. People argue about the meaning, but they are finally arguing from the same record.",
-        "The Civic Relay stays online as an open archive. The team leaves the chamber with one rule intact: source first, conclusion second."
+        "The receipts go live beside the original directives. The signatures are yours. The launch screen drops from a billion points to no score at all. The lights stay on. For once, that is the result being measured.",
+        "Trump calls the rollback the most successful shutdown of a thing he personally invented. Hegseth asks for a maintenance roster. Lutnick discovers a cost cannot be negotiated out of existence. RFK requests the sample data. Nobody gets a redemption parade.",
+        repairs,
+        "The victory arcade closes. The public counter reopens, understaffed and embarrassingly ordinary. People arrive with problems. The clerk asks what they need. It is a small ending, and it involves actual work."
       ];
     return [
-      "The complete source package is entered into the public hearing record before the broadcast begins.",
-      "The delay frustrates the crowd, but the chain of custody survives every challenge placed on it.",
-      "When the broadcast finally opens, it carries the hearing record beside the source. The team leaves with one rule intact: preserve the trail."
+      "You retain the Engine and rename it VICTORY PLUS. The invoices move to a submenu. The tariff costs become Freedom Contributions; cancelled services become Premium Self-Reliance. The launch trailer wins its own award.",
+      "The cabinet appears on the title screen. The scoreboard breaks another record. Outside, the same people wait by the same locked doors. The machine did not take over the government. The government renewed its subscription.",
+      repairs,
+      "A student posts the ledger you carried across town. The launch crew labels it a new enemy encounter. Somewhere under the applause track, the combat music starts again. You can still explore the city. It has not stopped needing help."
     ];
   }
   function updateCamera() {
@@ -5204,7 +5718,10 @@
     }
   }
   function npcList() {
-    return NPCS[state.zone] || [];
+    return (NPCS[state.zone] || []).map((n) => {
+      const p = LOCATIONS[state.zone]?.[n.id];
+      return p ? { ...n, x: p[0], y: p[1] } : n;
+    });
   }
   function currentMap() {
     return MAPS[state.zone];
@@ -5864,21 +6381,34 @@
   }
   function drawBattleEffects() {
     const a = battle.action;
-    if (battle.phase === "action" && a?.actor && a.t > 0.12 && a.t < 0.36 && attackType(a) !== "none" && a.actor.name !== "TRUMP") {
+    if (battle.phase === "action" && a?.actor && a.t > 0.12 && a.t < 0.36 && ["physical", "magic", "hybrid"].includes(attackType(a)) && a.actor.name !== "TRUMP") {
       const targets = (a.target ? [a.target] : a.targets || []).filter(
         (e) => battle.enemies.includes(e)
       );
       for (const target of targets) {
-        const from = partyPos(a.actor), to = enemyPos(target), t = clamp((a.t - 0.12) / 0.24, 0, 1), key = a.actor.name === "HEGSETH" ? "gun" : a.actor.name === "LUTNICK" ? "money" : "heal", frame = a.actor.name === "HEGSETH" ? 1 : 2;
-        const r = EXTRA[key][frame];
-        drawExtra(
-          key,
-          lerp(from.x + 35, to.x, t) - r[2] / 2,
-          lerp(from.y - 72, to.y - 64, t) - r[3] / 2,
-          r[2] * 1.3,
-          r[3] * 1.3,
-          frame
-        );
+        const pose = battlePartyPose(a.actor), to = enemyPos(target);
+        if (a.actor.name === "HEGSETH") {
+          if (!pose.firing || a.t >= 0.36) continue;
+          const t = clamp((a.t - 0.21) / 0.15, 0, 1);
+          const x = lerp(pose.muzzle.x, to.x, t), y = lerp(pose.muzzle.y, to.y - 64, t);
+          ctx.strokeStyle = "#ffdf93";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(x - 12, y);
+          ctx.lineTo(x + 4, y);
+          ctx.stroke();
+        } else {
+          const from = partyPos(a.actor), t = clamp((a.t - 0.12) / 0.24, 0, 1);
+          const key = a.actor.name === "LUTNICK" ? "money" : "heal", frame = 2, r = EXTRA[key][frame], sc = 1.3;
+          drawExtra(
+            key,
+            lerp(from.x + 35, to.x, t) - r[2] * sc / 2,
+            lerp(from.y - 72, to.y - 64, t) - r[3] * sc / 2,
+            r[2] * sc,
+            r[3] * sc,
+            frame
+          );
+        }
       }
     }
     drawEffectParticles();
@@ -5981,11 +6511,7 @@
   function getObjective() {
     const z = state.zone, side = SIDE_MISSIONS[z];
     if (side && !sideState(z).complete) {
-      const s = sideState(z), n = [0, 1, 2].find((i) => !s.nodes.includes(i)), pos = n === void 0 ? [960, 390] : [
-        [300, 490],
-        [960, 600],
-        [1610, 490]
-      ][n];
+      const s = sideState(z), n = [0, 1, 2].find((i) => !s.nodes.includes(i)), pos = n === void 0 ? DISTRICTS[z].boss : DISTRICTS[z].nodes[n];
       return {
         zone: z,
         x: pos[0],
@@ -5996,13 +6522,13 @@
     let target;
     switch (state.mainStage) {
       case 0:
-        target = ["MALL", "protester", "Speak to the rally witness"];
+        target = ["MALL", "protester", "Hear the unapproved feedback"];
         break;
       case 1:
         target = [
           "MALL",
           state.flags.veteranClue ? "teacher" : "veteran",
-          "Interview both service-route witnesses"
+          "Follow the shutdown receipts"
         ];
         break;
       case 2: {
@@ -6010,19 +6536,19 @@
         target = [
           "GROUNDS",
           i === void 0 ? "megaphone" : "breaker" + i,
-          i === void 0 ? "Recover the relay key" : "Restore relay switches (" + adv().breakers.length + "/3)"
+          i === void 0 ? "Recover your own override key" : "Restore relay switches (" + adv().breakers.length + "/3)"
         ];
         break;
       }
       case 3:
-        target = ["ROTUNDA", "sentinel", "Clear the Sentinel checkpoint"];
+        target = ["ROTUNDA", "sentinel", "Pass the loyalty test"];
         break;
       case 4: {
         const i = [0, 1, 2].find((i2) => !adv().catalog.includes(i2));
         target = [
           "ARCHIVE",
           i === void 0 ? "ledger" : "catalog" + i,
-          i === void 0 ? "Unlock the ledger vault" : "Find catalog cards (" + adv().catalog.length + "/3)"
+          i === void 0 ? "Read the unadjusted invoices" : "Find catalog cards (" + adv().catalog.length + "/3)"
         ];
         break;
       }
@@ -6030,33 +6556,29 @@
         target = [
           "PRESS",
           !adv().channelOpen ? "channel" : !state.flags.fixer ? "fixer" : "transcript",
-          !adv().channelOpen ? "Tune the relay \xB7 2 / 4 / 1" : !state.flags.fixer ? "Defeat the Media Fixer" : "Recover the source transcript"
+          !adv().channelOpen ? "Tune the relay \xB7 2 / 4 / 1" : !state.flags.fixer ? "Defeat the Media Fixer" : "Recover the uncropped directive"
         ];
         break;
       case 6:
-        target = [
-          "PRESS",
-          "factchecker",
-          "Verify both originals with the Fact Checker"
-        ];
+        target = ["PRESS", "factchecker", "Find out whose signatures are on it"];
         break;
       case 7: {
         const i = [0, 1].find((i2) => !adv().briefs.includes(i2));
         target = [
           "HEARING",
           i === void 0 ? "chair" : "brief" + i,
-          i === void 0 ? "Challenge the Committee Chair" : "File both evidence packages"
+          i === void 0 ? "Interrupt the mandatory celebration" : "File both evidence packages"
         ];
         break;
       }
       case 8:
-        target = ["HEARING", "record", "Choose the future of the public record"];
+        target = ["HEARING", "record", "Roll back the Engine or double down"];
         break;
       default:
         return {
           zone: "HEARING",
           x: 260,
-          y: 370,
+          y: 420,
           label: "Explore the Federal Vault and finish side missions"
         };
     }
@@ -6660,15 +7182,11 @@
         }
       }
       for (const [child, m] of Object.entries(SIDE_MISSIONS))
-        if (m.parent === z) arr.push(departure(z, child, 260, 370));
+        if (m.parent === z) arr.push(departure(z, child, 260, 420));
     } else {
       const s = sideState(z);
       arr.push(departure(z, side.parent, 140, 1040));
-      const spots = [
-        [300, 490],
-        [960, 600],
-        [1610, 490]
-      ];
+      const spots = d.nodes;
       spots.forEach(
         ([x, y], i) => arr.push({
           id: "mission_" + i,
@@ -6692,8 +7210,8 @@
       );
       arr.push({
         id: "mission_boss",
-        x: 960,
-        y: 390,
+        x: d.boss[0],
+        y: d.boss[1],
         label: s.complete ? "Mission complete" : ENEMY_DEFS[side.boss].label,
         hidden: () => s.complete,
         boss: true,
@@ -6734,8 +7252,8 @@
       });
       arr.push({
         id: "cache",
-        x: 1700,
-        y: 940,
+        x: d.cache?.[0] || 1700,
+        y: d.cache?.[1] || 940,
         label: "Supply cache",
         icon: "FILE",
         hidden: () => adv().chests[z],
@@ -7193,7 +7711,7 @@
       p.limit = Math.min(100, p.limit + 10);
       battle.message = `${p.label} attacks ${a.target.name}${res.crit ? " \u2014 CRITICAL" : ""}.`;
       addFx(
-        p.name === "HEGSETH" ? "gun" : p.name === "LUTNICK" ? "money" : p.name === "RFK" ? "magic" : "hit",
+        p.name === "HEGSETH" ? "hit" : p.name === "LUTNICK" ? "money" : p.name === "RFK" ? "magic" : "hit",
         enemyPos(a.target).x,
         enemyPos(a.target).y - 70
       );
@@ -7206,7 +7724,7 @@
       const res = s.kind === "physical" ? damagePhysical(p, t, s.power, s.crit || 0) : s.kind === "magic" ? damageMagic(p, t, s.power) : damageHybrid(p, t, s.power);
       applyDamage(t, res);
       addFx(
-        s.kind === "physical" ? p.name === "HEGSETH" ? "gun" : p.name === "LUTNICK" ? "money" : "hit" : p.name === "LUTNICK" ? "money" : "magic",
+        s.kind === "physical" ? p.name === "HEGSETH" ? "hit" : p.name === "LUTNICK" ? "money" : "hit" : p.name === "LUTNICK" ? "money" : "magic",
         enemyPos(t).x,
         enemyPos(t).y - 70
       );
@@ -7656,22 +8174,16 @@
   }
   function drawBattleUnits() {
     state.party.forEach((p) => {
-      const pos = partyPos(p), sc = BATTLE_SCALE[p.name];
-      let x = pos.x, y = pos.y, meta = ACT.action[p.name][0];
-      drawShadow(x, y, 30, 0.25);
-      if (battle.phase === "action" && battle.action?.actor === p) {
-        const a = battle.action, t = clamp(a.t / a.duration, 0, 1), off = attackType(a) !== "none";
-        const strike = t < 0.38 ? t / 0.38 : t > 0.7 ? (1 - t) / 0.3 : 1;
-        if (off && p.name === "TRUMP" && (a.kind === "basic" || a.skill?.kind === "physical")) {
-          const target = a.target || a.targets?.[0], dest = target ? enemyPos(target).x - 100 : x + 72;
-          const dash = t < 0.42 ? Math.sin(t / 0.42 * Math.PI / 2) : t > 0.57 ? Math.cos(clamp((t - 0.57) / 0.4, 0, 1) * Math.PI / 2) : 1;
-          x = lerp(pos.x, dest, dash);
-        } else if (off && p.name === "TRUMP") x += Math.sin(t * Math.PI) * 40;
-        else if (off) x += Math.sin(t * Math.PI) * 12;
-        if (t > 0.17 && t < 0.85) meta = ACT.action[p.name][a.pose ?? 0];
-      }
-      if (p.hitTimer) x += Math.sin(totalTime * 80) * 5;
-      drawActorFrame(meta, x, y, sc, false, p.alive ? 1 : 0.28);
+      const pos = partyPos(p), pose = battlePartyPose(p);
+      drawShadow(pos.x, pos.y, 30, 0.25);
+      drawActorFrame(
+        pose.meta,
+        pose.x,
+        pose.y,
+        pose.scale,
+        false,
+        p.alive ? 1 : 0.28
+      );
       if (p.guard) pill("GUARD", pos.x - 32, pos.y - 160, "#a3d6ff");
       if (battle.phase === "input" && currentActor() === p) {
         drawDiamond(pos.x, pos.y - 157, ACCENTS[p.name], 8);
@@ -8124,6 +8636,39 @@
     if (state.settings.autoMode)
       panelText("Esc \xB7 manual control", 18, 131, 11, UI_GOLD);
   }
+  function battlePartyPose(p) {
+    const pos = partyPos(p), scale = BATTLE_SCALE[p.name];
+    let x = pos.x, y = pos.y, meta = ACT.action[p.name][0], firing = false;
+    const a = battle.phase === "action" && battle.action?.actor === p ? battle.action : null;
+    if (a) {
+      const t = clamp(a.t / a.duration, 0, 1), offensive = ["physical", "magic", "hybrid"].includes(attackType(a));
+      if (p.name === "HEGSETH" && offensive) {
+        firing = a.t >= 0.21 && a.t < 0.38;
+        meta = ACT.action.HEGSETH[firing ? 2 : a.t >= 0.1 && a.t < 0.65 ? 1 : 0];
+        if (firing) x -= 3 * Math.sin((a.t - 0.21) / 0.17 * Math.PI);
+      } else {
+        if (offensive && p.name === "TRUMP" && (a.kind === "basic" || a.skill?.kind === "physical")) {
+          const target = a.target || a.targets?.[0], dest = target ? enemyPos(target).x - 100 : x + 72;
+          const dash = t < 0.42 ? Math.sin(t / 0.42 * Math.PI / 2) : t > 0.57 ? Math.cos(clamp((t - 0.57) / 0.4, 0, 1) * Math.PI / 2) : 1;
+          x = lerp(pos.x, dest, dash);
+        } else if (offensive)
+          x += Math.sin(t * Math.PI) * (p.name === "TRUMP" ? 40 : 12);
+        if (t > 0.17 && t < 0.85) meta = ACT.action[p.name][a.pose ?? 0];
+      }
+    }
+    if (p.hitTimer) x += Math.sin(totalTime * 80) * 5;
+    return {
+      x,
+      y,
+      scale,
+      meta,
+      firing,
+      muzzle: {
+        x: Math.round(x) + Math.round((90 - meta.a[0]) * scale),
+        y: Math.round(y) + Math.round((25 - meta.a[1]) * scale)
+      }
+    };
+  }
   function rebuildHeroStats(p, training = 0, preserveRatio = false) {
     const d = PARTY_DEFS[p.name], levels = p.lvl - 1;
     const oldHp = p.maxHp, oldMp = p.maxMp, hp = p.hp, mp = p.mp;
@@ -8366,6 +8911,7 @@
       EXTRA,
       PROPS,
       MAPS,
+      WORLD_ENCOUNTERS,
       PARTY_DEFS,
       ENEMY_DEFS,
       DISTRICTS,
@@ -8377,6 +8923,17 @@
       WALK_FRAMES,
       ENEMY_FACING,
       findPath,
+      npcList,
+      sceneryEntities,
+      districtScene,
+      drawActorFrame,
+      partyPos,
+      battlePartyPose,
+      startDialogue,
+      endingPages,
+      get dialogue() {
+        return dialogue;
+      },
       xpRequired,
       grantPartyXP,
       buyTalent,
