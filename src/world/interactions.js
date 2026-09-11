@@ -596,11 +596,6 @@ function interactables() {
   if (!side) {
     arr = adventureInteractables();
     for (const it of arr) {
-      const pos = LOCATIONS[z]?.[it.id];
-      if (pos) {
-        it.x = pos[0];
-        it.y = pos[1];
-      }
       const match = {
         toMall: "MALL",
         toGrounds: "GROUNDS",
@@ -679,7 +674,7 @@ function interactables() {
     arr.push({
       id: "briefing",
       x: 400,
-      y: 1040,
+      y: 985,
       label: "Mission briefing",
       icon: "DOC",
       run: () => {
@@ -745,6 +740,11 @@ function interactables() {
         }),
     });
   for (const it of arr) {
+    const pos = LOCATIONS[z]?.[it.id];
+    if (pos) {
+      it.x = pos[0];
+      it.y = pos[1];
+    }
     const action = it.run;
     it.run = () => {
       if (!it.hidden?.()) action();

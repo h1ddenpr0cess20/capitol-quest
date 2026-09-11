@@ -602,12 +602,6 @@ function drawMapObjects() {
     }
     if (active)
       drawDiamond(it.x, it.y - 76 + Math.sin(totalTime * 3) * 3, c, 6);
-    if (near || rest || exit) {
-      const label = rest ? "REST" : exit ? "→ " + it.label : it.label,
-        w = Math.min(320, label.length * 7 + 20);
-      box(it.x - w / 2, it.y + 17, w, 24, "#132d35ee", c);
-      panelText(label, it.x, it.y + 23, 11, c, "center");
-    }
   }
   // Story witnesses are NPCs, so they are not in the interactables loop above.
   if (ob && npcList().some((n) => dist(n, ob) < 12)) {
@@ -624,6 +618,18 @@ function drawMapObjects() {
       const p = walkPath[i];
       ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
     }
+  }
+  const focus = worldFocusLabel();
+  if (focus) {
+    box(focus.x, focus.y, focus.w, focus.h, "#132d35ee", focus.color);
+    panelText(
+      focus.label,
+      focus.x + focus.w / 2,
+      focus.y + 6,
+      11,
+      focus.color,
+      "center",
+    );
   }
 }
 function drawStoryBackdrop(...args) {

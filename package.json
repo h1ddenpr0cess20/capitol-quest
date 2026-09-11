@@ -3,7 +3,7 @@
   "description": "Work-in-progress satirical Canvas RPG.",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "npm run build && node tests/game.mjs && node tests/sprites.mjs && node tests/balance.mjs && node tests/world-story.mjs",
+    "test": "npm run build && node tests/game.mjs && node tests/sprites.mjs && node tests/balance.mjs && node tests/world-story.mjs && node tests/map-layout.mjs",
     "test:balance": "node tests/balance.mjs",
     "test:parity": "node tests/compare.mjs",
     "review:sprites": "node scripts/sprite-review.mjs",

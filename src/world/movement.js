@@ -13,6 +13,17 @@ function adv() {
 }
 
 function updateMobs(dt) {
+  const occupied = [
+    ...npcList(),
+    ...interactables().filter((it) => !it.hidden?.()),
+  ];
+  const canMove = (x, y, key) =>
+    !collides(x, y) &&
+    !occupied.some((p) => Math.abs(x - p.x) < 60 && Math.abs(y - p.y) < 90) &&
+    !Object.entries(worldMobMotion).some(
+      ([otherKey, p]) =>
+        otherKey !== key && Math.abs(x - p.x) < 60 && Math.abs(y - p.y) < 90,
+    );
   for (const mob of WORLD_ENCOUNTERS[state.zone] || []) {
     const key = mobKey(state.zone, mob.id);
     if (state.defeated[key]) continue;
@@ -36,8 +47,8 @@ function updateMobs(dt) {
     }
     const nx = clamp(mm.x + vx * dt, mob.x - 70, mob.x + 70),
       ny = clamp(mm.y + vy * dt, mob.y - 70, mob.y + 70);
-    if (!collides(nx, mm.y)) mm.x = nx;
-    if (!collides(mm.x, ny)) mm.y = ny;
+    if (canMove(nx, mm.y, key)) mm.x = nx;
+    if (canMove(mm.x, ny, key)) mm.y = ny;
     mm.dir = dx < 0 ? "left" : "right";
     if (encounterGrace <= 0 && d < 44) {
       walkPath = [];

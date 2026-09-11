@@ -81,3 +81,37 @@ await writeFile("screenshots/hegseth-firing.png", strip.toBuffer("image/png"));
 console.log(
   "Updated twelve-district contact sheet and Hegseth firing sequence.",
 );
+
+// Include the live NPCs, patrol spawns, quest objects, and service boards.
+// Static scenery alone cannot reveal overlaps introduced by those layers.
+game.setMode("world");
+canvas.width = 1920;
+canvas.height = 1280;
+n = 0;
+for (const [zone, d] of Object.entries(game.DISTRICTS)) {
+  game.state.zone = zone;
+  Object.assign(game.state.player, { x: d.spawn[0], y: d.spawn[1] });
+  game.resetTrail();
+  game.draw();
+  cc.clearRect(0, 0, 1920, 1280);
+  cc.imageSmoothingEnabled = false;
+  game.drawMapBase(zone);
+  game.drawWorldEntities();
+  game.drawMapObjects();
+  const x = (n % 3) * 640,
+    y = Math.floor(n / 3) * 468;
+  cg.drawImage(canvas, x + 8, y + 36, 624, 416);
+  n++;
+}
+await writeFile(
+  "screenshots/populated-districts.png",
+  contact.toBuffer("image/png"),
+);
+canvas.width = 1280;
+canvas.height = 720;
+game.state.zone = "MALL";
+Object.assign(game.state.player, { x: 710, y: 1165 });
+game.resetTrail();
+game.draw();
+await writeFile("screenshots/mall-services.png", canvas.toBuffer("image/png"));
+console.log("Updated populated districts and Mall service-area review.");

@@ -1219,9 +1219,9 @@
         ["garden", 510, 500, 70, 270],
         ["garden", 1340, 500, 70, 270],
         ["tent", 220, 1070, 180, 75, "FREEDOM MART"],
-        ["bench", 550, 785, 130, 36],
-        ["bench", 1240, 785, 130, 36],
-        ["monument", 890, 380, 100, 65],
+        ["bench", 600, 805, 130, 36],
+        ["bench", 1195, 805, 130, 36],
+        ["monument", 1600, 355, 75, 50],
         ["tree", 165, 570, 52, 30],
         ["tree", 1640, 590, 52, 30],
         ["tree", 165, 730, 52, 30],
@@ -1231,9 +1231,9 @@
         ["tree", 1700, 285, 52, 30],
         ["tree", 460, 255, 52, 30],
         ["tree", 1430, 255, 52, 30],
-        ["tree", 1120, 1170, 52, 30],
-        ["tree", 1380, 1170, 52, 30],
-        ["bench", 1100, 805, 110, 32],
+        ["tree", 1440, 1190, 52, 30],
+        ["tree", 1720, 1190, 52, 30],
+        ["bench", 1030, 805, 110, 32],
         ["kiosk", 1620, 1100, 74, 50, "MAP"],
         ["flag", 600, 310, 24, 20],
         ["flag", 1290, 310, 24, 20]
@@ -1267,7 +1267,7 @@
         ["depot", 470, 840, 210, 65, "C-4 / SURPLUS"],
         ["crate", 1180, 870, 70, 50],
         ["crate", 1290, 875, 70, 50],
-        ["wall", 1110, 640, 305, 45],
+        ["wall", 1110, 655, 305, 45],
         ["tree", 170, 590, 50, 30],
         ["tree", 170, 780, 50, 30],
         ["tree", 1730, 535, 50, 30],
@@ -1275,8 +1275,8 @@
         ["tree", 1470, 300, 52, 30],
         ["tree", 760, 1170, 52, 30],
         ["tree", 1560, 1160, 52, 30],
-        ["bench", 1160, 680, 120, 32],
-        ["machine", 465, 780, 115, 45, "OFFLINE"],
+        ["bench", 1160, 770, 120, 32],
+        ["machine", 740, 645, 115, 45, "OFFLINE"],
         ["crate", 705, 850, 60, 45]
       ],
       rest: [420, 1100],
@@ -1320,7 +1320,7 @@
         ["desk", 1580, 1100, 124, 40],
         ["flag", 550, 320, 24, 20],
         ["flag", 1350, 320, 24, 20],
-        ["plant", 230, 620, 40, 30],
+        ["plant", 190, 615, 40, 30],
         ["plant", 1680, 620, 40, 30]
       ],
       rest: [490, 1080],
@@ -1358,8 +1358,8 @@
         ["wall", 1270, 310, 530, 55],
         ["wall", 680, 210, 45, 185],
         ["wall", 1210, 210, 45, 185],
-        ["shelf", 355, 210, 150, 70],
-        ["shelf", 1480, 210, 165, 70],
+        ["shelf", 355, 210, 150, 50],
+        ["shelf", 1480, 210, 165, 50],
         ["desk", 800, 1090, 124, 40],
         ["plant", 225, 1145, 40, 30]
       ],
@@ -1388,21 +1388,21 @@
       objects: [
         ["studio", 430, 245, 340, 150, "STUDIO A / WINNING"],
         ["studio", 1160, 245, 340, 150, "APPROVED REALITY"],
-        ["desk", 400, 660, 124, 42],
-        ["desk", 610, 660, 124, 42],
-        ["desk", 1110, 660, 124, 42],
-        ["desk", 1340, 660, 124, 42],
-        ["camera", 640, 750, 40, 28],
-        ["camera", 1330, 750, 40, 28],
+        ["desk", 400, 700, 124, 42],
+        ["desk", 610, 700, 124, 42],
+        ["desk", 1110, 700, 124, 42],
+        ["desk", 1340, 700, 124, 42],
+        ["camera", 570, 790, 40, 28],
+        ["camera", 1280, 790, 40, 28],
         ["machine", 570, 900, 160, 50, "FEED 01"],
         ["machine", 1210, 900, 160, 50, "FEED 02"],
         ["wall", 390, 200, 30, 385],
         ["wall", 780, 200, 30, 385],
         ["wall", 1120, 200, 30, 385],
         ["wall", 1510, 200, 30, 385],
-        ["camera", 470, 535, 35, 26],
-        ["camera", 1435, 535, 35, 26],
-        ["bench", 490, 1110, 150, 32],
+        ["camera", 470, 500, 35, 26],
+        ["camera", 1435, 500, 35, 26],
+        ["bench", 750, 1150, 150, 32],
         ["plant", 1700, 1140, 40, 30],
         ["plant", 200, 1140, 40, 30],
         ["wall", 395, 590, 90, 30],
@@ -1412,7 +1412,7 @@
       ],
       rest: [470, 1090],
       spawn: [180, 1030],
-      signs: [[935, 1120, "LIVE / NO FOLLOW-UP QUESTIONS"]]
+      signs: [[1100, 1180, "LIVE / NO FOLLOW-UP QUESTIONS"]]
     },
     HEARING: {
       name: "HEARING CHAMBER",
@@ -1494,12 +1494,12 @@
         [815, 905],
         [1575, 650]
       ],
-      boss: [955, 445],
+      boss: [955, 505],
       cache: [1510, 1140],
       signs: [[1160, 1050, "TEST PLOT / DO NOT REBRAND"]],
       mobs: [
         [320, 770, "STUDENT"],
-        [850, 820, "SCIENTIST"],
+        [920, 815, "SCIENTIST"],
         [1580, 835, "UNION"]
       ]
     },
@@ -1526,7 +1526,7 @@
         ["wall", 1110, 870, 60, 340],
         ["wall", 1430, 650, 60, 285],
         ["machine", 720, 210, 470, 110, "AUTOMATION / MANUAL RESET"],
-        ["machine", 460, 700, 155, 40, "PUMP 04"],
+        ["machine", 690, 730, 155, 40, "PUMP 04"],
         ["machine", 1580, 350, 130, 55, "EAST RELAY"],
         ["crate", 720, 1050, 65, 45],
         ["crate", 810, 1050, 65, 45],
@@ -1544,16 +1544,16 @@
         [1320, 525],
         [1590, 805]
       ],
-      boss: [955, 400],
+      boss: [955, 445],
       cache: [1720, 1040],
       signs: [
         [680, 810, "ESSENTIAL STAFF: 0"],
-        [1450, 1150, "CONTRACTOR ENTRANCE"]
+        [1350, 1200, "CONTRACTOR ENTRANCE"]
       ],
       mobs: [
         [520, 800, "STUDENT"],
-        [970, 470, "SCIENTIST"],
-        [1590, 880, "UNION"]
+        [1200, 525, "SCIENTIST"],
+        [1590, 950, "UNION"]
       ]
     },
     RECORDS: {
@@ -1578,15 +1578,15 @@
         ["shelf", 1130, 865, 265, 65],
         ["wall", 770, 875, 280, 55],
         ["vault", 720, 210, 500, 120, "DO NOT RETAIN"],
-        ["desk", 510, 700, 124, 36],
-        ["desk", 1100, 700, 124, 36],
+        ["desk", 510, 735, 124, 36],
+        ["desk", 1100, 735, 124, 36],
         ["crate", 1720, 660, 65, 45],
-        ["wall", 410, 315, 365, 45],
-        ["wall", 1150, 315, 300, 45],
-        ["crate", 480, 235, 60, 45],
-        ["crate", 560, 235, 60, 45],
-        ["crate", 1280, 235, 60, 45],
-        ["crate", 1360, 235, 60, 45],
+        ["wall", 410, 315, 265, 45],
+        ["wall", 1260, 315, 260, 45],
+        ["crate", 480, 225, 60, 40],
+        ["crate", 560, 225, 60, 40],
+        ["crate", 1280, 225, 60, 40],
+        ["crate", 1360, 225, 60, 40],
         ["desk", 1150, 1100, 124, 40]
       ],
       rest: [430, 1100],
@@ -1596,7 +1596,7 @@
         [945, 760],
         [1575, 565]
       ],
-      boss: [955, 390],
+      boss: [955, 455],
       signs: [[625, 820, "INTAKE \u2192 TRANSFER \u2192 RELEASE"]],
       mobs: [
         [320, 735, "STUDENT"],
@@ -1643,7 +1643,7 @@
         [970, 650],
         [1590, 575]
       ],
-      boss: [955, 385],
+      boss: [955, 445],
       cache: [1730, 890],
       signs: [[930, 1120, "ORGANIC ENTHUSIASM / ROOF ACCESS"]],
       mobs: [
@@ -1674,7 +1674,6 @@
         ["bench", 480, 900, 210, 36],
         ["bench", 1190, 900, 210, 36],
         ["kiosk", 1070, 855, 80, 55, "TICKETS"],
-        ["machine", 430, 200, 100, 35, ""],
         ["plant", 1690, 680, 40, 30],
         ["column", 200, 640, 54, 35],
         ["column", 1740, 640, 54, 35],
@@ -1690,7 +1689,7 @@
         [945, 810],
         [1580, 535]
       ],
-      boss: [955, 445],
+      boss: [955, 505],
       signs: [[955, 1190, "NO DELAYS IF NOTHING DEPARTS"]],
       mobs: [
         [330, 815, "STUDENT"],
@@ -1719,8 +1718,8 @@
         ["vault", 690, 215, 560, 125, "FACTORY SETTINGS"],
         ["machine", 470, 900, 200, 65, "IDENTITY"],
         ["machine", 1240, 900, 200, 65, "INTEGRITY"],
-        ["column", 560, 450, 54, 35],
-        ["column", 1330, 450, 54, 35],
+        ["column", 560, 520, 54, 35],
+        ["column", 1330, 520, 54, 35],
         ["column", 780, 910, 54, 35],
         ["column", 1060, 910, 54, 35],
         ["machine", 200, 240, 175, 65, "BACKUP 01"],
@@ -1737,7 +1736,7 @@
         [955, 815],
         [1570, 655]
       ],
-      boss: [955, 405],
+      boss: [955, 465],
       signs: [[955, 1150, "UNDO REQUIRES EXECUTIVE APPROVAL"]],
       mobs: [
         [325, 810, "STUDENT"],
@@ -1846,20 +1845,21 @@
       teacher: [1180, 450],
       student: [1600, 1e3],
       nurse: [1160, 1050],
-      vendor: [325, 1180],
+      vendor: [425, 1170],
       toGrounds: [1780, 940],
       usbMall: [1530, 1120],
-      upgrade: [620, 1100],
-      tutorial: [740, 1100],
-      cache: [220, 470]
+      upgrade: [740, 1115],
+      tutorial: [870, 1115],
+      trials: [1e3, 1010],
+      cache: [260, 410]
     },
     GROUNDS: {
       gateOfficer: [850, 870],
       scientist: [1480, 840],
-      civilian: [1180, 980],
+      civilian: [1450, 970],
       toMall: [140, 1020],
       toRotunda: [960, 400],
-      megaphone: [610, 955],
+      megaphone: [610, 980],
       usbGrounds: [1700, 1100],
       breaker0: [300, 490],
       breaker1: [940, 770],
@@ -1867,19 +1867,19 @@
       cache: [1700, 800]
     },
     ROTUNDA: {
-      clerk: [430, 1020],
+      clerk: [530, 980],
       guard2: [1500, 980],
       toGrounds: [950, 1150],
-      sentinel: [960, 450],
+      sentinel: [960, 500],
       toArchive: [1770, 1010],
       cache: [290, 470]
     },
     ARCHIVE: {
       archivist: [430, 1030],
-      journalist: [1560, 910],
+      journalist: [1660, 960],
       organizer: [1050, 1030],
       toRotunda: [140, 1030],
-      ledger: [960, 370],
+      ledger: [960, 435],
       toPress: [1780, 1030],
       usbArchive: [1700, 750],
       catalog0: [270, 450],
@@ -1892,7 +1892,7 @@
       factchecker: [1050, 940],
       producer: [1470, 1010],
       toArchive: [140, 1030],
-      fixer: [1330, 490],
+      fixer: [1330, 520],
       transcript: [560, 490],
       toHearing: [1780, 1030],
       usbPress: [1640, 830],
@@ -1903,27 +1903,27 @@
       marshal: [410, 1040],
       observer: [1500, 1040],
       toPress: [950, 1150],
-      chair: [960, 450],
-      record: [960, 450],
-      brief0: [310, 520],
-      brief1: [1600, 520],
+      chair: [960, 500],
+      record: [960, 500],
+      brief0: [420, 520],
+      brief1: [1480, 520],
       cache: [260, 920]
     }
   };
   const MOB_LAYOUT = {
     MALL: [
-      [1610, 520, "STUDENT"],
+      [1510, 520, "STUDENT"],
       [1190, 950, "EVERYDAY"],
-      [1540, 790, "PROTESTER"]
+      [1490, 720, "PROTESTER"]
     ],
     GROUNDS: [
       [320, 760, "VETERAN"],
-      [1530, 760, "UNION"],
+      [1530, 650, "UNION"],
       [1180, 1040, "FARMER"]
     ],
     ROTUNDA: [
-      [290, 750, "VETERAN"],
-      [1590, 730, "TEACHER"]
+      [290, 830, "VETERAN"],
+      [1590, 830, "TEACHER"]
     ],
     ARCHIVE: [
       [630, 600, "JOURNALIST"],
@@ -3586,9 +3586,6 @@
     drawShadow(mm.x, mm.y, 21, 0.2);
     drawFacingEnemy(m.type, mm.x, mm.y, 0.63, mm.dir || "left");
     drawDiamond(mm.x, mm.y - 91, encounterGrace ? "#758a9b" : "#ed8c7b", 5);
-    if (dist(mm, state.player) < 190) {
-      pill("LV " + m.level, mm.x - 25, mm.y + 10, "#f2b6a7");
-    }
   }
   function drawNPC(n) {
     drawShadow(n.x, n.y, 20, 0.18);
@@ -3603,11 +3600,36 @@
         0.64,
         state.player.x < n.x ? "left" : "right"
       );
-    if (dist(n, state.player) < 240) {
-      const w = n.name.length * 8 + 22;
-      box(n.x - w / 2, n.y - 107, w, 25, "#102934ed", "#75b5bb");
-      panelText(n.name, n.x, n.y - 102, 12, "#d6f0e7", "center");
-    }
+  }
+  function worldFocus() {
+    const ready = nearestInteraction();
+    if (ready) return ready;
+    const candidates = [
+      ...npcList().map((data) => ({ kind: "npc", data })),
+      ...interactables().filter((it) => !it.hidden?.()).map((data) => ({ kind: "object", data })),
+      ...(WORLD_ENCOUNTERS[state.zone] || []).filter((mob) => !state.defeated[mobKey(state.zone, mob.id)]).map((mob) => ({
+        kind: "mob",
+        data: { ...mob, ...worldMobMotion[mobKey(state.zone, mob.id)] }
+      }))
+    ];
+    return candidates.filter(({ data }) => dist(data, state.player) < 155).sort((a, b) => dist(a.data, state.player) - dist(b.data, state.player))[0];
+  }
+  function worldFocusLabel() {
+    const focus = worldFocus();
+    if (!focus) return null;
+    const it = focus.data, ready = focus.kind !== "mob" && dist(it, state.player) < 84, label = focus.kind === "mob" ? ENEMY_DEFS[it.type].label + " \xB7 LV " + it.level : (ready ? "E \xB7 " : "") + (it.label || it.name), w = Math.min(460, label.length * 7 + 24), footY = Math.max(
+      it.y,
+      state.player.y,
+      ...[46, 92, 138].map((d) => followerAt(d).y)
+    );
+    return {
+      label,
+      x: clamp(it.x - w / 2, camera.x + 12, camera.x + W - w - 12),
+      y: clamp(footY + 22, camera.y + 154, camera.y + WORLD_VIEW_H - 32),
+      w,
+      h: 24,
+      color: focus.kind === "mob" ? "#f2b6a7" : ready ? UI_GOLD : "#d6f0e7"
+    };
   }
   function drawNavigator() {
     const ob = localObjective();
@@ -5223,11 +5245,6 @@
       }
       if (active)
         drawDiamond(it.x, it.y - 76 + Math.sin(totalTime * 3) * 3, c, 6);
-      if (near || rest || exit) {
-        const label = rest ? "REST" : exit ? "\u2192 " + it.label : it.label, w = Math.min(320, label.length * 7 + 20);
-        box(it.x - w / 2, it.y + 17, w, 24, "#132d35ee", c);
-        panelText(label, it.x, it.y + 23, 11, c, "center");
-      }
     }
     if (ob && npcList().some((n) => dist(n, ob) < 12)) {
       ctx.strokeStyle = "#f6d785";
@@ -5243,6 +5260,18 @@
         const p = walkPath[i];
         ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
       }
+    }
+    const focus = worldFocusLabel();
+    if (focus) {
+      box(focus.x, focus.y, focus.w, focus.h, "#132d35ee", focus.color);
+      panelText(
+        focus.label,
+        focus.x + focus.w / 2,
+        focus.y + 6,
+        11,
+        focus.color,
+        "center"
+      );
     }
   }
   function drawStoryBackdrop(...args) {
@@ -5674,6 +5703,13 @@
     return state.adventure;
   }
   function updateMobs(dt) {
+    const occupied = [
+      ...npcList(),
+      ...interactables().filter((it) => !it.hidden?.())
+    ];
+    const canMove = (x, y, key) => !collides(x, y) && !occupied.some((p) => Math.abs(x - p.x) < 60 && Math.abs(y - p.y) < 90) && !Object.entries(worldMobMotion).some(
+      ([otherKey, p]) => otherKey !== key && Math.abs(x - p.x) < 60 && Math.abs(y - p.y) < 90
+    );
     for (const mob of WORLD_ENCOUNTERS[state.zone] || []) {
       const key = mobKey(state.zone, mob.id);
       if (state.defeated[key]) continue;
@@ -5691,8 +5727,8 @@
         vy = dy / d * 46;
       }
       const nx = clamp(mm.x + vx * dt, mob.x - 70, mob.x + 70), ny = clamp(mm.y + vy * dt, mob.y - 70, mob.y + 70);
-      if (!collides(nx, mm.y)) mm.x = nx;
-      if (!collides(mm.x, ny)) mm.y = ny;
+      if (canMove(nx, mm.y, key)) mm.x = nx;
+      if (canMove(mm.x, ny, key)) mm.y = ny;
       mm.dir = dx < 0 ? "left" : "right";
       if (encounterGrace <= 0 && d < 44) {
         walkPath = [];
@@ -7157,11 +7193,6 @@
     if (!side) {
       arr = adventureInteractables();
       for (const it of arr) {
-        const pos = LOCATIONS[z]?.[it.id];
-        if (pos) {
-          it.x = pos[0];
-          it.y = pos[1];
-        }
         const match = {
           toMall: "MALL",
           toGrounds: "GROUNDS",
@@ -7240,7 +7271,7 @@
       arr.push({
         id: "briefing",
         x: 400,
-        y: 1040,
+        y: 985,
         label: "Mission briefing",
         icon: "DOC",
         run: () => {
@@ -7305,6 +7336,11 @@
         }
       });
     for (const it of arr) {
+      const pos = LOCATIONS[z]?.[it.id];
+      if (pos) {
+        it.x = pos[0];
+        it.y = pos[1];
+      }
       const action = it.run;
       it.run = () => {
         if (!it.hidden?.()) action();
@@ -8926,6 +8962,15 @@
       npcList,
       sceneryEntities,
       districtScene,
+      drawMapBase,
+      drawWorldEntities,
+      drawMapObjects,
+      sceneryFrame,
+      fieldObjectType,
+      worldFocus,
+      worldFocusLabel,
+      updateMobs,
+      getMobMotion: () => worldMobMotion,
       drawActorFrame,
       partyPos,
       battlePartyPose,
