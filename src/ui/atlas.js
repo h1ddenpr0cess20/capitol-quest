@@ -3,7 +3,7 @@ function miniMap(x, y, w, h, z = state.zone, details = false) {
     sc = Math.min(w / m.w, h / m.h),
     ox = x + (w - m.w * sc) / 2,
     oy = y + (h - m.h * sc) / 2;
-  ctx.drawImage(districtScene(z), ox, oy, m.w * sc, m.h * sc);
+  ctx.drawImage(districtScene(z, true), ox, oy, m.w * sc, m.h * sc);
   ctx.fillStyle = "#0a24351f";
   ctx.fillRect(ox, oy, m.w * sc, m.h * sc);
   const dot = (px, py, c, r) => {

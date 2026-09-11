@@ -10,93 +10,116 @@ const PREVIOUS_SAVE_KEY = "capitol_quest_v5";
 
 const LEGACY_KEY = "capitol_quest_rebuilt_v2";
 
+const STORY_INTRO = [
+  {
+    speaker: "NARRATOR",
+    text: "Tonight, the administration launches the VICTORY ENGINE: a government arcade that turns every policy into a high score. At rehearsal, the score reaches a billion. Outside, the lights go out. This is a fictional satire.",
+  },
+  {
+    speaker: "TRUMP",
+    portrait: "TRUMP",
+    text: "The machine says everyone is winning. The people outside say they are not. Obviously one of them needs an update. Hegseth, Lutnick, Bobby: find the problem before the live demonstration.",
+  },
+  {
+    speaker: "NARRATOR",
+    text: "The Engine has classified complaints as enemy encounters, deleted maintenance as waste, and locked its own override key inside a promotional megaphone. Your cabinet must cross the city it has optimized.",
+  },
+  {
+    speaker: "HEGSETH",
+    portrait: "HEGSETH",
+    text: "We have a rifle, a broker, a wellness plan, and no maintenance staff. Start with the rally witness on the Mall. WASD or click to move; E to talk. The garden is optional. Rest points recover the party and save.",
+  },
+];
+
 const BOSS_SCENES = {
   SENTINEL: [
     {
-      speaker: "NARRATOR",
-      text: "The relay key clears the checkpoint. The Sentinel log shows the same hand-off code repeated beside an archive transfer: RED-17.",
+      speaker: "SENTINEL / AUDIT LOG",
+      text: "ACCESS TEST: demonstrate loyalty. Loyalty means compliance. Compliance means refusing all unauthorized corrections. Override accepted only after force was applied. Model confidence: excellent.",
     },
     {
       speaker: "HEGSETH",
       portrait: "HEGSETH",
-      text: "That gives us a route, not a conclusion. We follow RED-17 to the original ledger and compare every hand-off.",
-    },
-    {
-      speaker: "NARRATOR",
-      text: "The east passage opens. The Public Archive is now reachable.",
-    },
-  ],
-  FIXER: [
-    {
-      speaker: "NARRATOR",
-      text: "The control room comes back online. Its queue contains a clipped broadcast copy, but the source locker still holds the untouched transcript.",
-    },
-    {
-      speaker: "LUTNICK",
-      portrait: "LUTNICK",
-      text: "The ledger tells us who handled the record. The transcript tells us what changed. We need both verified before the hearing.",
-    },
-    {
-      speaker: "NARRATOR",
-      text: "Recover the source transcript, then take both originals to the Fact Checker.",
-    },
-  ],
-  CHAIR: [
-    {
-      speaker: "NARRATOR",
-      text: "The gavel falls. The verified chain of custody is entered into the hearing record without breaking the source trail.",
+      text: "We ordered a system that never backs down. It followed the order. Apparently “chain of command” becomes a circle if nobody is allowed to say the plan is bad.",
     },
     {
       speaker: "TRUMP",
       portrait: "TRUMP",
-      text: "We have the complete record. Now the last choice is procedure: publish it immediately, or file it with the hearing first.",
+      text: "Fine. Find out who gave it those instructions. Start with the ledger in the archive. And if it was us, find the earlier draft.",
+    },
+  ],
+  FIXER: [
+    {
+      speaker: "CONTROL ROOM / SOURCE TRANSCRIPT",
+      text: "DIRECTIVE: treat every cost as an investment, every cancellation as efficiency, and every complaint as hostile interference. Do not display the underlying figures during the victory presentation.",
+    },
+    {
+      speaker: "LUTNICK",
+      portrait: "LUTNICK",
+      text: "The invoice went up. The dashboard called it revenue. The shop paid it and called it a bill. I see the accounting problem: we let three people name the same number.",
+    },
+    {
+      speaker: "RFK",
+      portrait: "RFK",
+      text: "The broadcast says the city is healthier because it stopped collecting sick reports. Even I would like to see the control group. Take the uncropped transcript to the Fact Checker.",
+    },
+  ],
+  CHAIR: [
+    {
+      speaker: "COMMITTEE CHAIR",
+      text: "The Engine was never broken. You asked for a government that could only win. We removed every way to report a loss. The hearing was supposed to congratulate you, not investigate the specification.",
+    },
+    {
+      speaker: "TRUMP",
+      portrait: "TRUMP",
+      text: "So it is our machine, our instructions, and our signatures. Tremendous chain of custody. Is there any chance the chain belongs to the previous administration?",
     },
     {
       speaker: "NARRATOR",
-      text: "Approach the Public Record at the center aisle to choose the ending.",
+      text: "No hidden mastermind appears. The public terminal offers two real choices: publish the receipts and roll back the Engine, or keep the system and relaunch it under a better name. Approach the center aisle.",
     },
   ],
 };
 
 const MAIN_STAGES = [
   {
-    title: "A Missing Voice",
-    desc: "Speak with the Protester at the Mall rally.",
+    title: "The Score Is Perfect",
+    desc: "Find out why the victory launch has a protest outside.",
   },
   {
-    title: "The Service Route",
-    desc: "Interview the Veteran and Teacher about the missing megaphone.",
+    title: "Unapproved Feedback",
+    desc: "Interview the Veteran and Teacher about the shutdown.",
   },
   {
-    title: "Recover the Megaphone",
-    desc: "Search the service yard on the Capitol Grounds.",
+    title: "Efficiency in the Dark",
+    desc: "Restore three relays and recover the override megaphone.",
   },
   {
-    title: "The Locked Rotunda",
-    desc: "Enter the Capitol and defeat the Sentinel.",
+    title: "Loyalty Test",
+    desc: "Get past the checkpoint that treats correction as disloyalty.",
   },
   {
-    title: "The Red Ledger",
-    desc: "Reach the Public Archive and secure the original ledger.",
+    title: "Who Pays for Winning?",
+    desc: "Find the invoices the dashboard counted as victories.",
   },
   {
-    title: "The Missing Transcript",
-    desc: "Reach the Broadcast Center, defeat the Fixer, and open the source locker.",
+    title: "The Victory Edit",
+    desc: "Break into the broadcast queue and recover the full directive.",
   },
   {
-    title: "Chain of Custody",
-    desc: "Bring the ledger and transcript to the Fact Checker.",
+    title: "Our Signatures",
+    desc: "Have the Fact Checker compare the directive with the invoices.",
   },
   {
-    title: "The Final Hearing",
-    desc: "Enter the hearing chamber and defeat the Committee Chair.",
+    title: "Mandatory Celebration",
+    desc: "Submit both exhibits and confront the Committee Chair.",
   },
   {
-    title: "The Public Record",
-    desc: "Choose what happens to the complete source record.",
+    title: "The Undo Button",
+    desc: "Choose accountability or another launch.",
   },
   {
-    title: "After the Broadcast",
-    desc: "The case is closed. Explore, finish side objectives, or start again.",
+    title: "After the Scoreboard",
+    desc: "Return to the city and finish its unfinished work.",
   },
 ];

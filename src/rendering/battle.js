@@ -49,36 +49,16 @@ function drawTiledBattleBackground() {
 function drawBattleUnits() {
   state.party.forEach((p) => {
     const pos = partyPos(p),
-      sc = BATTLE_SCALE[p.name];
-    let x = pos.x,
-      y = pos.y,
-      meta = ACT.action[p.name][0];
-    drawShadow(x, y, 30, 0.25);
-    if (battle.phase === "action" && battle.action?.actor === p) {
-      const a = battle.action,
-        t = clamp(a.t / a.duration, 0, 1),
-        off = attackType(a) !== "none";
-      const strike = t < 0.38 ? t / 0.38 : t > 0.7 ? (1 - t) / 0.3 : 1;
-      if (
-        off &&
-        p.name === "TRUMP" &&
-        (a.kind === "basic" || a.skill?.kind === "physical")
-      ) {
-        const target = a.target || a.targets?.[0],
-          dest = target ? enemyPos(target).x - 100 : x + 72;
-        const dash =
-          t < 0.42
-            ? Math.sin(((t / 0.42) * Math.PI) / 2)
-            : t > 0.57
-              ? Math.cos((clamp((t - 0.57) / 0.4, 0, 1) * Math.PI) / 2)
-              : 1;
-        x = lerp(pos.x, dest, dash);
-      } else if (off && p.name === "TRUMP") x += Math.sin(t * Math.PI) * 40;
-      else if (off) x += Math.sin(t * Math.PI) * 12;
-      if (t > 0.17 && t < 0.85) meta = ACT.action[p.name][a.pose ?? 0];
-    }
-    if (p.hitTimer) x += Math.sin(totalTime * 80) * 5;
-    drawActorFrame(meta, x, y, sc, false, p.alive ? 1 : 0.28);
+      pose = battlePartyPose(p);
+    drawShadow(pos.x, pos.y, 30, 0.25);
+    drawActorFrame(
+      pose.meta,
+      pose.x,
+      pose.y,
+      pose.scale,
+      false,
+      p.alive ? 1 : 0.28,
+    );
     if (p.guard) pill("GUARD", pos.x - 32, pos.y - 160, "#a3d6ff");
     if (battle.phase === "input" && currentActor() === p) {
       drawDiamond(pos.x, pos.y - 157, ACCENTS[p.name], 8);
@@ -588,4 +568,59 @@ function drawBattleHUD() {
   );
   if (state.settings.autoMode)
     panelText("Esc · manual control", 18, 131, 11, UI_GOLD);
+}
+
+// One transform drives both the character and the projectile origin.
+function battlePartyPose(p) {
+  const pos = partyPos(p),
+    scale = BATTLE_SCALE[p.name];
+  let x = pos.x,
+    y = pos.y,
+    meta = ACT.action[p.name][0],
+    firing = false;
+  const a =
+    battle.phase === "action" && battle.action?.actor === p
+      ? battle.action
+      : null;
+  if (a) {
+    const t = clamp(a.t / a.duration, 0, 1),
+      offensive = ["physical", "magic", "hybrid"].includes(attackType(a));
+    if (p.name === "HEGSETH" && offensive) {
+      // The source firing frame already contains the flash. Raise, fire, recover;
+      // never lunge forward or stretch the shorter, crouched firing pose.
+      firing = a.t >= 0.21 && a.t < 0.38;
+      meta = ACT.action.HEGSETH[firing ? 2 : a.t >= 0.1 && a.t < 0.65 ? 1 : 0];
+      if (firing) x -= 3 * Math.sin(((a.t - 0.21) / 0.17) * Math.PI);
+    } else {
+      if (
+        offensive &&
+        p.name === "TRUMP" &&
+        (a.kind === "basic" || a.skill?.kind === "physical")
+      ) {
+        const target = a.target || a.targets?.[0],
+          dest = target ? enemyPos(target).x - 100 : x + 72;
+        const dash =
+          t < 0.42
+            ? Math.sin(((t / 0.42) * Math.PI) / 2)
+            : t > 0.57
+              ? Math.cos((clamp((t - 0.57) / 0.4, 0, 1) * Math.PI) / 2)
+              : 1;
+        x = lerp(pos.x, dest, dash);
+      } else if (offensive)
+        x += Math.sin(t * Math.PI) * (p.name === "TRUMP" ? 40 : 12);
+      if (t > 0.17 && t < 0.85) meta = ACT.action[p.name][a.pose ?? 0];
+    }
+  }
+  if (p.hitTimer) x += Math.sin(totalTime * 80) * 5;
+  return {
+    x,
+    y,
+    scale,
+    meta,
+    firing,
+    muzzle: {
+      x: Math.round(x) + Math.round((90 - meta.a[0]) * scale),
+      y: Math.round(y) + Math.round((25 - meta.a[1]) * scale),
+    },
+  };
 }

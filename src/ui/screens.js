@@ -6,7 +6,7 @@ function getBaseTitleOptions() {
   return [
     {
       label: "NEW GAME",
-      sub: "Begin the investigation",
+      sub: "Fix the victory launch",
       run: startNewGame,
     },
     {
@@ -147,17 +147,11 @@ function drawTitle() {
   ctx.fillStyle = "#0b242755";
   ctx.fillRect(0, 0, W, H);
   box(46, 42, 722, 628, "#102a31f7", "#748b83");
-  panelText(
-    "DISTRICTS OF DISCOVERY  /  WORK IN PROGRESS",
-    85,
-    79,
-    13,
-    "#a6c8b9",
-  );
+  panelText("THE VICTORY ENGINE  /  FICTIONAL SATIRE", 85, 79, 13, "#a6c8b9");
   text("CAPITOL", 80, 137, 65, UI_INK);
   text("QUEST", 80, 201, 88, UI_GOLD);
   wrapped(
-    "An expanded adventure through the city above, the tunnels below, and the records in between.",
+    "The score is perfect. The city is falling apart. Lead the cabinet through the consequences of its own instructions.",
     85,
     321,
     594,

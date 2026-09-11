@@ -10,17 +10,23 @@ function drawWorld() {
       : [0, 0];
   ctx.translate(-camera.x + shake[0], -camera.y + shake[1]);
   drawMapBase(state.zone);
-  drawMapObjects(state.zone);
   drawWorldEntities();
+  drawMapObjects(state.zone);
   ctx.restore();
   if (mode === "world" && !overlay) drawWorldHUD();
 }
 
 function drawWorldEntities() {
-  const actors = npcList().map((n) => ({
-    y: n.y,
-    draw: () => drawNPC(n),
-  }));
+  const actors = sceneryEntities(state.zone).concat(
+    npcList().map((n) => ({
+      y: n.y,
+      draw: () => drawNPC(n),
+    })),
+  );
+  for (const it of interactables()) {
+    if (!it.hidden?.())
+      actors.push({ y: it.y, draw: () => drawFieldObject(it) });
+  }
   for (const mob of WORLD_ENCOUNTERS[state.zone] || []) {
     if (state.defeated[mobKey(state.zone, mob.id)]) continue;
     const mm = worldMobMotion[mobKey(state.zone, mob.id)] || mob;
@@ -61,9 +67,6 @@ function drawMob(m, mm) {
   drawShadow(mm.x, mm.y, 21, 0.2);
   drawFacingEnemy(m.type, mm.x, mm.y, 0.63, mm.dir || "left");
   drawDiamond(mm.x, mm.y - 91, encounterGrace ? "#758a9b" : "#ed8c7b", 5);
-  if (dist(mm, state.player) < 190) {
-    pill("LV " + m.level, mm.x - 25, mm.y + 10, "#f2b6a7");
-  }
 }
 
 function drawNPC(n) {
@@ -84,11 +87,53 @@ function drawNPC(n) {
       0.64,
       state.player.x < n.x ? "left" : "right",
     );
-  if (dist(n, state.player) < 240) {
-    const w = n.name.length * 8 + 22;
-    box(n.x - w / 2, n.y - 107, w, 25, "#102934ed", "#75b5bb");
-    panelText(n.name, n.x, n.y - 102, 12, "#d6f0e7", "center");
-  }
+}
+
+// One shared focus label keeps nearby NPC names, service signs, and enemy
+// levels from stacking. Actionable targets take priority while in reach.
+function worldFocus() {
+  const ready = nearestInteraction();
+  if (ready) return ready;
+  const candidates = [
+    ...npcList().map((data) => ({ kind: "npc", data })),
+    ...interactables()
+      .filter((it) => !it.hidden?.())
+      .map((data) => ({ kind: "object", data })),
+    ...(WORLD_ENCOUNTERS[state.zone] || [])
+      .filter((mob) => !state.defeated[mobKey(state.zone, mob.id)])
+      .map((mob) => ({
+        kind: "mob",
+        data: { ...mob, ...worldMobMotion[mobKey(state.zone, mob.id)] },
+      })),
+  ];
+  return candidates
+    .filter(({ data }) => dist(data, state.player) < 155)
+    .sort((a, b) => dist(a.data, state.player) - dist(b.data, state.player))[0];
+}
+
+function worldFocusLabel() {
+  const focus = worldFocus();
+  if (!focus) return null;
+  const it = focus.data,
+    ready = focus.kind !== "mob" && dist(it, state.player) < 84,
+    label =
+      focus.kind === "mob"
+        ? ENEMY_DEFS[it.type].label + " · LV " + it.level
+        : (ready ? "E · " : "") + (it.label || it.name),
+    w = Math.min(460, label.length * 7 + 24),
+    footY = Math.max(
+      it.y,
+      state.player.y,
+      ...[46, 92, 138].map((d) => followerAt(d).y),
+    );
+  return {
+    label,
+    x: clamp(it.x - w / 2, camera.x + 12, camera.x + W - w - 12),
+    y: clamp(footY + 22, camera.y + 154, camera.y + WORLD_VIEW_H - 32),
+    w,
+    h: 24,
+    color: focus.kind === "mob" ? "#f2b6a7" : ready ? UI_GOLD : "#d6f0e7",
+  };
 }
 
 function drawNavigator() {

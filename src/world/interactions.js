@@ -596,11 +596,6 @@ function interactables() {
   if (!side) {
     arr = adventureInteractables();
     for (const it of arr) {
-      const pos = LOCATIONS[z]?.[it.id];
-      if (pos) {
-        it.x = pos[0];
-        it.y = pos[1];
-      }
       const match = {
         toMall: "MALL",
         toGrounds: "GROUNDS",
@@ -621,15 +616,11 @@ function interactables() {
       }
     }
     for (const [child, m] of Object.entries(SIDE_MISSIONS))
-      if (m.parent === z) arr.push(departure(z, child, 260, 370));
+      if (m.parent === z) arr.push(departure(z, child, 260, 420));
   } else {
     const s = sideState(z);
     arr.push(departure(z, side.parent, 140, 1040));
-    const spots = [
-      [300, 490],
-      [960, 600],
-      [1610, 490],
-    ];
+    const spots = d.nodes;
     spots.forEach(([x, y], i) =>
       arr.push({
         id: "mission_" + i,
@@ -653,8 +644,8 @@ function interactables() {
     );
     arr.push({
       id: "mission_boss",
-      x: 960,
-      y: 390,
+      x: d.boss[0],
+      y: d.boss[1],
       label: s.complete ? "Mission complete" : ENEMY_DEFS[side.boss].label,
       hidden: () => s.complete,
       boss: true,
@@ -683,7 +674,7 @@ function interactables() {
     arr.push({
       id: "briefing",
       x: 400,
-      y: 1040,
+      y: 985,
       label: "Mission briefing",
       icon: "DOC",
       run: () => {
@@ -695,8 +686,8 @@ function interactables() {
     });
     arr.push({
       id: "cache",
-      x: 1700,
-      y: 940,
+      x: d.cache?.[0] || 1700,
+      y: d.cache?.[1] || 940,
       label: "Supply cache",
       icon: "FILE",
       hidden: () => adv().chests[z],
@@ -749,6 +740,11 @@ function interactables() {
         }),
     });
   for (const it of arr) {
+    const pos = LOCATIONS[z]?.[it.id];
+    if (pos) {
+      it.x = pos[0];
+      it.y = pos[1];
+    }
     const action = it.run;
     it.run = () => {
       if (!it.hidden?.()) action();

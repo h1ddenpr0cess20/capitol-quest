@@ -3,13 +3,14 @@
   "description": "Work-in-progress satirical Canvas RPG.",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "npm run build && node tests/game.mjs && node tests/sprites.mjs && node tests/balance.mjs",
+    "test": "npm run build && node tests/game.mjs && node tests/sprites.mjs && node tests/balance.mjs && node tests/world-story.mjs && node tests/map-layout.mjs",
     "test:balance": "node tests/balance.mjs",
     "test:parity": "node tests/compare.mjs",
     "review:sprites": "node scripts/sprite-review.mjs",
     "screenshots": "npm run build && node scripts/screenshots.mjs",
     "format": "prettier --write src scripts tests styles index.html",
-    "format:check": "prettier --check src scripts tests styles index.html"
+    "format:check": "prettier --check src scripts tests styles index.html",
+    "test:world": "npm run build && node tests/world-story.mjs"
   },
   "repository": {
     "type": "git",
