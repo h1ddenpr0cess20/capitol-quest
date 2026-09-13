@@ -34,10 +34,6 @@ All twelve districts have authored layouts: a reflecting-pool promenade, a servi
 
 ![All twelve district layouts](screenshots/districts.png)
 
-Hegseth raises the rifle, fires from a planted stance, and recovers. The projectile begins at the barrel; the original firing frame supplies the muzzle flash.
-
-![Hegseth firing sequence](screenshots/hegseth-firing.png)
-
 ## Sprites
 
 The [original full sprite sheet](assets/atlas.png) and the extracted sheets are included in [assets](assets/). See [asset notes](ASSET_NOTES.md) for provenance and [testing notes](QA.md) for the current limits.
